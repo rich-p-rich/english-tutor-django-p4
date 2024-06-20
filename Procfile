@@ -1,1 +1,1 @@
-web: gunicorn codestar.wsgi
+web: gunicorn english_tutor.wsgi
