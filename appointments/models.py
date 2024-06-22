@@ -9,7 +9,7 @@ class Appointment(models.Model):
     meeting_date = models.DateField()
     meeting_time = models.TimeField()
     message = models.TextField(max_length=1000)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Meeting scheduled by {self.name} on {self.meeting_date} at {self.meeting_time}"
