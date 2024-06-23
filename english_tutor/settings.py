@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-59up3(p-h1hq#&=(jr9(6ni=q&dp3526whv-1=5%vlf#^bf=#0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-richprich-englishtutord-ttwie6xtwyi.ws-eu114.gitpod.io',
                 '.herokuapp.com']
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'english_tutor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
