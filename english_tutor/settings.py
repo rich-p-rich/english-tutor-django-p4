@@ -26,12 +26,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-59up3(p-h1hq#&=(jr9(6ni=q&dp3526whv-1=5%vlf#^bf=#0'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-richprich-englishtutord-ttwie6xtwyi.ws-eu114.gitpod.io',
+ALLOWED_HOSTS = ['8000-richprich-englishtutord-m5vy8jfvo1h.ws-eu114.gitpod.io',
                 '.herokuapp.com']
 
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'appointments',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
