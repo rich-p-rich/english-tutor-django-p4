@@ -24,7 +24,7 @@ body {
 }
 
 #hero-header {
-    background: url("./images/homepage-image.webp");
+    background: url("{% static 'images/header-sky.webp' %}");   
     background-color: red;
     background-color: green;
     background-position: center;
