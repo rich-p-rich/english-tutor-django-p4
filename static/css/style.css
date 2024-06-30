@@ -11,6 +11,8 @@
 
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -19,9 +21,6 @@ body {
     flex-direction: column;
     background-color: #5d6169;
 }
-
-/*.header-home {   
-}*/
 
 header {
     margin: 0;
@@ -35,16 +34,29 @@ header {
     text-align: center;
 }
 
+.navbar {
+    text-align: center;
+}
+
 main {
     flex: 1 0 auto;
 }
 
-/* The Footer Element */
+/* The homepage */
+
+.accordion-item {
+    margin-top: auto;
+}
+
+/* The footer */
 
 footer {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 #social-networks {
