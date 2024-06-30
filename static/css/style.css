@@ -17,23 +17,49 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #5d6169;
 }
 
-.header-home {
+/*.header-home {   
+}*/
+
+header {
+    margin: 0;
+    padding: 10px;
+    color: whitesmoke;
+    text-align: center;
+    background: url("../images/header-sky.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 120px;
     text-align: center;
 }
 
-#hero-header {
-    background: url("{% static 'images/header-sky.webp' %}");   
-    background-color: red;
-    background-color: green;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 360px;
+main {
+    flex: 1 0 auto;
 }
 
-main {
-    background-color: orange;
-    flex: 1 0 auto;
+/* The Footer Element */
+
+footer {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+#social-networks {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+#social-networks li {
+    margin-right: 20px; /* Adjust spacing between icons as needed */
+}
+
+#social-networks li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
 }
