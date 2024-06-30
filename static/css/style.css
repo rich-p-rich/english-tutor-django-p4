@@ -48,6 +48,12 @@ main {
     margin-top: auto;
 }
 
+/* Appointments page */
+
+#appointments-home {
+    background-color: whitesmoke;
+}
+
 /* The footer */
 
 footer {
