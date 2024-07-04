@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 class Appointment(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=255)
-    timezone = models.CharField(max_length=50)
     meeting_date = models.DateField()
     meeting_time = models.TimeField()
     message = models.TextField(max_length=1000)
