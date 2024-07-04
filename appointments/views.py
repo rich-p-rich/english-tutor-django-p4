@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Appointment
+from .forms import AppointmentForm
 import datetime
 
-class AppointmentsView(generic.TemplateView):
-    model = Appointment
-    template_name = 'appointments/appointments.html'
+def book_appointment(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('appointment_confirmation')
+    else:
+        form = AppointmentForm()
+    return render(request, 'book_appointment.html', {'form': form})
 
     """
     def post(self, request, *args, **kwargs):
