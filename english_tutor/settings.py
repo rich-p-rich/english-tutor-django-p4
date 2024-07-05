@@ -34,6 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net',
                 'https://8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net',
                 '.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS.copy()
 
 
 # Application definition
@@ -100,8 +101,11 @@ DATABASES = {
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 CSRF_TRUSTED_ORIGINS = [
+    'http://*', 
+    'https://*',
     "https://*.gitpod.io",
-    "https://*.herokuapp.com"
+    "https://*.herokuapp.com",
+    "https://8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net//*",
 ]
 
 # Password validation
