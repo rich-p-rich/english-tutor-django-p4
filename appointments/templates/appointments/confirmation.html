@@ -1,4 +1,6 @@
-{% block title %}Appointment Confirmation{% endblock %}
+{% extends 'base.html' %}
+
+{% block title %}Confirm Appointment{% endblock %}
 
 {% block content %}
 
@@ -6,7 +8,7 @@
     <h1>Your appointment has been confirmed!</h1>
     <h2>Appointment Details</h2>
     <ul>
-        <li>Contact Email: {{ appointment.email }}</li>
+        <li>Your Email: {{ appointment.email }}</li>
         <li>Date: {{ appointment.date }}</li>
         <li>Time: {{ appointment.time }}</li>
     </ul>
