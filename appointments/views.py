@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Appointment
-from .forms import AppointmentForm, SearchAppointments
+from .forms import AppointmentForm, SearchAppointmentsForm
 from django.views.decorators.csrf import csrf_protect
 
 @csrf_protect
@@ -18,7 +18,7 @@ def make_appointment(request):
         form = AppointmentForm()
     return render(request, 'appointments/appointments.html', {'form': form})
 
-# View for appointment confirmation 
+# View for appointment confirmation page
 def confirm_appointment(request):
     appointment_details = {
         'email': request.session.get('appointment_email'),
@@ -28,15 +28,15 @@ def confirm_appointment(request):
     return render(request, 'appointments/confirmation.html', {'appointment': appointment_details})
 
 # View for changing a call time and / or date 
-def search_appointments(request):
+def change_appointments(request):
     form = SearchAppointmentsForm()
     appointments = None
     if request.method == 'POST':
-        form = SearchForm(request.POST)
+        form = SearchAppointmentsForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             surname = form.cleaned_data['surname']
             appointments = Appointment.objects.filter(email=email, surname=surname)
-    return render(request, 'appointments/search.html', {'form': form, 'appointments': appointments})
+    return render(request, 'appointments/change.html', {'form': form, 'appointments': appointments})
 
 # View for cancelling a call 
