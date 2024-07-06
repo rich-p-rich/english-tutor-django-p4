@@ -3,6 +3,25 @@
 {% block title %}Change Appointment{% endblock %}
 
 {% block content %}
+g
+<div class="container">
+    <h1>Search Appointments</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    {% if appointments %}
+        <h2>Appointments</h2>
+        <ul>
+            {% for appointment in appointments %}
+                <li>{{ appointment.name }} {{ appointment.surname }} - {{ appointment.meeting_date }} at {{ appointment.meeting_time }}</li>
+            {% endfor %}
+        </ul>
+    {% elif appointments is not None %}
+        <p>No appointments found.</p>
+    {% endif %}
+</div>
 
 {% endblock content %}
 
