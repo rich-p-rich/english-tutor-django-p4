@@ -27,4 +27,7 @@ def confirm_appointment(request):
     }
     return render(request, 'appointments/confirmation.html', {'appointment': appointment_details})
 
-# View for change or cancel a call 
+# View for changing a call time and / or date 
+
+
+# View for cancelling a call 
