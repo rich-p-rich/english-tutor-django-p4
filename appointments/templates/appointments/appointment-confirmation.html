@@ -1,9 +1,16 @@
-{% block title %}Home Page{% endblock %}
+{% block title %}Appointment Confirmation{% endblock %}
 
 {% block content %}
 
-<div>
-    <p>confirmed!</p>
+<div class="container">
+    <h1>Your appointment has been confirmed!</h1>
+    <h2>Appointment Details</h2>
+    <ul>
+        <li>Contact Email: {{ appointment.email }}</li>
+        <li>Date: {{ appointment.date }}</li>
+        <li>Time: {{ appointment.time }}</li>
+    </ul>
+    <a href="{% url 'home' %}">Return to Home</a>
 </div>
 
 {% endblock content %}
