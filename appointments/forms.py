@@ -4,9 +4,10 @@ from .models import Appointment
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['name', 'email', 'meeting_date', 'meeting_time', 'message']
+        fields = ['name', 'surname', 'email', 'meeting_date', 'meeting_time', 'message']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
+            'surname': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Surname'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
             'meeting_date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Meeting Date', 'type': 'date'}),
             'meeting_time': forms.TimeInput(attrs={'class': 'form-control', 'placeholder': 'Meeting Time', 'type': 'time'}),
