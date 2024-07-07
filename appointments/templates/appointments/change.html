@@ -4,23 +4,44 @@
 
 {% block content %}
 <div class="container">
-    <h1>Search Appointments</h1>
+    <h1>Search and Edit Appointments</h1>
+    
+    <!-- Search Form -->
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Search</button>
+        {{ search_form.as_p }}
+        <button type="submit" name="search" class="btn btn-primary">Search</button>
     </form>
+    
+    <!-- Search Results -->
     {% if appointments %}
         <h2>Appointments</h2>
         <ul>
             {% for appointment in appointments %}
-                <li>{{ appointment.name }} {{ appointment.surname }} - {{ appointment.meeting_date }} at {{ appointment.meeting_time }}</li>
+                <li>
+                    {{ appointment.name }} {{ appointment.surname }} - {{ appointment.meeting_date }} at {{ appointment.meeting_time }}
+                    <form method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+                        <button type="submit" name="select" class="btn btn-secondary btn-sm">Edit</button>
+                    </form>
+                </li>
             {% endfor %}
         </ul>
     {% elif appointments is not None %}
         <p>No appointments found.</p>
     {% endif %}
+    
+    <!-- Edit Form -->
+    {% if edit_form %}
+        <h2>Edit Appointment for {{ appointment_to_edit.name }} {{ appointment_to_edit.surname }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="appointment_id" value="{{ appointment_to_edit.id }}">
+            {{ edit_form.as_p }}
+            <button type="submit" name="save" class="btn btn-primary">Save changes</button>
+        </form>
+    {% endif %}
 </div>
-
 {% endblock content %}
 
