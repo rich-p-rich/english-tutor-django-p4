@@ -27,37 +27,57 @@ def confirm_appointment(request):
     }
     return render(request, 'appointments/confirmation.html', {'appointment': appointment_details})
 
-# View for searching a booked call based on surname and email 
+# View for searching and editing appointments
+def search_and_edit_appointments(request):
+    if 'search' in request.POST:
+        return search_appointments(request)
+    elif 'select' in request.POST or 'save' in request.POST:
+        return edit_appointment(request)
+    else:
+        return render(request, 'appointments/search_and_edit.html', {
+            'search_form': SearchAppointmentsForm(),
+            'change_form': None,
+            'appointments': None,
+            'appointment_to_edit': None
+        })
+
+# View for searching appointments
 def search_appointments(request):
-    search_form = SearchAppointmentsForm()
+    search_form = SearchAppointmentsForm(request.POST)
     appointments = None
 
-    if request.method == 'POST':
-        search_form = SearchAppointmentsForm(request.POST)
-        if search_form.is_valid():
-            email = search_form.cleaned_data['email']
-            surname = search_form.cleaned_data['surname']
-            appointments = Appointment.objects.filter(email=email, surname=surname)
+    if search_form.is_valid():
+        email = search_form.cleaned_data['email']
+        surname = search_form.cleaned_data['surname']
+        appointments = Appointment.objects.filter(email=email, surname=surname)
 
-    return render(request, 'appointments/search.html', {
+    return render(request, 'appointments/search_and_edit.html', {
         'search_form': search_form,
-        'appointments': appointments
+        'appointments': appointments,
+        'change_form': None,
+        'appointment_to_edit': None
     })
 
-# View for changing date and / time of a call
-def edit_appointment(request, appointment_id):
-    appointment = get_object_or_404(Appointment, id=appointment_id)
-    if request.method == 'POST':
-        change_form = ChangeAppointmentForm(request.POST, instance=appointment)
+# View for changing appointments
+def edit_appointment(request):
+    appointment_to_edit = None
+    change_form = None
+
+    if 'select' in request.POST:
+        appointment_id = request.POST.get('appointment_id')
+        appointment_to_edit = get_object_or_404(Appointment, id=appointment_id)
+        change_form = ChangeAppointmentForm(instance=appointment_to_edit)
+    elif 'save' in request.POST:
+        appointment_id = request.POST.get('appointment_id')
+        appointment_to_edit = get_object_or_404(Appointment, id=appointment_id)
+        change_form = ChangeAppointmentForm(request.POST, instance=appointment_to_edit)
         if change_form.is_valid():
             change_form.save()
-            return render(request, 'appointments/confirmation.html', {'appointment': appointment})
-    else:
-        change_form = ChangeAppointmentForm(instance=appointment)
-    
-    return render(request, 'appointments/edit.html', {
-        'change_form': change_form,
-        'appointment': appointment
-    })
+            return render(request, 'appointments/confirmation.html', {'appointment': appointment_to_edit})
 
-# View for cancelling a call 
+    return render(request, 'appointments/search_and_edit.html', {
+        'search_form': SearchAppointmentsForm(),
+        'appointments': None,
+        'change_form': change_form,
+        'appointment_to_edit': appointment_to_edit
+    })

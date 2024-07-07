@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Change Appointment{% endblock %}
+{% block title %}Search and Edit Appointments{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -20,11 +20,7 @@
             {% for appointment in appointments %}
                 <li>
                     {{ appointment.name }} {{ appointment.surname }} - {{ appointment.meeting_date }} at {{ appointment.meeting_time }}
-                    <form method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
-                        <button type="submit" name="select" class="btn btn-secondary btn-sm">Edit</button>
-                    </form>
+                    <a href="{% url 'edit_appointment' appointment.id %}" class="btn btn-secondary btn-sm">Edit</a>
                 </li>
             {% endfor %}
         </ul>
@@ -33,15 +29,13 @@
     {% endif %}
     
     <!-- Edit Form -->
-    {% if edit_form %}
-        <h2>Edit Appointment for {{ appointment_to_edit.name }} {{ appointment_to_edit.surname }}</h2>
+    {% if change_form %}
+        <h2>Edit Appointment for {{ appointment.name }} {{ appointment.surname }}</h2>
         <form method="post">
             {% csrf_token %}
-            <input type="hidden" name="appointment_id" value="{{ appointment_to_edit.id }}">
-            {{ edit_form.as_p }}
+            {{ change_form.as_p }}
             <button type="submit" name="save" class="btn btn-primary">Save changes</button>
         </form>
     {% endif %}
 </div>
 {% endblock content %}
-
