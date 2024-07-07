@@ -27,7 +27,7 @@ def confirm_appointment(request):
     }
     return render(request, 'appointments/confirmation.html', {'appointment': appointment_details})
 
-# View for changing a call time and / or date 
+# View for searching a booked call based on surname and email 
 def change_appointments(request):
     form = SearchAppointmentsForm()
     appointments = None
@@ -38,5 +38,17 @@ def change_appointments(request):
             surname = form.cleaned_data['surname']
             appointments = Appointment.objects.filter(email=email, surname=surname)
     return render(request, 'appointments/change.html', {'form': form, 'appointments': appointments})
+
+# View for changing date and / time of a call
+def change_appointment(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id=appointment_id)
+    if request.method == 'POST':
+        form = EditAppointmentForm(request.POST, instance=appointment)
+        if form.is_valid():
+            form.save()
+            return redirect('appointments')
+    else:
+        form = EditAppointmentForm(instance=appointment)
+    return render(request, 'appointments/edit_appointment.html', {'form': form, 'appointment': appointment})
 
 # View for cancelling a call 
