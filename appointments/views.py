@@ -25,7 +25,7 @@ def confirm_appointment(request):
         'date': request.session.get('appointment_date'),
         'time': request.session.get('appointment_time')
     }
-    return render(request, 'appointments/confirmation.html', {'appointment': appointment_details})
+    return render(request, 'appointments/appt-confirmation.html', {'appointment': appointment_details})
 
 # View for searching and editing appointments
 def search_and_edit_appointments(request):
