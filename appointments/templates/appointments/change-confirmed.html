@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointment Change Confirmation{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>You have successfully changed your appointment!</h1>
+    <h2>New Appointment Details</h2>
+    <ul>
+        <li>Your Email: {{ appointment.email }}</li>
+        <li>Date: {{ appointment.meeting_date }}</li>
+        <li>Time: {{ appointment.meeting_time }}</li>
+    </ul>
+    <a href="{% url 'home' %}">Return to Home</a>
+</div>
+{% endblock content %}
