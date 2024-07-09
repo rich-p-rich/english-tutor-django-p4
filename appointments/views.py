@@ -16,7 +16,7 @@ def make_appointment(request):
             return redirect('confirmation')
     else:
         form = AppointmentForm()
-    return render(request, 'appointments/appointments.html', {'form': form})
+    return render(request, 'appointments/book-appointments.html', {'form': form})
 
 # View for appointment confirmation page
 def confirm_appointment(request):
@@ -25,7 +25,7 @@ def confirm_appointment(request):
         'date': request.session.get('appointment_date'),
         'time': request.session.get('appointment_time')
     }
-    return render(request, 'appointments/confirmation.html', {'appointment': appointment_details})
+    return render(request, 'appointments/appointment-confirmed.html', {'appointment': appointment_details})
 
 # View for changing appointments
 def search_and_edit_appointments(request):
@@ -62,7 +62,7 @@ def search_and_edit_appointments(request):
             appointment_to_cancel.delete()
             return render(request, 'appointments/cancellation-confirmed.html', {'appointment': appointment_to_cancel})
 
-    return render(request, 'appointments/search_and_edit.html', {
+    return render(request, 'appointments/change-or-cancel.html', {
         'search_form': search_form,
         'change_form': change_form,
         'appointments': appointments,
