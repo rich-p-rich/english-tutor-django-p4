@@ -4,8 +4,11 @@ from .forms import AppointmentForm, SearchAppointmentsForm, ChangeAppointmentFor
 from django.views.decorators.csrf import csrf_protect
 
 @csrf_protect
-# View for main appointments page -> book a call
+
 def make_appointment(request):
+    """
+    View for main appointments page -> book a call
+    """
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
@@ -17,9 +20,11 @@ def make_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'appointments/book-appointments.html', {'form': form})
-
-# View for appointment confirmation page
+ 
 def confirm_appointment(request):
+    """
+    View for appointment confirmation page
+    """
     appointment_details = {
         'email': request.session.get('appointment_email'),
         'date': request.session.get('appointment_date'),
@@ -27,9 +32,10 @@ def confirm_appointment(request):
     }
     return render(request, 'appointments/appointment-confirmed.html', {'appointment': appointment_details})
 
-# View for changing appointments
 def search_and_edit_appointments(request):
-    # This enables the user to search their appointments
+    """
+    View for changing appointments -> enables user to search their appointments
+    """
     search_form = SearchAppointmentsForm()
     change_form = None
     appointments = None
@@ -39,14 +45,18 @@ def search_and_edit_appointments(request):
         if 'search' in request.POST:
             search_form = SearchAppointmentsForm(request.POST)
             if search_form.is_valid():
-                # The search fields:
+                """
+                The search fields
+                """
                 email = search_form.cleaned_data['email']
                 surname = search_form.cleaned_data['surname']
                 appointments = Appointment.objects.filter(email=email, surname=surname)
         elif 'select' in request.POST:
             appointment_id = request.POST.get('appointment_id')
             appointment_to_edit = get_object_or_404(Appointment, id=appointment_id)
-            # Cross reference to forms.py -> Change Appointment Form
+            """
+            Cross reference to forms.py -> Change Appointment Form
+            """
             change_form = ChangeAppointmentForm(instance=appointment_to_edit)
         elif 'save' in request.POST:
             appointment_id = request.POST.get('appointment_id')
@@ -54,7 +64,9 @@ def search_and_edit_appointments(request):
             change_form = ChangeAppointmentForm(request.POST, instance=appointment_to_edit)
             if change_form.is_valid():
                 change_form.save()
-                # Display change confirmation
+                """
+                Display change confirmation
+                """
                 return render(request, 'appointments/change-confirmed.html', {'appointment': appointment_to_edit})
         elif 'cancel' in request.POST:
             appointment_id = request.POST.get('appointment_id')

@@ -1,8 +1,10 @@
 from django import forms
 from .models import Appointment
 
-# Form: book appointments:
 class AppointmentForm(forms.ModelForm):
+    """
+    Form for booking appointments
+    """
     class Meta:
         model = Appointment
         fields = ['name', 'surname', 'email', 'meeting_date', 'meeting_time', 'message']
@@ -15,13 +17,17 @@ class AppointmentForm(forms.ModelForm):
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Message'}),
         }
 
-# Form: search appointments to choose one to change
 class SearchAppointmentsForm(forms.Form):
+    """
+    Form for searching appointments to choose one to change
+    """
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     surname = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Surname'}))
 
-# Form: change the appointment 
 class ChangeAppointmentForm(forms.ModelForm):
+    """
+    Form for changing the appointment
+    """
     class Meta:
         model = Appointment
         fields = ['meeting_date', 'meeting_time']
