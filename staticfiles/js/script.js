@@ -1,3 +1,4 @@
+//The JS for the cancellation modal in change-or-cancel.html
 document.addEventListener('DOMContentLoaded', function () {
     var cancelModal = document.getElementById('cancelModal');
     cancelModal.addEventListener('show.bs.modal', function (event) {
