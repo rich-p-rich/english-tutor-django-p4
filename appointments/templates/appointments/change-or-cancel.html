@@ -5,72 +5,76 @@
 
 {% block content %}
 <div class="container">
-    <h1>Manage your appointment</h1>
-    
-    <!-- Search Form -->
-    <form method="post">
-        {% csrf_token %}
-        {{ search_form.as_p }}
-        <button type="submit" name="search" class="btn btn-primary">Search</button>
-    </form>
-    
-    <!-- Search Results -->
-    {% if appointments %}
-        <h2>Appointments</h2>
-        <ul>
-            {% for appointment in appointments %}
-                <li>
-                    {{ appointment.name }} {{ appointment.surname }} - {{ appointment.meeting_date }} at {{ appointment.meeting_time }}
-                    <form method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
-                        <button type="submit" name="select" class="btn btn-secondary btn-sm">Edit</button>
-                        <!-- Bootstrap butto to trigger modal for cancel confirmation-->
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cancelModal" data-appointment-id="{{ appointment.id }}">Cancel</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    {% elif appointments is not None %}
-        <p>No appointments found.</p>
-    {% endif %}
-    
-    <!-- Edit Form -->
-    {% if change_form %}
-        <h2>Edit Appointment for {{ appointment_to_edit.name }} {{ appointment_to_edit.surname }}</h2>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="appointment_id" value="{{ appointment_to_edit.id }}">
-            {{ change_form.as_p }}
-            <button type="submit" name="save" class="btn btn-primary">Save changes</button>
-        </form>
-    {% endif %}
+  <h1>Manage your appointment</h1>
+  
+  <!-- Search Form -->
+  <form method="post">
+      {% csrf_token %}
+      {{ search_form.as_p }}
+      <button type="submit" name="search" class="btn btn-primary">Search</button>
+  </form>
+  
+  <!-- Search Results -->
+  {% if appointments %}
+      <h2>Appointments</h2>
+      <ul>
+          {% for appointment in appointments %}
+              <li>
+                  {{ appointment.name }} {{ appointment.surname }} - {{ appointment.meeting_date }} at {{ appointment.meeting_time }}
+                  <form method="post" style="display:inline;">
+                      {% csrf_token %}
+                      <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+                      <button type="submit" name="select" class="btn btn-secondary btn-sm">Edit</button>
+                      <!-- Bootstrap button to trigger modal for cancel confirmation-->
+                      <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#cancelModal" onclick="setAppointmentId('{{ appointment.id }}')">Cancel</button>
+                  </form>
+              </li>
+          {% endfor %}
+      </ul>
+  {% elif appointments is not None %}
+      <p>No appointments found.</p>
+  {% endif %}
+  
+  <!-- Edit Form -->
+  {% if change_form %}
+      <h2>Edit Appointment for {{ appointment_to_edit.name }} {{ appointment_to_edit.surname }}</h2>
+      <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="appointment_id" value="{{ appointment_to_edit.id }}">
+          {{ change_form.as_p }}
+          <button type="submit" name="save" class="btn btn-primary">Save changes</button>
+      </form>
+  {% endif %}
 </div>
 
 <!-- Bootstrap modal for cancel confirmation -->
 <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cancelModalLabel">Confirm Cancellation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to cancel this appointment?
-      </div>
-      <div class="modal-footer">
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="appointment_id" id="appointment_id">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" name="confirm_cancel" class="btn btn-danger">Yes, Cancel Appointment</button>
-        </form>
-      </div>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="cancelModalLabel">Confirm Cancellation</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to cancel this appointment?
+    </div>
+    <div class="modal-footer">
+      <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="appointment_id" id="appointment_id">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" name="confirm_cancel" class="btn btn-danger">Yes, Cancel Appointment</button>
+      </form>
     </div>
   </div>
+</div>
 </div>
 {% endblock content %}
 
 {% block extra_js %}
-<script src="{% static 'js/scripts.js' %}"></script>
+<script>
+function setAppointmentId(appointmentId) {
+  document.getElementById('appointment_id').value = appointmentId;
+}
+</script>
 {% endblock extra_js %}

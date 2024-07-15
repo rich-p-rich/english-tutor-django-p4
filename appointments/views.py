@@ -68,7 +68,7 @@ def search_and_edit_appointments(request):
                 Display change confirmation
                 """
                 return render(request, 'appointments/change-confirmed.html', {'appointment': appointment_to_edit})
-        elif 'cancel' in request.POST:
+        elif 'confirm_cancel' in request.POST:
             appointment_id = request.POST.get('appointment_id')
             appointment_to_cancel = get_object_or_404(Appointment, id=appointment_id)
             appointment_to_cancel.delete()
