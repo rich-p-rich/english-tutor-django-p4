@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
+    'bootstrap5',
     'home',
     'appointments',
-    'bootstrap5',
 ]
 
 SITE_ID = 1
