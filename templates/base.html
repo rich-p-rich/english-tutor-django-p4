@@ -77,10 +77,18 @@
     </div>
   </nav>
   
-  <div class="container">
+  <main class="flex-shrink-0 main-bg">
+    {% if user.is_authenticated %}
+    <p class="text-end m-3">Welcome {{ user.username }}</p>
+    {% else %}
+    <p class="text-end m-3">You are not logged in</p>
+    {% endif %}
+    
     {% block content %}
-    {% endblock %}
-  </div>
+    <!-- Content Goes here -->
+    {% endblock content %}
+
+</main>
 
   <!--Footer-->
   <footer>
