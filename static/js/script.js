@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Toggle show password functionality on log-in page 
+// Toggle show password functionality on register and login pages
 
-function togglePassword () {
-    var x = document.getElementById("passwordInput")
+function togglePassword(fieldId) {
+    var x = document.getElementById(fieldId);
     if (x.type === "password") {
         x.type = "text";
     } else {
-      x.type = "password";
+        x.type = "password";
     }
 }
