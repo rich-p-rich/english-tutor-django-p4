@@ -1,4 +1,5 @@
-//The JS for the cancellation modal in change-or-cancel.html
+//The cancellation modal in change-or-cancel.html
+
 document.addEventListener('DOMContentLoaded', function () {
     var cancelModal = document.getElementById('cancelModal');
     cancelModal.addEventListener('show.bs.modal', function (event) {
@@ -8,3 +9,14 @@ document.addEventListener('DOMContentLoaded', function () {
         modalBodyInput.value = appointmentId;
     });
 });
+
+// Toggle show password functionality on log-in page 
+
+function togglePassword () {
+    var x = document.getElementById("passwordInput")
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+      x.type = "password";
+    }
+}

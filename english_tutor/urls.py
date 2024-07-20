@@ -22,6 +22,7 @@ from home.views import HomePage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user_accounts/', include('user_accounts.urls')),
     path('summernote/', include('django_summernote.urls')),
     path("accounts/", include("allauth.urls")),
     path('appointments/', include("appointments.urls"), name='appointments-urls'), 
