@@ -13,4 +13,4 @@ def custom_sign_in(request):
             return redirect('home')  # Redirect to a home page or dashboard after successful login
         else:
             messages.error(request, 'Invalid username or password')
-    return render(request, 'sign_in.html')
+    return render(request, 'login.html')
