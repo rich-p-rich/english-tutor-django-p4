@@ -8,31 +8,30 @@
 
 {% block content %}
 
-<head>
-    <title>Sign In</title>
-    <script src="{% static 'js/script.js' %}"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-          <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
-            <form method="post" action="{% url 'account_login' %}">
-              {% csrf_token %}
-              <div class="form-group">
-                <label for="id_username">{% trans "Username" %}</label>
-                <input type="text" id="id_username" name="username" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="id_password">{% trans "Password" %}</label>
-                <input type="password" id="id_password" name="password" class="form-control">
-                <input type="checkbox" onclick="togglePassword('id_password')"> {% trans "Show Password" %}
-              </div>
-              <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
-            </form>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3>{% trans "Sign In" %}</h3>
+      <p>{% blocktrans %}Enter your details here to sign in to your account. If you need to register an account, just
+        click here: <a class="link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+      <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div class="form-group">
+          <label for="id_password">{% trans "Password" %}</label>
+          <input type="password" id="id_password" name="password" class="form-control">
+          <input type="checkbox" id="togglePassword" class="form-check-input"> {% trans "Show Password" %}
         </div>
-      </div>
-</body>
+        <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
+{% block extra_scripts %}
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
