@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     'home',
     'appointments',
+    'games_and_exercises',
+    'user_accounts',
 ]
 
 SITE_ID = 1

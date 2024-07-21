@@ -27,5 +27,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('appointments/', include("appointments.urls"), name='appointments-urls'), 
     path('homepage/', include("home.urls"), name='home-urls'),
+    path('games-and-exercises/', include('games_and_exercises.urls'), name='games_and_exercises.urls'),
     path('', HomePage.as_view(), name='homepage'), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
