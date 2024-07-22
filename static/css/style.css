@@ -49,9 +49,13 @@ main {
 }
 
 /* Appointments page */
-
 #appointments-home {
     background-color: whitesmoke;
+}
+
+/* Games and exercises: filter questions */
+.hidden {
+    display: none;
 }
 
 /* The footer */

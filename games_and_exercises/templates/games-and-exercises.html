@@ -3,9 +3,39 @@
 {% block title %}Games and Appointments{% endblock %}
 
 {% block content %}
- 
 
-
+<div class="container">
+    <h1 class="text-center">Games and Exercises</h1>
+    <p>Welcome to our test and exercises to help you practise your English.</p>
+    <p>Choose your difficulty level from the drop-down menu to set the right exercises for you:</p>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><button class="dropdown-item" type="button" onclick="setDifficulty('A2')">A2 exercises</button></li>
+            <li><button class="dropdown-item" type="button" onclick="setDifficulty('B1')">B1 exercises</button></li>
+            <li><button class="dropdown-item" type="button" onclick="setDifficulty('B2')">B2 exercises</button></li>
+            <li><button class="dropdown-item" type="button" onclick="setDifficulty('C1')">C1 exercises</button></li>
+            <li><button class="dropdown-item" type="button" onclick="setDifficulty('all')">All exercises</button></li>
+        </ul>
+    </div>
+    <!-- Hidden input to store selected difficulty -->
+    <input type="hidden" id="difficulty" value="all">
+    <!-- Exercise questions -->
+    <div class="question" data-language-level="A2">
+        <p>A2 exercises</p>
+    </div>
+    <div class="question" data-language-level="B1">
+        <p>B1 exercises</p>
+    </div>
+    <div class="question" data-language-level="B2">
+        <p>B2 exercises</p>
+    </div>
+    <div class="question" data-language-level="C1">
+        <p>C1 exercises</p>
+    </div>
+</div>
 {% endblock content %}
 
 
