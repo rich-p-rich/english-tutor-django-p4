@@ -10,27 +10,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Toggle show password functionality on log-in page 
+// Toggle show password functionality on register and login pages
+function togglePassword(fieldId) {
+    var x = document.getElementById(fieldId);
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
 
-//function togglePassword () {
-//   var x = document.getElementById("passwordInput")
-//  if (x.type === "password") {
-//      x.type = "text";
-//  } else {
-//    x.type = "password";
-//  }
-//} 
+// Function to set the selected difficulty level
+function setDifficulty(level) {
+    document.getElementById('difficulty').value = level;
+    filterQuestions();
+}
 
-      const togglePassword = document
-            .querySelector('#togglePassword');
-        const password = document.querySelector('#password');
-        togglePassword.addEventListener('click', () => {
-            // Toggle the type attribute using
-            // getAttribure() method
-            const type = password
-                .getAttribute('type') === 'password' ?
-                'text' : 'password';
-            password.setAttribute('type', type);
-            // Toggle the eye and bi-eye icon
-            this.classList.toggle('bi-eye');
-        });
+// Dropdown menu to filter language difficulty level
+function filterQuestions() {
+    var selectedLevel = document.getElementById('difficulty').value;
+    var questions = document.querySelectorAll('.question');
+
+    questions.forEach(function(question) {
+        if (selectedLevel === 'all' || question.getAttribute('data-language-level') === selectedLevel) {
+            question.classList.remove('hidden');
+        } else {
+            question.classList.add('hidden');
+        }
+    });
+}
+filterQuestions();

@@ -39,6 +39,4 @@ function filterQuestions() {
         }
     });
 }
-
-// Initialize with all questions shown
 filterQuestions();
