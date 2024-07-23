@@ -8,7 +8,6 @@
 }
 
 /* General styles */
-
 html, body {
     height: 100%;
     margin: 0;
@@ -19,7 +18,7 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #5d6169;
+    background-color: white;
 }
 
 header {
@@ -38,19 +37,123 @@ header {
     text-align: center;
 }
 
+.navbar {
+    margin-bottom: 0;
+}
+
 main {
     flex: 1 0 auto;
 }
 
-/* The homepage */
+/*Logged in status message: welcome NAME or you are logged out*/
+#login-status {
+    background-color: whitesmoke;
+    margin-top: 0;
+}
 
-.accordion-item {
-    margin-top: auto;
+/* The homepage */
+.container-home {
+    margin-bottom: 10px;
+}
+
+.card-body {
+    background-color: whitesmoke;
+}
+
+/* Homepage 'why' explainer */
+.why-explainer {
+    color: whitesmoke;
+    background: url("../images/header-sky.webp");
+    max-width: 600px;
+    margin: auto; 
+}
+
+/* Homepage accordion: custom styles */
+.accordion-item, .accordion-button {
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+/* Register account page */
+.register-container {
+    background-color: whitesmoke;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .form-group {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group label {
+    margin-bottom: 5px;
+  }
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .btn-signup {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .btn-signup:hover {
+    background-color: #5b6eae;
+  }
+  .link {
+    color: #7289DA;
+    text-decoration: none;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  .form-checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .form-checkbox input {
+    margin-right: 5px;
+  }
+
+/* Login page */
+.container-login {
+    background-color: whitesmoke;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Appointments page */
 #appointments-home {
     background-color: whitesmoke;
+}
+
+.book-appt-container {
+  background-color: whitesmoke;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Games and exercises: filter questions */
@@ -59,12 +162,11 @@ main {
 }
 
 /* The footer */
-
 footer {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
-    margin-top: auto;
+    margin-top: 15px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
