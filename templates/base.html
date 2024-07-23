@@ -77,12 +77,14 @@
     </div>
   </nav>
   
-  <!-- Message to confirm whether you are signed-in / signed-out -->
+  <!-- Message to confirm logon status -->
   <main class="flex-shrink-0 main-bg">
+    <div id="login-status" >
     {% if user.is_authenticated %}
     <p class="text-end m-3">Welcome {{ user.username }}</p>
     {% else %}
     <p class="text-end m-3">You are not logged in</p>
+    </div>
     {% endif %}
     
     {% block content %}

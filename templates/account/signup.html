@@ -7,55 +7,63 @@
 
 {% block content %}
 {% load static %}
+
 <head>
   <title>Register your Account</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <script src="{% static 'js/script.js' %}"></script>
 </head>
-<div class="container">
+<div id="log-in-page" class="register-container">
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h3>{% trans "Sign Up" %}</h3>
+    <div class="col-12">
+      <h3>{% trans "Register your Account" %}</h3>
 
       <p>{% blocktrans %}
-        Do you already have an account? Then please
+        Already have an account? Then please
         <a class="link" href="{{ login_url }}">sign in</a>
         instead.
       {% endblocktrans %}</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+    <div class="col-12">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        
-        <div class="form-group">
-          {{ form.username.label_tag }}
-          {{ form.username }}
-        </div>
-        
-        <div class="form-group">
-          {{ form.email.label_tag }}
-          {{ form.email }}
-        </div>
-        
-        <div class="form-group">
-          {{ form.password1.label_tag }}
-          {{ form.password1 }}
-          <input type="checkbox" onclick="togglePassword('id_password1')"> {% trans "Show Password" %}
-        </div>
-        
-        <div class="form-group">
-          {{ form.password2.label_tag }}
-          {{ form.password2 }}
-          <input type="checkbox" onclick="togglePassword('id_password2')"> {% trans "Show Password" %}
-        </div>
-        
-        {% if redirect_field_value %}
+
+        <div class="form-grid">
+          <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+          </div>
+
+          <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+          </div>
+
+          <div class="form-group">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+            <div class="form-checkbox">
+              <input type="checkbox" onclick="togglePassword('id_password1')"> {% trans "Show Password" %}
+            </div>
+          </div>
+
+          <div class="form-group">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+            <div class="form-checkbox">
+              <input type="checkbox" onclick="togglePassword('id_password2')"> {% trans "Show Password" %}
+            </div>
+          </div>
+
+          {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        
-        <button class="btn btn-signup right" type="submit">
-          {% trans "Sign Up" %} &raquo;</button>
+          {% endif %}
+
+          <button class="btn btn-signup" type="submit">
+            {% trans "Sign Up" %} &raquo;</button>
+        </div>
       </form>
     </div>
   </div>
