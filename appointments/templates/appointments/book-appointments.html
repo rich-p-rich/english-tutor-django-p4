@@ -3,14 +3,13 @@
 {% block title %}Make an Appointment{% endblock %}
 
 {% block content %}
- 
+<div class="book-appt-container">
 <h1>Book your Appointment</h1>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
-
+</div>
 {% endblock content %}
-
 

@@ -147,6 +147,15 @@ main {
     background-color: whitesmoke;
 }
 
+.book-appt-container {
+  background-color: whitesmoke;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /* Games and exercises: filter questions */
 .hidden {
     display: none;
