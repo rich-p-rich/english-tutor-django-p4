@@ -18,7 +18,7 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(126, 136, 145);
+    background-color: white;
 }
 
 header {
@@ -52,11 +52,29 @@ main {
 }
 
 /* The homepage */
-.accordion-item {
-    margin: auto;
+.container-home {
+    margin-bottom: 10px;
 }
 
-/* Register page */
+.card-body {
+    background-color: whitesmoke;
+}
+
+/* Homepage 'why' explainer */
+.why-explainer {
+    color: whitesmoke;
+    background: url("../images/header-sky.webp");
+    max-width: 600px;
+    margin: auto; 
+}
+
+/* Homepage accordion: custom styles */
+.accordion-item, .accordion-button {
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+/* Register account page */
 .register-container {
     background-color: whitesmoke;
     color: black;
@@ -86,7 +104,7 @@ main {
     box-sizing: border-box;
   }
   .btn-signup {
-    background-color: #7289DA;
+    background-color: #198754;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -113,6 +131,16 @@ main {
   .form-checkbox input {
     margin-right: 5px;
   }
+
+/* Login page */
+.container-login {
+    background-color: whitesmoke;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
 /* Appointments page */
 #appointments-home {
