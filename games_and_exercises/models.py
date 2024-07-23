@@ -1,6 +1,6 @@
 from django.db import models
 
-class QuizzQuestion(models.Model):
+class QuizQuestion(models.Model):
     question_text = models.CharField(max_length=255)
     correct_choice = models.CharField(max_length=50)
 
