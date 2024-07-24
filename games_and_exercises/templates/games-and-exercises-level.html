@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Games and Appointments{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{ level }} Level Exercises</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <div>
+                <p>{{ question.text }}</p>
+                {% for choice in question.choices.all %}
+                    <div>
+                        <input type="radio" name="{{ question.id }}" value="{{ choice }}" id="choice{{ choice.id }}">
+                        <label for="choice{{ choice.id }}">{{ choice.text }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+    {% endblock content %}
