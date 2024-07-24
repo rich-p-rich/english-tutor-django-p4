@@ -63,8 +63,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'change_appointments' %}">Change your appointment</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'games_and_exercises' %}">Games and Exercises</a>         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Games and Exercises
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'games_and_exercises' 'A2' %}">A2 Level</a>
+              <a class="dropdown-item" href="{% url 'games_and_exercises' 'B1' %}">B1 Level</a>
+              <a class="dropdown-item" href="{% url 'games_and_exercises' 'B2' %}">B2 Level</a>
+              <a class="dropdown-item" href="{% url 'games_and_exercises' 'C1' %}">C1 Level</a>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Language Forum</a>
