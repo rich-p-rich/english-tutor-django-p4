@@ -1,5 +1,4 @@
 //The cancellation modal in change-or-cancel.html
-
 document.addEventListener('DOMContentLoaded', function () {
     var cancelModal = document.getElementById('cancelModal');
     cancelModal.addEventListener('show.bs.modal', function (event) {
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Toggle show password functionality on register and login pages
+// Register and login page: the 'show password' toggle functionality 
 function togglePassword(fieldId) {
     var x = document.getElementById(fieldId);
     if (x.type === "password") {
@@ -20,7 +19,7 @@ function togglePassword(fieldId) {
     }
 }
 
-// Function to set the selected difficulty level
+// Games and Exercises page: the function to set the selected difficulty level
 function setDifficulty(level) {
     document.getElementById('difficulty').value = level;
     filterQuestions();
@@ -40,3 +39,14 @@ function filterQuestions() {
     });
 }
 filterQuestions();
+
+// Games and Exercises pages: the submit answer button
+function submitAnswer(formId) {
+    const form = document.getElementById(formId);
+    const selectedOption = form.querySelector('input[name="choice"]:checked');
+    if (selectedOption) {
+        alert(`Selected answer: ${selectedOption.value}`);
+    } else {
+        alert('Please select an answer.');
+    }
+}

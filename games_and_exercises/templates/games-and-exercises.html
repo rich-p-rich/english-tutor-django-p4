@@ -9,7 +9,8 @@
     <p>Welcome to our test and exercises to help you practise your English.</p>
     <p>Choose your difficulty level from the drop-down menu to set the right exercises for you:</p>
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -34,8 +35,31 @@
     </div>
     <div class="question" data-language-level="C1">
         <p>C1 exercises</p>
+
+        <div linking-words-quiz>
+            <h5>Linking Words Quiz</h5>
+            <p>Complete the following sentences by choosing from the options below.</p>
+            <ol>
+                <li>
+                    <p>______ the weather was terrible, we decided to go hiking anyway.</p>
+                    <form id="linking-words-C1">
+                        <input type="radio" name="choice" value="Because"> Because
+                        <input type="radio" name="choice" value="Despite"> Despite
+                        <input type="radio" name="choice" value="Although"> Although
+                    </form>
+                </li>
+                <button onclick="submitAnswer('linking-words-C1-1')">Submit Answer</button>
+                <li>
+                    <p>The project was completed on time ______ we faced numerous delays and challenges.</p>
+                    <form id="linking-words-C1">
+                        <input type="radio" name="choice" value="Because"> even though
+                        <input type="radio" name="choice" value="Despite"> as
+                        <input type="radio" name="choice" value="Although"> furthermore
+                    </form>
+                </li>
+                <button onclick="submitAnswer('linking-words-C1-1')">Submit Answer</button>
+            </ol>
+        </div>
     </div>
-</div>
-{% endblock content %}
 
-
+    {% endblock content %}
