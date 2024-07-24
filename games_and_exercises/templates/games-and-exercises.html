@@ -36,30 +36,42 @@
     <div class="content" data-difficulty="C1">
         <p>C1 exercises</p>
 
-        <div linking-words-quiz>
+        <div id="C1-linking-words-quiz-1">
             <h5>Linking Words Quiz</h5>
-            <p>Complete the following sentences by choosing from the options below.</p>
-            <ol>
-                <li>
-                    <p>______ the weather was terrible, we decided to go hiking anyway.</p>
-                    <form id="linking-words-C1">
-                        <input type="radio" name="choice" value="Because"> Because
-                        <input type="radio" name="choice" value="Despite"> Despite
-                        <input type="radio" name="choice" value="Although"> Although
-                    </form>
-                </li>
-                <button onclick="submitAnswer('linking-words-C1-1')">Submit Answer</button>
-                <li>
-                    <p>The project was completed on time ______ we faced numerous delays and challenges.</p>
-                    <form id="linking-words-C1">
-                        <input type="radio" name="choice" value="Because"> even though
-                        <input type="radio" name="choice" value="Despite"> as
-                        <input type="radio" name="choice" value="Although"> furthermore
-                    </form>
-                </li>
-                <button onclick="submitAnswer('linking-words-C1-1')">Submit Answer</button>
-            </ol>
-        </div>
+        <p>Complete the following sentences by choosing from the options below.</p>
+        <ol>
+            <li>
+                <p>______ the weather was terrible, we decided to go hiking anyway.</p>
+                <form id="c1-lw-quiz-1">
+                    <!-- Name attribute explanation: c1-lw-choice-1: C1 level, Linking Words, Choice 1, etc -->
+                    <input type="radio" name="c1-lw-choice-1" value="Because" data-correct="false"> Because<br>
+                    <input type="radio" name="c1-lw-choice-1" value="Despite" data-correct="false"> Despite<br>
+                    <input type="radio" name="c1-lw-choice-1" value="Although" data-correct="true"> Although<br>
+                </form>
+                <button onclick="submitAnswer('c1-lw-quiz-1')">Submit Answer</button>
+                <p class="feedback"></p>
+            </li>
+            <li>
+                <p>The project was completed on time ______ we faced numerous delays and challenges.</p>
+                <form id="c1-lw-quiz-2">
+                    <input type="radio" name="c1-lw-choice-2" value="even though" data-correct="true"> even though<br>
+                    <input type="radio" name="c1-lw-choice-2" value="as" data-correct="false"> as<br>
+                    <input type="radio" name="c1-lw-choice-2" value="despite" data-correct="false"> despite<br>
+                </form>
+                <button onclick="submitAnswer('c1-lw-quiz-2')">Submit Answer</button>
+                <p class="feedback"></p>
+            </li>
+            <li>
+                <p>The new policy was implemented ______ improve efficiency and has been extremely successful.</p>
+                <form id="c1-lw-quiz-3">
+                    <input type="radio" name="c1-lw-choice-3" value="in order to" data-correct="true"> in order to<br>
+                    <input type="radio" name="c1-lw-choice-3" value="so that" data-correct="false"> so that<br>
+                    <input type="radio" name="c1-lw-choice-3" value="because" data-correct="false"> because<br>
+                </form>
+                <button onclick="submitAnswer('c1-lw-quiz-3')">Submit Answer</button>
+                <p class="feedback"></p>
+            </li>
+        </ol>
     </div>
 
     {% endblock content %}

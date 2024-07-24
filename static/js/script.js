@@ -51,14 +51,22 @@ function showHideSection() {
   document.getElementById("game-rules").classList.toggle("hide");
 }
 
-
-// Games and Exercises pages: the submit answer button
+// Games and Exercises pages: check answer and feedback
 function submitAnswer(formId) {
     const form = document.getElementById(formId);
-    const selectedOption = form.querySelector('input[name="choice"]:checked');
+    const selectedOption = form.querySelector('input[type="radio"]:checked');
+    const feedback = form.nextElementSibling;
+
     if (selectedOption) {
-        alert(`Selected answer: ${selectedOption.value}`);
+        if (selectedOption.getAttribute('data-correct') === 'true') {
+            feedback.textContent = 'Correct!';
+            feedback.style.color = 'green';
+        } else {
+            feedback.textContent = 'Incorrect!';
+            feedback.style.color = 'red';
+        }
     } else {
-        alert('Please select an answer.');
+        feedback.textContent = 'Please select an answer.';
+        feedback.style.color = 'orange';
     }
 }
