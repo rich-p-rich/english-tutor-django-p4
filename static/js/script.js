@@ -19,13 +19,7 @@ function togglePassword(fieldId) {
     }
 }
 
-// Games and Exercises page: the function to set the selected difficulty level
-function setDifficulty(level) {
-    document.getElementById('difficulty').value = level;
-    filterQuestions();
-}
-
-// Dropdown menu to filter language difficulty level
+// Games and Exercises page: dropdown menu to filter language difficulty level
 function filterQuestions() {
     var selectedLevel = document.getElementById('difficulty').value;
     var questions = document.querySelectorAll('.question');
@@ -39,6 +33,24 @@ function filterQuestions() {
     });
 }
 filterQuestions();
+
+// Games and Exercises page: the function to set the selected difficulty level
+function setDifficulty(level) {
+    const contents = document.querySelectorAll('.content');
+    contents.forEach(content => {
+        if (level === 'all' || content.getAttribute('data-difficulty') === level) {
+            content.style.display = 'block';
+        } else {
+            content.style.display = 'none';
+        }
+    });
+}
+
+// Games and Exercises pages: show language section
+function showHideSection() {
+  document.getElementById("game-rules").classList.toggle("hide");
+}
+
 
 // Games and Exercises pages: the submit answer button
 function submitAnswer(formId) {
