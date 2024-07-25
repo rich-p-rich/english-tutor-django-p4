@@ -14,14 +14,14 @@ def quiz_level(request, level):
             else:
                 user_answers[question.id] = {'selected': selected_choice, 'correct': False}
 
-        return render(request, 'games-and-exercises-level.html', {
+        return render(request, 'exercises.html', {
             'questions': questions,
             'user_answers': user_answers,
             'level': level
         })
     else:
         questions = QuizQuestion.objects.filter(level=level)
-        return render(request, 'games-and-exercises-level.html', {
+        return render(request, 'exercises.html', {
             'questions': questions,
             'level': level
         })
