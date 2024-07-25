@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Section{% endblock %}
+
+{% block content %}
+<h1>Create Section</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Section</button>
+</form>
+<a href="{% url 'section_list' %}">Back to Section List</a>
+{% endblock content %}

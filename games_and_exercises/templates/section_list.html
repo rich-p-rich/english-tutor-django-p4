@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Section List{% endblock %}
+
+{% block content %}
+<h1>Section List</h1>
+<ul>
+    {% for section in sections %}
+        <li>{{ section.title }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_section' %}">Create New Section</a>
+{% endblock content %}
