@@ -1,6 +1,7 @@
 from django.db import models
 
 class QuizQuestion(models.Model):
+    section_title = models.CharField(max_length=255, default='TBC')
     question_text = models.CharField(max_length=255)
     correct_choice = models.CharField(max_length=50)
     level = models.CharField(max_length=10, default='TBC')
