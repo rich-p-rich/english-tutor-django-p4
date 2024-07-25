@@ -20,21 +20,23 @@ function togglePassword(fieldId) {
 }
 
 // Games and Exercises page: dropdown menu to filter language difficulty level
-function filterQuestions() {
-    var selectedLevel = document.getElementById('difficulty').value;
-    var questions = document.querySelectorAll('.question');
-
-    questions.forEach(function(question) {
-        if (selectedLevel === 'all' || question.getAttribute('data-language-level') === selectedLevel) {
-            question.classList.remove('hidden');
+function filterQuestions(level) {
+    const quizzes = document.querySelectorAll('.quiz');
+    quizzes.forEach(quiz => {
+        if (level === 'all' || quiz.id.startsWith(level)) {
+            quiz.classList.remove('hidden');
         } else {
-            question.classList.add('hidden');
+            quiz.classList.add('hidden');
         }
     });
 }
-filterQuestions();
 
-// Games and Exercises page: the function to set the selected difficulty level
+document.addEventListener('DOMContentLoaded', function() {
+    filterQuestions();
+});
+
+/* Games and Exercises page: the function to set the selected difficulty level */
+
 function setDifficulty(level) {
     const contents = document.querySelectorAll('.content');
     contents.forEach(content => {
@@ -44,7 +46,7 @@ function setDifficulty(level) {
             content.style.display = 'none';
         }
     });
-}
+} 
 
 // Games and Exercises pages: show language section
 function showHideSection() {
@@ -52,10 +54,15 @@ function showHideSection() {
 }
 
 // Games and Exercises pages: check answer and feedback
-function submitAnswer(formId) {
-    const form = document.getElementById(formId);
-    const selectedOption = form.querySelector('input[type="radio"]:checked');
-    const feedback = form.nextElementSibling;
+function submitAnswer(questionId) {
+    const question = document.getElementById(questionId);
+    if (!question) {
+        console.error(`Element with ID ${questionId} not found.`);
+        return;
+    }
+
+    const selectedOption = question.querySelector('input[type="radio"]:checked');
+    const feedback = question.querySelector('.feedback');
 
     if (selectedOption) {
         if (selectedOption.getAttribute('data-correct') === 'true') {
