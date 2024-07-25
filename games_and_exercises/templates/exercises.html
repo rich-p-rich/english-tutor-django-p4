@@ -5,26 +5,25 @@
 {% block content %}
 
 <h2>{{ level }} Level Exercises</h2>
-    <form id="quiz-form">
-        {% csrf_token %}
-        <ol>
-            {% for question in questions %}
-                {% if question.show_section_title %}
-                    <h4>{{ question.section_title }}</h4>
-                {% endif %}
-                <li id="question-{{ question.id }}">
-                    <p>{{ question.text }}</p>
-                    {% for choice in question.choices %}
-                        <div>
-                            <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}" data-correct="{{ choice.is_correct }}">
-                            <label for="choice{{ choice.id }}">{{ choice.text }}</label>
-                        </div>
-                    {% endfor %}
-                    <button type="button" onclick="submitAnswer('question-{{ question.id }}')">Submit Answer</button>
-                    <p class="feedback"></p>
-                </li>
-            {% endfor %}
-        </ol>
-    </form>
-</div>
+<form id="quiz-form" method="post" action="">
+    {% csrf_token %}
+    <ol>
+        {% for question in questions %}
+            {% if question.show_section_title %}
+                <h4>{{ question.section_title }}</h4>
+            {% endif %}
+            <li id="question-{{ question.id }}">
+                <p>{{ question.text }}</p>
+                {% for choice in question.choices %}
+                    <div>
+                        <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}" data-correct="{{ choice.is_correct }}">
+                        <label for="choice{{ choice.id }}">{{ choice.text }}</label>
+                    </div>
+                {% endfor %}
+                <button type="button" onclick="submitAnswer('question-{{ question.id }}')">Submit Answer</button>
+                <p class="feedback"></p>
+            </li>
+        {% endfor %}
+    </ol>
+</form>
     {% endblock content %}
