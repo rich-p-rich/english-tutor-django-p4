@@ -1,7 +1,13 @@
 from django.db import models
 
+class Section(models.Model):
+    title = models.CharField(max_length=255, default='TBC')
+    
+    def __str__(self):
+        return self.title
+
 class QuizQuestion(models.Model):
-    section_title = models.CharField(max_length=255, default='TBC')
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, default=1)
     question_text = models.CharField(max_length=255)
     correct_choice = models.CharField(max_length=50)
     level = models.CharField(max_length=10, default='TBC')

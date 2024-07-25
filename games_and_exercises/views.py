@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import QuizQuestion
+from .models import Section, QuizQuestion
+from .forms import SectionForm, QuizQuestionForm
+
 
 def quiz_level(request, level):
     if request.method == 'POST':
@@ -24,14 +26,15 @@ def quiz_level(request, level):
                     'text': choice.choice_text,
                     'is_correct': str(choice.id) == question.correct_choice
                 })
+            section_title = question.section.title
             question_data.append({
                 'id': question.id,
                 'text': question.question_text,
                 'choices': choices,
-                'section_title': question.section_title,
+                'section_title': section_title,
                 'show_section_title': question.section_title != previous_section_title
             })
-            previous_section_title = question.section_title
+            previous_section_title = section_title
 
         return render(request, 'exercises.html', {
             'questions': question_data,
@@ -51,11 +54,12 @@ def quiz_level(request, level):
                     'text': choice.choice_text,
                     'is_correct': str(choice.id) == question.correct_choice
                 })
+            section_title = question.section.title
             question_data.append({
                 'id': question.id,
                 'text': question.question_text,
                 'choices': choices,
-                'section_title': question.section_title,
+                'section_title': section_title,
                 'show_section_title': question.section_title != previous_section_title
             })
             previous_section_title = question.section_title
