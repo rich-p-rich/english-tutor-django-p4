@@ -1,70 +1,31 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from .models import Section, QuizQuestion
 from .forms import SectionForm, QuizQuestionForm
 
-
-def quiz_level(request, level):
+def create_section(request):
     if request.method == 'POST':
-        user_answers = {}
-        questions = QuizQuestion.objects.filter(level=level)
-
-        for question in questions:
-            selected_choice = request.POST.get(str(question.id))
-            if selected_choice == question.correct_choice:
-                user_answers[question.id] = {'selected': selected_choice, 'correct': True}
-            else:
-                user_answers[question.id] = {'selected': selected_choice, 'correct': False}
-
-        question_data = []
-        previous_section_title = None
-        for question in questions:
-            choices = []
-            for choice in question.choices.all():
-                choices.append({
-                    'id': choice.id,
-                    'text': choice.choice_text,
-                    'is_correct': str(choice.id) == question.correct_choice
-                })
-            section_title = question.section.title
-            question_data.append({
-                'id': question.id,
-                'text': question.question_text,
-                'choices': choices,
-                'section_title': section_title,
-                'show_section_title': question.section_title != previous_section_title
-            })
-            previous_section_title = section_title
-
-        return render(request, 'exercises.html', {
-            'questions': question_data,
-            'user_answers': user_answers,
-            'level': level
-        })
+        form = SectionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('section_list')
     else:
-        questions = QuizQuestion.objects.filter(level=level)
+        form = SectionForm()
+    return render(request, 'create_section.html', {'form': form})
 
-        question_data = []
-        previous_section_title = None
-        for question in questions:
-            choices = []
-            for choice in question.choices.all():
-                choices.append({
-                    'id': choice.id,
-                    'text': choice.choice_text,
-                    'is_correct': str(choice.id) == question.correct_choice
-                })
-            section_title = question.section.title
-            question_data.append({
-                'id': question.id,
-                'text': question.question_text,
-                'choices': choices,
-                'section_title': section_title,
-                'show_section_title': question.section_title != previous_section_title
-            })
-            previous_section_title = question.section_title
+def create_question(request):
+    if request.method == 'POST':
+        form = QuizQuestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('question_list')
+    else:
+        form = QuizQuestionForm()
+    return render(request, 'create_question.html', {'form': form})
 
-        return render(request, 'exercises.html', {
-            'questions': question_data,
-            'level': level
-        })
+def section_list(request):
+    sections = Section.objects.all()
+    return render(request, 'section_list.html', {'sections': sections})
+
+def question_list(request):
+    questions = QuizQuestion.objects.all()
+    return render(request, 'question_list.html', {'questions': questions})
