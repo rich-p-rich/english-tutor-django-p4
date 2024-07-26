@@ -6,14 +6,15 @@
     {% csrf_token %}
     <ol>
         {% for question in questions %}
-        <li>
+        <li id="{{ question.id }}">
             <p>{{ question.question_text }}</p>
             {% for choice in question.choices.all %}
             <div>
-                <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}">
+                <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}" data-correct="{% if choice.id == question.correct_choice.id %}true{% else %}false{% endif %}">
                 <label for="choice{{ choice.id }}">{{ choice.choice_text }}</label>
             </div>
             {% endfor %}
+            <div class="feedback"></div>
         </li>
         {% endfor %}
     </ol>

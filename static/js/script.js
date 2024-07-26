@@ -54,26 +54,30 @@ function showHideSection() {
 }
 
 // Games and Exercises pages: check answer and feedback
-function submitAnswer(questionId) {
-    const question = document.getElementById(questionId);
-    if (!question) {
-        console.error(`Element with ID ${questionId} not found.`);
-        return;
-    }
-
-    const selectedOption = question.querySelector('input[type="radio"]:checked');
-    const feedback = question.querySelector('.feedback');
-
-    if (selectedOption) {
-        if (selectedOption.getAttribute('data-correct') === 'true') {
-            feedback.textContent = 'Correct!';
-            feedback.style.color = 'green';
-        } else {
-            feedback.textContent = 'Incorrect!';
-            feedback.style.color = 'red';
-        }
-    } else {
-        feedback.textContent = 'Please select an answer.';
-        feedback.style.color = 'orange';
-    }
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector('form');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const questions = document.querySelectorAll('li[id]');
+        questions.forEach(question => {
+            const selectedOption = question.querySelector('input[type="radio"]:checked');
+            const feedback = question.querySelector('.feedback');
+            
+            if (selectedOption) {
+                const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+                if (isCorrect) {
+                    feedback.textContent = 'Correct!';
+                    feedback.style.color = 'green';
+                } else {
+                    feedback.textContent = 'Incorrect!';
+                    feedback.style.color = 'red';
+                }
+            } else {
+                feedback.textContent = 'Please select an answer.';
+                feedback.style.color = 'orange';
+            }
+        });
+    });
+});
