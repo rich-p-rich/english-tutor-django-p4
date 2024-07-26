@@ -2,15 +2,15 @@ from django.db import models
 
 class Section(models.Model):
     title = models.CharField(max_length=255, default='TBC')
-    
+    level = models.CharField(max_length=10, default='TBC')
+
     def __str__(self):
-        return self.title
+        return f"{self.title} ({self.level})"
 
 class QuizQuestion(models.Model):
-    section_title = models.CharField(max_length=255, default="TBC")
+    section = models.ForeignKey(Section, related_name='questions', on_delete=models.CASCADE)
     question_text = models.CharField(max_length=255)
     correct_choice = models.CharField(max_length=50)
-    level = models.CharField(max_length=10, default='TBC')
     # The level field categorizes the questions by difficulty
     # The level is set to TBC(to be confirmed) as a default placeholder text
 

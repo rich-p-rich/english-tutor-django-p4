@@ -68,11 +68,10 @@
                 Games and Exercises
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#" onclick="filterQuestions('all')">All Levels</a></li>
-              <li><a class="dropdown-item" href="#" onclick="filterQuestions('A2')">A2</a></li>
-              <li><a class="dropdown-item" href="#" onclick="filterQuestions('B1')">B1</a></li>
-              <li><a class="dropdown-item" href="#" onclick="filterQuestions('B2')">B2</a></li>
-              <li><a class="dropdown-item" href="#" onclick="filterQuestions('C1')">C1</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz_level' 'A2' %}">A2</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz_level' 'B1' %}">B1</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz_level' 'B2' %}">B2</a></li>
+              <li><a class="dropdown-item" href="{% url 'quiz_level' 'C1' %}">C1</a></li>
           </ul>
         </li>
           <li class="nav-item">
