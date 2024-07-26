@@ -1,29 +1,26 @@
-from django.shortcuts import render
-from .models import Section, QuizQuestion
+from django.shortcuts import render, get_object_or_404
+from .models import Section, QuizQuestion, Choice
 
 def section_list(request, level):
     sections = Section.objects.filter(level=level)
     return render(request, 'section-list.html', {'sections': sections, 'level': level})
 
 def question_list(request, section_id):
-    section = Section.objects.get(id=section_id)
+    section = get_object_or_404(Section, id=section_id)
     questions = section.questions.prefetch_related('choices').all()
+    user_answers = {}
+    
     if request.method == 'POST':
-        user_answers = {}
         for question in questions:
-            selected_choice = request.POST.get(str(question.id))
-            if selected_choice == question.correct_choice:
-                user_answers[question.id] = {'selected': selected_choice, 'correct': True}
-            else:
-                user_answers[question.id] = {'selected': selected_choice, 'correct': False}
-
-        return render(request, 'question-list.html', {
-            'section': section,
-            'questions': questions,
-            'user_answers': user_answers
-        })
-    else:
-        return render(request, 'question-list.html', {
-            'section': section,
-            'questions': questions
-        })
+            selected_choice_id = request.POST.get(str(question.id))
+            selected_choice = Choice.objects.get(id=selected_choice_id) if selected_choice_id else None
+            user_answers[question.id] = {
+                'selected': selected_choice,
+                'correct': selected_choice == question.correct_choice
+            }
+    
+    return render(request, 'question-list.html', {
+        'section': section,
+        'questions': questions,
+        'user_answers': user_answers
+    })

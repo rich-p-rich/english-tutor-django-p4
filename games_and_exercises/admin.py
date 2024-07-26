@@ -5,15 +5,14 @@ class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3
 
-class QuizQuestionInline(admin.TabularInline):
-    model = QuizQuestion
-    extra = 1
+class QuizQuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
+    list_display = ('question_text', 'section', 'correct_choice')
+    search_fields = ('question_text',)
 
 class SectionAdmin(admin.ModelAdmin):
     list_display = ('title', 'level')
-    inlines = [QuizQuestionInline]
+    search_fields = ('title', 'level')
 
 admin.site.register(Section, SectionAdmin)
-admin.site.register(QuizQuestion)
-admin.site.register(Choice)
+admin.site.register(QuizQuestion, QuizQuestionAdmin)
