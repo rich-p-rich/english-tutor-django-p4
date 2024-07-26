@@ -26,12 +26,15 @@
         {% for question in questions %}
         <li>
             <p>{{ question.question_text }}</p>
-            {% if user_answers|dict_has_key:question.id %}
-                {% if user_answers|dict_get:question.id.correct %}
-                <p style="color: green;">Correct! You selected: {{ user_answers|dict_get:question.id.selected.choice_text }}</p>
-                {% else %}
-                <p style="color: red;">Incorrect. You selected: {{ user_answers|dict_get:question.id.selected.choice_text }}. The correct answer is {{ question.correct_choice.choice_text }}.</p>
-                {% endif %}
+            {% if question.id in user_answers %}
+                {% with answer=user_answers|default_if_none:None %}
+                    {% if answer.correct %}
+                    <p style="color: green;">Correct! You selected: {{ answer.selected.choice_text }}</p>
+                    {% else %}
+                    <p style="color: red;">Incorrect. You selected: {{ answer.selected.choice_text }}</p>
+                    {% endif %}
+                    <p>The correct answer is: {{ question.correct_choice.choice_text }}</p>
+                {% endwith %}
             {% endif %}
         </li>
         {% endfor %}
