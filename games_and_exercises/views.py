@@ -1,31 +1,62 @@
-from django.shortcuts import render, redirect
-from .models import Section, QuizQuestion
-from .forms import SectionForm, QuizQuestionForm
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import QuizQuestion
 
-def create_section(request):
+def quiz_level(request, level):
     if request.method == 'POST':
-        form = SectionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('section_list')
+        user_answers = {}
+        questions = QuizQuestion.objects.filter(level=level)
+
+        for question in questions:
+            selected_choice = request.POST.get(str(question.id))
+            if selected_choice == question.correct_choice:
+                user_answers[question.id] = {'selected': selected_choice, 'correct': True}
+            else:
+                user_answers[question.id] = {'selected': selected_choice, 'correct': False}
+
+        sections = {}
+        for question in questions:
+            if question.section_title not in sections:
+                sections[question.section_title] = []
+            choices = []
+            for choice in question.choices.all():
+                choices.append({
+                    'id': choice.id,
+                    'text': choice.choice_text,
+                    'is_correct': str(choice.id) == question.correct_choice
+                })
+            sections[question.section_title].append({
+                'id': question.id,
+                'text': question.question_text,
+                'choices': choices
+            })
+
+        return render(request, 'exercises.html', {
+            'sections': sections,
+            'user_answers': user_answers,
+            'level': level
+        })
     else:
-        form = SectionForm()
-    return render(request, 'create_section.html', {'form': form})
+        questions = QuizQuestion.objects.filter(level=level)
 
-def create_question(request):
-    if request.method == 'POST':
-        form = QuizQuestionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('question_list')
-    else:
-        form = QuizQuestionForm()
-    return render(request, 'create_question.html', {'form': form})
+        sections = {}
+        for question in questions:
+            if question.section_title not in sections:
+                sections[question.section_title] = []
+            choices = []
+            for choice in question.choices.all():
+                choices.append({
+                    'id': choice.id,
+                    'text': choice.choice_text,
+                    'is_correct': str(choice.id) == question.correct_choice
+                })
+            sections[question.section_title].append({
+                'id': question.id,
+                'text': question.question_text,
+                'choices': choices
+            })
 
-def section_list(request):
-    sections = Section.objects.all()
-    return render(request, 'section_list.html', {'sections': sections})
-
-def question_list(request):
-    questions = QuizQuestion.objects.all()
-    return render(request, 'question_list.html', {'questions': questions})
+        return render(request, 'exercises.html', {
+            'sections': sections,
+            'level': level
+        })

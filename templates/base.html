@@ -68,11 +68,12 @@
                 Games and Exercises
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{% url 'games_and_exercises' 'A2' %}">A2 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'games_and_exercises' 'B1' %}">B1 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'games_and_exercises' 'B2' %}">B2 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'games_and_exercises' 'C1' %}">C1 Level</a></li>
-            </ul>
+              <li><a class="dropdown-item" href="#" onclick="filterQuestions('all')">All Levels</a></li>
+              <li><a class="dropdown-item" href="#" onclick="filterQuestions('A2')">A2</a></li>
+              <li><a class="dropdown-item" href="#" onclick="filterQuestions('B1')">B1</a></li>
+              <li><a class="dropdown-item" href="#" onclick="filterQuestions('B2')">B2</a></li>
+              <li><a class="dropdown-item" href="#" onclick="filterQuestions('C1')">C1</a></li>
+          </ul>
         </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Language Forum</a>

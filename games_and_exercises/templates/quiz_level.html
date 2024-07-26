@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Exercise Level {% endblock %}
+
+{% block content %}
+<h1>Level {{ level }}</h1>
+<ul>
+    {% for question in questions %}
+        <li>{{ question.text }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
