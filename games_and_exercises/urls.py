@@ -3,5 +3,6 @@ from django.urls import path
 from games_and_exercises import views
 
 urlpatterns = [
-        path('exercises/<str:level>/', views.quiz_level, name='quiz_level'),
+    path('exercises/<str:level>/', views.section_list, name='section_list'),
+    path('section/<int:section_id>/', views.question_list, name='question_list'),
 ]

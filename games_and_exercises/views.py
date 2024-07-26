@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import Section
+from .models import Section, QuizQuestion
 
-def quiz_level(request, level):
+def section_list(request, level):
+    sections = Section.objects.filter(level=level)
+    return render(request, 'section-list.html', {'sections': sections, 'level': level})
+
+def question_list(request, section_id):
+    section = Section.objects.get(id=section_id)
+    questions = section.questions.prefetch_related('choices').all()
     if request.method == 'POST':
         user_answers = {}
-        sections = Section.objects.filter(level=level).prefetch_related('questions__choices')
-
         for question in questions:
             selected_choice = request.POST.get(str(question.id))
             if selected_choice == question.correct_choice:
@@ -13,15 +17,13 @@ def quiz_level(request, level):
             else:
                 user_answers[question.id] = {'selected': selected_choice, 'correct': False}
 
-        return render(request, 'exercises.html', {
-            'sections': sections,
-            'user_answers': user_answers,
-            'level': level
+        return render(request, 'question-list.html', {
+            'section': section,
+            'questions': questions,
+            'user_answers': user_answers
         })
     else:
-        sections = Section.objects.filter(level=level).prefetch_related('questions__choices')
-
-        return render(request, 'exercises.html', {
-            'sections': sections,
-            'level': level
+        return render(request, 'question-list.html', {
+            'section': section,
+            'questions': questions
         })

@@ -3,11 +3,25 @@
 {% block title %}Section List{% endblock %}
 
 {% block content %}
-<h1>Section List</h1>
-<ul>
-    {% for section in sections %}
-        <li>{{ section.title }}</li>
-    {% endfor %}
-</ul>
-<a href="{% url 'create_section' %}">Create New Section</a>
+<div class="container">
+    <h1>{{ section.title }} Questions</h1>
+    <form id="quiz-form" method="post">
+        {% csrf_token %}
+        <ol>
+            {% for question in questions %}
+                <li id="question-{{ question.id }}">
+                    <p>{{ question.question_text }}</p>
+                    {% for choice in question.choices.all %}
+                        <div>
+                            <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}">
+                            <label for="choice{{ choice.id }}">{{ choice.choice_text }}</label>
+                        </div>
+                    {% endfor %}
+                    <button type="button" onclick="submitAnswer('question-{{ question.id }}')">Submit Answer</button>
+                    <p class="feedback"></p>
+                </li>
+            {% endfor %}
+        </ol>
+    </form>
+</div>
 {% endblock content %}
