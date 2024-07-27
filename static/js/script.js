@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* Games and Exercises page: the function to set the selected difficulty level */
-
 function setDifficulty(level) {
     const contents = document.querySelectorAll('.content');
     contents.forEach(content => {
