@@ -33,8 +33,10 @@ header {
     text-align: center;
 }
 
-#navbar {
-    text-align: center;
+#navbar .navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .navbar {
