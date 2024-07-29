@@ -1,15 +1,4 @@
-//The cancellation modal in change-or-cancel.html
-document.addEventListener('DOMContentLoaded', function () {
-    var cancelModal = document.getElementById('cancelModal');
-    cancelModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var appointmentId = button.getAttribute('data-appointment-id');
-        var modalBodyInput = cancelModal.querySelector('.modal-footer input[name="appointment_id"]');
-        modalBodyInput.value = appointmentId;
-    });
-});
-
-// Register and login page: the 'show password' toggle functionality 
+// Register and login page: the 'show password' toggle functionality
 function togglePassword(fieldId) {
     var x = document.getElementById(fieldId);
     if (x.type === "password") {
@@ -19,7 +8,12 @@ function togglePassword(fieldId) {
     }
 }
 
-// Games and Exercises page: dropdown menu to filter language difficulty level
+// Appointments page: set appointment ID
+function setAppointmentId(id) {
+    document.getElementById('appointment_id').value = id;
+}
+
+/* Games and Exercises page: dropdown menu to filter language difficulty level
 function filterQuestions(level) {
     const quizzes = document.querySelectorAll('.quiz');
     quizzes.forEach(quiz => {
@@ -33,7 +27,7 @@ function filterQuestions(level) {
 
 document.addEventListener('DOMContentLoaded', function() {
     filterQuestions();
-});
+}); */
 
 /* Games and Exercises page: the function to set the selected difficulty level */
 function setDifficulty(level) {
@@ -53,30 +47,37 @@ function showHideSection() {
 }
 
 // Games and Exercises pages: check answer and feedback
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector('form');
-    
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const questions = document.querySelectorAll('li[id]');
-        questions.forEach(question => {
-            const selectedOption = question.querySelector('input[type="radio"]:checked');
-            const feedback = question.querySelector('.feedback');
-            
-            if (selectedOption) {
-                const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
-                if (isCorrect) {
-                    feedback.textContent = 'Correct!';
-                    feedback.style.color = 'green';
-                } else {
-                    feedback.textContent = 'Incorrect!';
-                    feedback.style.color = 'red';
-                }
-            } else {
-                feedback.textContent = 'Please select an answer.';
-                feedback.style.color = 'orange';
-            }
-        });
+function submitAnswer(questionId) {
+    const question = document.getElementById(questionId);
+    if (!question) {
+        console.error(`Element with ID ${questionId} not found.`);
+        return;
+    }
+
+    const selectedOption = question.querySelector('input[type="radio"]:checked');
+    const feedback = question.querySelector('.feedback');
+
+    if (selectedOption) {
+        if (selectedOption.getAttribute('data-correct') === 'true') {
+            feedback.textContent = 'Correct!';
+            feedback.style.color = 'green';
+        } else {
+            feedback.textContent = 'Incorrect!';
+            feedback.style.color = 'red';
+        }
+    } else {
+        feedback.textContent = 'Please select an answer.';
+        feedback.style.color = 'orange';
+    }
+}
+
+//The cancellation modal in change-or-cancel.html
+/*document.addEventListener('DOMContentLoaded', function () {
+    var cancelModal = document.getElementById('cancelModal');
+    cancelModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var appointmentId = button.getAttribute('data-appointment-id');
+        var modalBodyInput = cancelModal.querySelector('.modal-footer input[name="appointment_id"]');
+        modalBodyInput.value = appointmentId;
     });
-});
+});*/

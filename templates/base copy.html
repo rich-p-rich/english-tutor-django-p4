@@ -86,30 +86,14 @@
     </div>
   </nav>
 
-<!-- Messages block -->
-{% if messages %}
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="alert alert-info">
-        <ul>
-          {% for message in messages %}
-          <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
-
 <!-- Message to confirm logon status -->
   <main class="flex-shrink-0 main-bg">
     <div id="login-status">
       {% if user.is_authenticated %}
       <p class="text-end m-3">Welcome {{ user.username }}</p>
       {% else %}
-      <p class="text-end m-3">You are not logged in</p>
+      <p class="text-end m-3">You are not logged in. You can log in <a class="{% if request.path == login_url %}active{% endif %}" aria-current="page"
+        href="{% url 'account_login' %}">here.</a></p>
     </div>
     {% endif %}
 
