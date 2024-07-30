@@ -24,3 +24,7 @@ def question_list(request, section_id):
         'questions': questions,
         'user_answers': user_answers
     })
+
+def all_exercises(request):
+    sections = Sections.objects.add().order_by('level')
+    return render(request, 'all-exercises.html', {'sections': sections})

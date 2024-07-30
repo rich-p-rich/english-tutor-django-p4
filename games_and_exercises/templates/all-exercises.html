@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All Exercises</h1>
+{% for section in sections %}
+<div>
+    <h2>Level {{ section.level }}: {{ section.name }}</h2>
+    <p>{{ section.description }}</p>
+    <a href="{% url 'section_list' section.level %}">Go to Level {{ section.level }}</a>
+</div>
+{% endfor %}
+
+{% endblock %}

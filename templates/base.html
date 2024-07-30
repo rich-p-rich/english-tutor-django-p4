@@ -67,17 +67,16 @@
             <a class="nav-link" href="{% url 'change_appointments' %}">Change your appointment</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Games and Exercises
-            </a>
+            <a class="nav-link dropdown-toggle" href="{% url 'all_exercises' %}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Games and Exercises</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{% url 'section_list' 'A2' %}">A2 Level</a></li>
-              <li><a class="dropdown-item" href="{% url 'section_list' 'B1' %}">B1 Level</a></li>
-              <li><a class="dropdown-item" href="{% url 'section_list' 'B2' %}">B2 Level</a></li>
-              <li><a class="dropdown-item" href="{% url 'section_list' 'C1' %}">C1 Level</a></li>
+                <li><a class="dropdown-item" href="{% url 'section_list' 'A2' %}">A2 Level</a></li>
+                <li><a class="dropdown-item" href="{% url 'section_list' 'B1' %}">B1 Level</a></li>
+                <li><a class="dropdown-item" href="{% url 'section_list' 'B2' %}">B2 Level</a></li>
+                <li><a class="dropdown-item" href="{% url 'section_list' 'C1' %}">C1 Level</a></li>
+                <li><a class="dropdown-item" href="{% url 'section_list' 'All' %}">All</a></li>
             </ul>
-          </li>
+        </li>  
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
@@ -85,7 +84,7 @@
       </div>
     </div>
   </nav>
-  
+
   <!-- Message to confirm logon status -->
   <main class="flex-shrink-0 main-bg">
     <div id="login-status">
