@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% load i18n %}
@@ -6,13 +7,15 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="container">
+
+<div class="container-login">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign In" %}</h3>
-            <p>Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
-                you have not created an account yet, then <a class="link" href="{% url 'account_signup' %}">sign up</a>
-                first.</p>
+
+            <p>{% blocktrans %}Welcome back to Learn English Online. If
+                you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+                first.{% endblocktrans %}</p>
         </div>
     </div>
     <div class="row">
@@ -25,20 +28,6 @@
                 {% endif %}
                 <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
             </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            {% if messages %}
-            <div class="alert alert-info mt-3">
-                <strong>{% trans "Messages:" %}</strong>
-                <ul>
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
         </div>
     </div>
 </div>
