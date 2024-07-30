@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ section.title }} Questions</h1>
+<div class="container">
+<h1>{{ section.title }}</h1>
 <form method="post">
     {% csrf_token %}
     <ol>
@@ -10,7 +11,7 @@
             <p>{{ question.question_text }}</p>
             {% for choice in question.choices.all %}
             <div>
-                <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}" data-correct="{% if choice.id == question.correct_choice.id %}true{% else %}false{% endif %}">
+                <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="choice{{ choice.id }}" data-correct="{{ choice.is_correct|yesno:'true,false' }}">
                 <label for="choice{{ choice.id }}">{{ choice.choice_text }}</label>
             </div>
             {% endfor %}
@@ -29,16 +30,27 @@
             <p>{{ question.question_text }}</p>
             {% if question.id in user_answers %}
                 {% with answer=user_answers|default_if_none:None %}
-                    {% if answer.correct %}
-                    <p style="color: green;">Correct! You selected: {{ answer.selected.choice_text }}</p>
+                    {% if answer and answer.selected %}
+                        {% if answer.correct %}
+                        <p style="color: green;">Correct! You chose: {{ answer.selected.choice_text }}</p>
+                        {% else %}
+                        <p style="color: red;">Incorrect. You chose: {{ answer.selected.choice_text }}</p>
+                        {% endif %}
                     {% else %}
-                    <p style="color: red;">Incorrect. You selected: {{ answer.selected.choice_text }}</p>
+                        <p style="color: orange;">Please select an answer.</p>
                     {% endif %}
-                    <p>The correct answer is: {{ question.correct_choice.choice_text }}</p>
+                    <p>The correct answer is: 
+                        {% for choice in question.choices.all %}
+                            {% if choice.is_correct %}
+                                {{ choice.choice_text }}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
                 {% endwith %}
             {% endif %}
         </li>
         {% endfor %}
     </ol>
+</div>
 {% endif %}
 {% endblock %}
