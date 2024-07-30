@@ -53,6 +53,28 @@ function showHideSection() {
   document.getElementById("game-rules").classList.toggle("hide");
 }
 
+// Games and Exercises pages: ensures only one correct choice is marked in the admin interface
+
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('.inline-related');
+
+    forms.forEach(form => {
+        const checkboxes = form.querySelectorAll('input[type=checkbox][name$="is_correct"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxes.forEach(cb => {
+                        if (cb !== this) {
+                            cb.checked = false;
+                        }
+                    });
+                }
+            });
+        });
+    });
+});
+
+
 // Games and Exercises pages: check answer and feedback
 function submitAnswer(questionId) {
     const question = document.getElementById(questionId);
