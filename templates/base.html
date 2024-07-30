@@ -60,6 +60,7 @@
               href="{% url 'account_login' %}">Login</a>
           </li>
           {% endif %}
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'appointments' %}">Book a call</a>
           </li>
@@ -67,16 +68,36 @@
             <a class="nav-link" href="{% url 'change_appointments' %}">Change your appointment</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'all_exercises' %}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="{% url 'all_exercises' %}" id="navbarDropdownMenuLink"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Games and Exercises</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{% url 'section_list' 'A2' %}">A2 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'section_list' 'B1' %}">B1 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'section_list' 'B2' %}">B2 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'section_list' 'C1' %}">C1 Level</a></li>
-                <li><a class="dropdown-item" href="{% url 'section_list' 'All' %}">All</a></li>
+              <li><a class="dropdown-item" href="{% url 'section_list' 'A2' %}">A2 Level</a></li>
+              <li><a class="dropdown-item" href="{% url 'section_list' 'B1' %}">B1 Level</a></li>
+              <li><a class="dropdown-item" href="{% url 'section_list' 'B2' %}">B2 Level</a></li>
+              <li><a class="dropdown-item" href="{% url 'section_list' 'C1' %}">C1 Level</a></li>
+              <li><a class="dropdown-item" href="{% url 'section_list' 'All' %}">All</a></li>
             </ul>
-        </li>  
+          </li>
+          {% else %}
+          <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="authModalLabel">Welcome!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Please register or log in to continue using the website.</p>
+                  <div class="d-flex justify-content-around">
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
+                    <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
