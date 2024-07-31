@@ -33,7 +33,7 @@
               aria-expanded="false" aria-controls="collapseB">More Info</a>
             <div id="collapseB" class="collapse">
               <p class="mt-3">Take our tests to work out what you are good at and where you need to
-                improve. Register for an account and <a href="{% url 'section_list' 'All' %}">try them out here.</a></p>   
+                improve. <a href="{% url 'account_signup' %}">Register for an account</a> and try them out.</a></p>
             </div>
           </div>
         </div>
@@ -59,18 +59,43 @@
       <!--4 Book a call -->
       <div class="col-sm-6 col-md-6 mb-4">
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Book a call</h5>
-            <a href="#" class="btn btn-success float-end" data-bs-toggle="collapse" data-bs-target="#collapseD"
-              aria-expanded="false" aria-controls="collapseD">More Info</a>
-            <div id="collapseD" class="collapse">
-              <p class="mt-3">Book a call with one of our English tutors. Our team includes native speakers from
-                across the world as well as fluent non-native speakers who can guide you through the challenges of
-                advancing your English. <a href="{% url 'appointments' %}">Book now!</a></p>
+            <div class="card-body">
+                <h5 class="card-title">Book a call</h5>
+                <a href="#" class="btn btn-success float-end" data-bs-toggle="collapse" data-bs-target="#collapseD"
+                    aria-expanded="false" aria-controls="collapseD">More Info</a>
+                <div id="collapseD" class="collapse">
+                    <p class="mt-3">Book a call with one of our English tutors. Our team includes native speakers from across
+                        the world as well as fluent non-native speakers who can guide you through the challenges of advancing
+                        your English.
+                        <a href="#" id="bookCallLink"
+                            data-is-authenticated="{{ user.is_authenticated|yesno:'true,false' }}"
+                            data-login-url="{% url 'account_login' %}"
+                            data-register-url="{% url 'account_signup' %}"
+                            data-appointments-url="{% url 'appointments' %}">Book your call today!</a>
+                    </p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+
+    <!-- Modal: sign-in or register prompt -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Please log in to book an appointment, or register an account first.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="loginButton">Log in</button>
+                    <button type="button" class="btn btn-primary" id="registerButton">Register</button>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 
@@ -99,8 +124,7 @@
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <strong>English is an international language</strong> A little English goes a long way when meeting people
-            from
-            around the world, so improving your English skills will help you make friends and find your way, wherever
+            from around the world, so improving your English skills will help you make friends and find your way, wherever
             you are.
           </div>
         </div>

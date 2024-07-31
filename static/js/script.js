@@ -8,6 +8,38 @@ function togglePassword(fieldId) {
     }
 }
 
+// Homepage: signin modal from the explanation cards
+document.addEventListener('DOMContentLoaded', function() {
+    const bookCallLink = document.getElementById('bookCallLink');
+    const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
+    const loginButton = document.getElementById('loginButton');
+    const registerButton = document.getElementById('registerButton');
+
+    if (bookCallLink) {
+        const isAuthenticated = bookCallLink.getAttribute('data-is-authenticated') === 'true';
+        const loginUrl = bookCallLink.getAttribute('data-login-url');
+        const registerUrl = bookCallLink.getAttribute('data-register-url');
+        const appointmentsUrl = bookCallLink.getAttribute('data-appointments-url');
+
+        bookCallLink.addEventListener('click', function(event) {
+            if (!isAuthenticated) {
+                event.preventDefault();
+                signInModal.show();
+            } else {
+                window.location.href = appointmentsUrl;
+            }
+        });
+
+        loginButton.addEventListener('click', function() {
+            window.location.href = loginUrl;
+        });
+
+        registerButton.addEventListener('click', function() {
+            window.location.href = registerUrl;
+        });
+    }
+});
+
 // Appointments page: set appointment ID
 function setAppointmentId(id) {
     document.getElementById('appointment_id').value = id;

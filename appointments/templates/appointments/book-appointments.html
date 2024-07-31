@@ -5,6 +5,11 @@
 {% block content %}
 <div class="book-appt-container">
 <h1>Book your Appointment</h1>
+<ul>
+    <li>Our appointments are scheduled according to Central European Time (CET).</li>
+    <li>Appointments last for 30 minutes.</li>
+    <li>Appointments are available between 08:00 and 12:30, and 14:00 - 18:00.</li>
+</ul>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
