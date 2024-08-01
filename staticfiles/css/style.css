@@ -33,12 +33,30 @@ header {
     text-align: center;
 }
 
-#navbar {
-    text-align: center;
+#navbar .navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .navbar {
     margin-bottom: 0;
+}
+
+/* Main */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }
 
 main {
@@ -56,6 +74,7 @@ main {
     margin-bottom: 10px;
 }
 
+/* Homepage: cards */
 .card-body {
     background-color: whitesmoke;
 }
@@ -68,7 +87,7 @@ main {
     margin: auto; 
 }
 
-/* Homepage accordion: custom styles */
+/* Homepage: accordion - custom styles */
 .accordion-item, .accordion-button {
     margin: auto;
     background-color: whitesmoke;
@@ -156,9 +175,47 @@ main {
   margin: 0 auto;
 }
 
+/*Appointments change or cancel: search results */
+.appointment-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-name {
+  font-weight: bold;
+}
+
 /* Games and exercises: filter questions */
 .hidden {
     display: none;
+}
+
+/* Games and exercises: style questions */
+.questions-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.question-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.question-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.choices-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.choice-item {
+  margin-bottom: 5px;
 }
 
 /* The footer */
@@ -181,9 +238,39 @@ footer {
 }
 
 #social-networks li {
-    margin-right: 20px; /* Adjust spacing between icons as needed */
+    margin-right: 20px;  
 }
 
 #social-networks li:last-child {
-    margin-right: 0; /* Remove margin from the last item */
+    margin-right: 0;  
+}
+
+/* Appointments results page: styling for mobiles */
+@media (max-width: 576px) {
+  .list-group-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list-group-item > div {
+    width: 100%;
+  }
+
+  .list-group-item button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .list-group-item form {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .list-group-item button:last-child {
+    margin-bottom: 0;
+  }
+
+  .cancel-button {
+    margin-top: 5px;
+  }
 }

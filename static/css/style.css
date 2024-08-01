@@ -190,6 +190,34 @@ main {
     display: none;
 }
 
+/* Games and exercises: style questions */
+.questions-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.question-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.question-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.choices-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.choice-item {
+  margin-bottom: 5px;
+}
+
 /* The footer */
 footer {
     background-color: whitesmoke;
@@ -210,11 +238,11 @@ footer {
 }
 
 #social-networks li {
-    margin-right: 20px; /* Adjust spacing between icons as needed */
+    margin-right: 20px;  
 }
 
 #social-networks li:last-child {
-    margin-right: 0; /* Remove margin from the last item */
+    margin-right: 0;  
 }
 
 /* Appointments results page: styling for mobiles */
