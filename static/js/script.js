@@ -1,4 +1,4 @@
-// Register and login page: the 'show password' toggle functionality
+// Register page: the 'show password' toggle functionality
 function togglePassword(fieldId) {
     var x = document.getElementById(fieldId);
     if (x.type === "password") {
@@ -101,20 +101,10 @@ function submitAnswer(questionId) {
 }
 
 document.getElementById('exerciseForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
     const questions = document.querySelectorAll('li[id^="question-"]');
     questions.forEach(question => {
         submitAnswer(question.id);
     });
 });
-//The cancellation modal in change-or-cancel.html
-/*document.addEventListener('DOMContentLoaded', function () {
-    var cancelModal = document.getElementById('cancelModal');
-    cancelModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var appointmentId = button.getAttribute('data-appointment-id');
-        var modalBodyInput = cancelModal.querySelector('.modal-footer input[name="appointment_id"]');
-        modalBodyInput.value = appointmentId;
-    });
-});*/

@@ -101,7 +101,7 @@ function submitAnswer(questionId) {
 }
 
 document.getElementById('exerciseForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
     const questions = document.querySelectorAll('li[id^="question-"]');
     questions.forEach(question => {

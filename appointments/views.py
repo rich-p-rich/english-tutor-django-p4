@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Appointment
 from .forms import AppointmentForm, SearchAppointmentsForm, ChangeAppointmentForm
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 
-@csrf_protect
+@login_required()
 def make_appointment(request):
     """
     View for main appointments page -> book a call
@@ -31,6 +32,7 @@ def confirm_appointment(request):
     }
     return render(request, 'appointments/appointment-confirmed.html', {'appointment': appointment_details})
 
+@login_required
 def search_and_edit_appointments(request):
     """
     View for changing appointments -> enables user to search their appointments
