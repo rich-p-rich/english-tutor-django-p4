@@ -175,6 +175,16 @@ main {
   margin: 0 auto;
 }
 
+/*Appointments change or cancel: search results */
+.appointment-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-name {
+  font-weight: bold;
+}
+
 /* Games and exercises: filter questions */
 .hidden {
     display: none;
@@ -205,4 +215,34 @@ footer {
 
 #social-networks li:last-child {
     margin-right: 0; /* Remove margin from the last item */
+}
+
+/* Appointments results page: styling for mobiles */
+@media (max-width: 576px) {
+  .list-group-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list-group-item > div {
+    width: 100%;
+  }
+
+  .list-group-item button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .list-group-item form {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .list-group-item button:last-child {
+    margin-bottom: 0;
+  }
+
+  .cancel-button {
+    margin-top: 5px;
+  }
 }
