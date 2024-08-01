@@ -5,6 +5,7 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'appointments' as appointments_url %}
+{% url 'games_and_exercises' as games_and_exercises %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -21,7 +22,6 @@
   <script src="https://kit.fontawesome.com/7a1565e963.js" crossorigin="anonymous"></script>
   <!--Custom CSS-->
   <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
-
 
   <!--Favicon-->
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -90,7 +90,7 @@
   </nav>
 
   <!-- Message to confirm logon status -->
-  <main class="flex-shrink-0 main-bg">
+  <main class="flex-fill main-bg">
     <div id="login-status">
       {% if user.is_authenticated %}
       <p class="text-end m-3">Welcome {{ user.username }}</p>
@@ -99,33 +99,31 @@
     </div>
     {% endif %}
 
-    <main class="flex-shrink-0 main-bg">
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
 
-      {% block content %}
-      <!-- Content Goes here -->
-      {% endblock content %}
+  </main>
 
-    </main>
+  <!-- Footer -->
+  <footer>
+    <ul id="social-networks">
+      <li>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+          aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener"
+          aria-label="Visit our YouTube page (opens in a new tab)"><i class="fa-brands fa-youtube-square"></i></a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener"
+          aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
+      </li>
+    </ul>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-      <ul id="social-networks">
-        <li>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-            aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener"
-            aria-label="Visit our YouTube page (opens in a new tab)"><i class="fa-brands fa-youtube-square"></i></a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener"
-            aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
-        </li>
-      </ul>
-    </footer>
-
-    <!--Bootstrap JS CDN-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Script.JS-->
-    <script src="/static/js/script.js"></script>
+  <!--Bootstrap JS CDN-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!--Script.JS-->
+  <script src="/static/js/script.js"></script>

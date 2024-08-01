@@ -27,9 +27,17 @@ class AppointmentForm(forms.ModelForm):
         max_date = today + timedelta(weeks=MAX_APPOINTMENT_WEEKS)
         
         if not (min_date <= meeting_date <= max_date):
-            raise forms.ValidationError(f"Meeting date must be between {min_date} and {max_date}.")
+            raise forms.ValidationError(f"Please choose a date between {min_date} and {max_date}.")
         
         return meeting_date
+    
+    def clean_name(self):
+        name = self.cleaned_data.get('name').strip().title()
+        return name
+
+    def clean_surname(self):
+        surname = self.cleaned_data.get('surname').strip().title()
+        return surname
 
 class SearchAppointmentsForm(forms.Form):
     """
@@ -37,6 +45,14 @@ class SearchAppointmentsForm(forms.Form):
     """
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}))
     surname = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Surname'}))
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email').strip().lower()
+        return email
+
+    def clean_surname(self):
+        surname = self.cleaned_data.get('surname').strip().lower()
+        return surname
 
 class ChangeAppointmentForm(forms.ModelForm):
     """
@@ -58,6 +74,6 @@ class ChangeAppointmentForm(forms.ModelForm):
         max_date = today + timedelta(weeks=MAX_APPOINTMENT_WEEKS)
         
         if not (min_date <= meeting_date <= max_date):
-            raise forms.ValidationError(f"Meeting date must be between {min_date} and {max_date}.")
+            raise forms.ValidationError(f"Please choose a date between {min_date} and {max_date}.")
         
         return meeting_date

@@ -41,4 +41,4 @@ class Appointment(models.Model):
         # Ensure meeting time is within the allowed ranges
         if not (MORNING_START_TIME <= self.meeting_time <= MORNING_END_TIME or
                 AFTERNOON_START_TIME <= self.meeting_time <= AFTERNOON_END_TIME):
-            raise ValidationError(f"Our appointment times run between {MORNING_START_TIME.strftime('%H:%M')} and {MORNING_END_TIME.strftime('%H:%M')}, and between {AFTERNOON_START_TIME.strftime('%H:%M')} and {AFTERNOON_END_TIME.strftime('%H:%M')}.")
+            raise ValidationError(f"Please choose a different time. Our appointments run between {MORNING_START_TIME.strftime('%H:%M')} and {MORNING_END_TIME.strftime('%H:%M')}, and between {AFTERNOON_START_TIME.strftime('%H:%M')} and {AFTERNOON_END_TIME.strftime('%H:%M')}.")

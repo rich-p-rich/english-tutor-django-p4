@@ -43,6 +43,22 @@ header {
     margin-bottom: 0;
 }
 
+/* Main */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
 main {
     flex: 1 0 auto;
 }
@@ -58,6 +74,7 @@ main {
     margin-bottom: 10px;
 }
 
+/* Homepage: cards */
 .card-body {
     background-color: whitesmoke;
 }
@@ -70,7 +87,7 @@ main {
     margin: auto; 
 }
 
-/* Homepage accordion: custom styles */
+/* Homepage: accordion - custom styles */
 .accordion-item, .accordion-button {
     margin: auto;
     background-color: whitesmoke;

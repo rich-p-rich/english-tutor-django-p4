@@ -33,7 +33,11 @@
               aria-expanded="false" aria-controls="collapseB">More Info</a>
             <div id="collapseB" class="collapse">
               <p class="mt-3">Take our tests to work out what you are good at and where you need to
-                improve. <a href="{% url 'account_signup' %}">Register for an account</a> and try them out.</a></p>
+                improve. Click here to <a href="#" id="bookCallLink"
+                            data-is-authenticated="{{ user.is_authenticated|yesno:'true,false' }}"
+                            data-login-url="{% url 'account_login' %}"
+                            data-register-url="{% url 'account_signup' %}"
+                            data-games_and_exercises-url="{% url 'section_list' 'All' %}"> try them out.</a>
             </div>
           </div>
         </div>
