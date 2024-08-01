@@ -17,7 +17,7 @@ class AppointmentForm(forms.ModelForm):
             'surname': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Surname'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
             'meeting_time': forms.TimeInput(attrs={'class': 'form-control', 'placeholder': 'Meeting Time', 'type': 'time'}),
-            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Message'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'message'}),
         }
 
     def clean_meeting_date(self):

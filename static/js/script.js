@@ -74,11 +74,6 @@ function setDifficulty(level) {
 } 
 
 // Games and Exercises pages: show language section
-function showHideSection() {
-  document.getElementById("game-rules").classList.toggle("hide");
-}
-
-// Games and Exercises pages: check answer and feedback
 function submitAnswer(questionId) {
     const question = document.getElementById(questionId);
     if (!question) {
@@ -90,7 +85,9 @@ function submitAnswer(questionId) {
     const feedback = question.querySelector('.feedback');
 
     if (selectedOption) {
-        if (selectedOption.getAttribute('data-correct') === 'true') {
+        // Correctly get the value of the data-correct attribute
+        const isCorrect = selectedOption.getAttribute('data-correct') === 'True' || selectedOption.getAttribute('data-correct') === 'true';
+        if (isCorrect) {
             feedback.textContent = 'Correct!';
             feedback.style.color = 'green';
         } else {
@@ -103,6 +100,14 @@ function submitAnswer(questionId) {
     }
 }
 
+document.getElementById('exerciseForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const questions = document.querySelectorAll('li[id^="question-"]');
+    questions.forEach(question => {
+        submitAnswer(question.id);
+    });
+});
 //The cancellation modal in change-or-cancel.html
 /*document.addEventListener('DOMContentLoaded', function () {
     var cancelModal = document.getElementById('cancelModal');

@@ -20,7 +20,7 @@ class Appointment(models.Model):
     email = models.EmailField(max_length=255, default='email')
     meeting_date = models.DateField()
     meeting_time = models.TimeField()
-    message = models.TextField(max_length=1000, default='message')
+    message = models.TextField(max_length=1000, default='Optional message')
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

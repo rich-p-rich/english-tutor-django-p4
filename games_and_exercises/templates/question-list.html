@@ -3,51 +3,23 @@
 {% block content %}
 <div class="container">
     <h1>{{ section.title }}</h1>
-    <form method="post">
+    <form id="exerciseForm" method="post">
         {% csrf_token %}
         <ol>
             {% for question in questions %}
-            <li>
+            <li id="question-{{ question.id }}">
                 <p>{{ question.question_text }}</p>
                 <ul>
                     {% for choice in question.choices.all %}
                     <li>
                         <label>
-                            {% if user_answers and question.id in user_answers %}
-                                {% with user_answer=user_answers|default_if_none:None %}
-                                    {% if user_answer %}
-                                        {% if user_answer.selected %}
-                                            {% if choice.id == user_answer.selected.id %}checked{% endif %}
-                                        {% endif %}
-                                    {% endif %}
-                                {% endwith %}
-                            {% endif %}
-                            <input type="radio" name="{{ question.id }}" value="{{ choice.id }}">
+                            <input type="radio" name="question-{{ question.id }}" value="{{ choice.id }}" data-correct="{{ choice.is_correct }}">
                             {{ choice.choice_text }}
                         </label>
                     </li>
                     {% endfor %}
                 </ul>
-                {% if user_answers and question.id in user_answers %}
-                    {% with user_answer=user_answers|default_if_none:None %}
-                        {% if user_answer %}
-                            {% if user_answer.selected %}
-                                {% if user_answer.correct %}
-                                    <p style="color: green;">Correct! You chose: {{ user_answer.selected.choice_text }}</p>
-                                {% else %}
-                                    <p style="color: red;">Incorrect. You chose: {{ user_answer.selected.choice_text }}</p>
-                                {% endif %}
-                                <p>The correct answer is: 
-                                    {% for choice in question.choices.all %}
-                                        {% if choice.is_correct %}
-                                            {{ choice.choice_text }}
-                                        {% endif %}
-                                    {% endfor %}
-                                </p>
-                            {% endif %}
-                        {% endif %}
-                    {% endwith %}
-                {% endif %}
+                <p class="feedback"></p>
             </li>
             {% endfor %}
         </ol>
