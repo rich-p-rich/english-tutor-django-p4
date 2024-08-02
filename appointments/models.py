@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from user_accounts.models import UserProfile
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from datetime import timedelta, time
@@ -14,10 +15,10 @@ MORNING_END_TIME = time(12, 30)  # 12:30
 AFTERNOON_START_TIME = time(14, 0)  # 14:00
 AFTERNOON_END_TIME = time(18, 0)  # 18:00
 
+# User profile comes from the user_accounts app -> model
+
 class Appointment(models.Model):
-    name = models.CharField(max_length=100, default='name')
-    surname = models.CharField(max_length=100, default='surname')
-    email = models.EmailField(max_length=255, default='email')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     meeting_date = models.DateField()
     meeting_time = models.TimeField()
     message = models.TextField(max_length=1000, default='Optional message')

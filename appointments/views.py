@@ -1,26 +1,32 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from user_accounts.models import UserProfile
 from .models import Appointment
-from .forms import AppointmentForm, SearchAppointmentsForm, ChangeAppointmentForm
+from .forms import AppointmentForm, ChangeAppointmentForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 
-@login_required()
+@login_required
 def make_appointment(request):
     """
     View for main appointments page -> book a call
     """
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            appointment = form.save()
-            request.session['appointment_email'] = appointment.email
+            appointment = form.save(commit=False)
+            appointment.user_profile = user_profile
+            appointment.save()
             request.session['appointment_date'] = str(appointment.meeting_date)
             request.session['appointment_time'] = str(appointment.meeting_time)
             return redirect('confirmation')
     else:
         form = AppointmentForm()
+    
     return render(request, 'appointments/book-appointments.html', {'form': form})
 
+@login_required
 def confirm_appointment(request):
     """
     View for appointment confirmation page

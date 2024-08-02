@@ -11,11 +11,8 @@ class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ['name', 'surname', 'email', 'meeting_date', 'meeting_time', 'message']
+        fields = ['meeting_date', 'meeting_time', 'message']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
-            'surname': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Surname'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
             'meeting_time': forms.TimeInput(attrs={'class': 'form-control', 'placeholder': 'Meeting Time', 'type': 'time'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'message'}),
         }
@@ -53,6 +50,15 @@ class SearchAppointmentsForm(forms.Form):
     def clean_surname(self):
         surname = self.cleaned_data.get('surname').strip().lower()
         return surname
+
+    def search(self):
+        email = self.cleaned_data['email']
+        surname = self.cleaned_data['surname']
+        try:
+            user_profile = UserProfile.objects.get(email=email, surname=surname)
+            return Appointment.objects.filter(user_profile=user_profile)
+        except UserProfile.DoesNotExist:
+            return Appointment.objects.none()
 
 class ChangeAppointmentForm(forms.ModelForm):
     """
