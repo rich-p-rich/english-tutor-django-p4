@@ -175,6 +175,11 @@ main {
   margin: 0 auto;
 }
 
+/* Validation Error feedback for wrong time/date */
+.errorlist {
+  color: red;
+}
+
 /*Appointments change or cancel: search results */
 .appointment-details {
   display: flex;
