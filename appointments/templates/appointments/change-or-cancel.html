@@ -6,14 +6,7 @@
 {% block content %}
 <div class="container">
   <h1>Manage your appointment</h1>
-  
-  <!-- Search Form -->
-  <form method="post" class="mb-4">
-      {% csrf_token %}
-      {{ search_form.as_p }}
-      <button type="submit" name="search" class="btn btn-primary">Search</button>
-  </form>
-  
+    
   <!-- Search Results -->
   {% if appointments %}
       <h2>Appointments</h2>

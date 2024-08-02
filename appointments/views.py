@@ -39,23 +39,18 @@ def confirm_appointment(request):
     return render(request, 'appointments/appointment-confirmed.html', {'appointment': appointment_details})
 
 @login_required
-def search_and_edit_appointments(request):
+def manage_appointments(request):
     """
-    View for changing appointments -> enables user to search their appointments
+    View for managing appointments -> allows user to see all their appointments and edit or cancel them
     """
-    search_form = SearchAppointmentsForm()
+    user = request.user
+    user_profile = get_object_or_404(UserProfile, user=user)
+    appointments = Appointment.objects.filter(user_profile=user_profile)
     change_form = None
-    appointments = None
     appointment_to_edit = None
 
     if request.method == 'POST':
-        if 'search' in request.POST:
-            search_form = SearchAppointmentsForm(request.POST)
-            if search_form.is_valid():
-                email = search_form.cleaned_data['email']
-                surname = search_form.cleaned_data['surname']
-                appointments = Appointment.objects.filter(email=email, surname=surname)
-        elif 'select' in request.POST:
+        if 'select' in request.POST:
             appointment_id = request.POST.get('appointment_id')
             appointment_to_edit = get_object_or_404(Appointment, id=appointment_id)
             change_form = ChangeAppointmentForm(instance=appointment_to_edit)
@@ -73,8 +68,7 @@ def search_and_edit_appointments(request):
             return render(request, 'appointments/cancellation-confirmed.html', {'appointment': appointment_to_cancel})
 
     return render(request, 'appointments/change-or-cancel.html', {
-        'search_form': search_form,
-        'change_form': change_form,
         'appointments': appointments,
+        'change_form': change_form,
         'appointment_to_edit': appointment_to_edit
     })
