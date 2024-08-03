@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from home.views import HomePage
+from django.http import Http404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +31,6 @@ urlpatterns = [
     path('exercises/', include('games_and_exercises.urls'), name='games_and_exercises.urls'),
     path('', HomePage.as_view(), name='homepage'), 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = 'english_tutor.views.error_404'
+handler500 = 'english_tutor.views.error_500'
