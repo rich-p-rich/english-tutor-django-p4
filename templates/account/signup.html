@@ -21,7 +21,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}" novalidate>
+      <form class="signup needs-validation" id="signup_form" method="post" action="{% url 'account_signup' %}" novalidate>
         {% csrf_token %}
 
         <div class="form-grid">
@@ -75,5 +75,4 @@
     </div>
   </div>
 </div>
-
 {% endblock content %}
