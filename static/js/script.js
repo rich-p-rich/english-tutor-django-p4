@@ -8,10 +8,41 @@ function togglePassword(fieldId) {
     }
 }
 
+//Registration and log-in page: custom validation feedback
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('signup_form');
+  
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+  
+      Array.from(form.elements).forEach((input) => {
+        if (input.checkValidity() === false) {
+          let feedback = input.nextElementSibling;
+  
+          if (input.validity.valueMissing) {
+            feedback.textContent = `The ${input.name} field is required.`;
+          } else if (input.validity.typeMismatch) {
+            feedback.textContent = `Please enter a valid ${input.type}.`;
+          } else if (input.validity.tooShort) {
+            feedback.textContent = `The ${input.name} needs to be at least ${input.minLength} characters; you entered ${input.value.length}.`;
+          }
+  
+          input.classList.add('is-invalid');
+        } else {
+          input.classList.remove('is-invalid');
+        }
+      });
+  
+      form.classList.add('was-validated');
+    }, false);
+  });
+  
 // Homepage: signin modal from the explanation cards
 document.addEventListener('DOMContentLoaded', function() {
     const bookCallLink = document.getElementById('bookCallLink');
-    const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
     const loginButton = document.getElementById('loginButton');
     const registerButton = document.getElementById('registerButton');
 
@@ -44,34 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function setAppointmentId(id) {
     document.getElementById('appointment_id').value = id;
 }
-
-/* Games and Exercises page: dropdown menu to filter language difficulty level
-function filterQuestions(level) {
-    const quizzes = document.querySelectorAll('.quiz');
-    quizzes.forEach(quiz => {
-        if (level === 'all' || quiz.id.startsWith(level)) {
-            quiz.classList.remove('hidden');
-        } else {
-            quiz.classList.add('hidden');
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    filterQuestions();
-}); */
-
-/* Games and Exercises page: the function to set the selected difficulty level */
-function setDifficulty(level) {
-    const contents = document.querySelectorAll('.content');
-    contents.forEach(content => {
-        if (level === 'all' || content.getAttribute('data-difficulty') === level) {
-            content.style.display = 'block';
-        } else {
-            content.style.display = 'none';
-        }
-    });
-} 
 
 // Games and Exercises pages: show language section
 function submitAnswer(questionId) {
