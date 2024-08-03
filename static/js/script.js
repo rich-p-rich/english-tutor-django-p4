@@ -9,13 +9,14 @@ function togglePassword(fieldId) {
 }
 
 // Add custom validation messages to Registration and Login
+// registration form: templates/account/signup-html
+// login form: templates/account/login.html
 document.addEventListener('DOMContentLoaded', function () {
     // Select all forms with the class 'needs-validation'
     const forms = document.querySelectorAll('form.needs-validation');
 
     forms.forEach((form) => {
         form.addEventListener('submit', function (event) {
-            // Prevent form submission if it is invalid
             if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             input.classList.add('is-invalid');
                         } else {
                             input.classList.remove('is-invalid');
-                            feedback.textContent = ''; // Clear the feedback message if valid
+                            feedback.textContent = '';
                         }
                     }
                 }
