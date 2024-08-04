@@ -55,31 +55,56 @@ document.addEventListener('DOMContentLoaded', function () {
 // Homepage: signin modal from the explanation cards
 document.addEventListener('DOMContentLoaded', () => {
     const bookCallLink = document.getElementById('bookCallLink');
-    
-    if (!bookCallLink) return;
-    
-    const isAuthenticated = bookCallLink.dataset.isAuthenticated === 'true';
-    const { loginUrl, registerUrl, appointmentsUrl } = bookCallLink.dataset;
-    const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
+    const exercisesLink = document.getElementById('exercisesLink');
 
-    bookCallLink.addEventListener('click', (event) => {
+    console.log('Document loaded.');  // Debugging
+
+    if (!bookCallLink && !exercisesLink) {
+        console.log('No links found. Exiting.');  // Debugging
+        return;
+    }
+
+    const handleLinkClick = (event) => {
+        console.log('Link clicked.');  // Debugging
+        const link = event.currentTarget;
+        const isAuthenticated = link.dataset.isAuthenticated === 'true';
+        const loginUrl = link.dataset.loginUrl;
+        const registerUrl = link.dataset.registerUrl;
+        const targetUrl = link.dataset.appointmentsUrl || link.dataset.games_and_exercisesUrl;
+        const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
+
+        console.log('isAuthenticated:', isAuthenticated);  // Debugging
+        console.log('targetUrl:', targetUrl);  // Debugging
+
         if (!isAuthenticated) {
             event.preventDefault();
             signInModal.show();
+
+            document.getElementById('loginButton').addEventListener('click', () => {
+                console.log('Login button clicked. Redirecting to:', loginUrl);  // Debugging
+                window.location.href = loginUrl;
+            });
+
+            document.getElementById('registerButton').addEventListener('click', () => {
+                console.log('Register button clicked. Redirecting to:', registerUrl);  // Debugging
+                window.location.href = registerUrl;
+            });
         } else {
-            window.location.href = appointmentsUrl;
+            console.log('User is authenticated. Redirecting to:', targetUrl);  // Debugging
+            window.location.href = targetUrl;
         }
-    });
+    };
 
-    document.getElementById('loginButton').addEventListener('click', () => {
-        window.location.href = loginUrl;
-    });
+    if (bookCallLink) {
+        console.log('Adding event listener to bookCallLink');  // Debugging
+        bookCallLink.addEventListener('click', handleLinkClick);
+    }
 
-    document.getElementById('registerButton').addEventListener('click', () => {
-        window.location.href = registerUrl;
-    });
+    if (exercisesLink) {
+        console.log('Adding event listener to exercisesLink');  // Debugging
+        exercisesLink.addEventListener('click', handleLinkClick);
+    }
 });
-
 
 // Appointments page: set appointment ID
 function setAppointmentId(id) {
