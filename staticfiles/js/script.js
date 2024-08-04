@@ -53,35 +53,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Homepage: signin modal from the explanation cards
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const bookCallLink = document.getElementById('bookCallLink');
-    const loginButton = document.getElementById('loginButton');
-    const registerButton = document.getElementById('registerButton');
+    
+    if (!bookCallLink) return;
+    
+    const isAuthenticated = bookCallLink.dataset.isAuthenticated === 'true';
+    const { loginUrl, registerUrl, appointmentsUrl } = bookCallLink.dataset;
+    const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
 
-    if (bookCallLink) {
-        const isAuthenticated = bookCallLink.getAttribute('data-is-authenticated') === 'true';
-        const loginUrl = bookCallLink.getAttribute('data-login-url');
-        const registerUrl = bookCallLink.getAttribute('data-register-url');
-        const appointmentsUrl = bookCallLink.getAttribute('data-appointments-url');
+    bookCallLink.addEventListener('click', (event) => {
+        if (!isAuthenticated) {
+            event.preventDefault();
+            signInModal.show();
+        } else {
+            window.location.href = appointmentsUrl;
+        }
+    });
 
-        bookCallLink.addEventListener('click', function (event) {
-            if (!isAuthenticated) {
-                event.preventDefault();
-                signInModal.show();
-            } else {
-                window.location.href = appointmentsUrl;
-            }
-        });
+    document.getElementById('loginButton').addEventListener('click', () => {
+        window.location.href = loginUrl;
+    });
 
-        loginButton.addEventListener('click', function () {
-            window.location.href = loginUrl;
-        });
-
-        registerButton.addEventListener('click', function () {
-            window.location.href = registerUrl;
-        });
-    }
+    document.getElementById('registerButton').addEventListener('click', () => {
+        window.location.href = registerUrl;
+    });
 });
+
 
 // Appointments page: set appointment ID
 function setAppointmentId(id) {
@@ -115,14 +113,17 @@ function submitAnswer(questionId) {
     }
 }
 
+// Event listener for the Exercise Form -> games_and_exercises/templates/question-list
 document.addEventListener('DOMContentLoaded', function() {
-    // Event listener for the Exercise Form -> games_and_exercises/templates/question-list
-    document.getElementById('exerciseForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const questions = document.querySelectorAll('li[id^="question-"]');
-        questions.forEach(question => {
-            submitAnswer(question.id);
+    const form = document.getElementById('exercises');
+   
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const questions = document.querySelectorAll('li[id^="question-"]');
+            questions.forEach(question => {
+                submitAnswer(question.id);
+            });
         });
-    });
+    } 
 });

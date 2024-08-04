@@ -1,10 +1,25 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to PP4: Learn English Online! 
 
-Welcome Rich Ricot,
+For project four I decided to deveop a site for learners of English as a Foreign Language. I am currently working as an English Teacher at a college in Germany and thought an online resource for my students would be ain interesting and fulfilling project to pursue. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## User Demographic
+This game is aimed at learners of English as a foreign language of all ages. The exercises are set between the A2 and C1 levels; these levels are correspond to levels of language proficiency as defined by the Common European Framework of Reference for Languages (the CEFR). Broadly speaking levels A - C equate to the following:  
+- A: basic users
+- B: intermediate users
+- C: proficient users 
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+Each of these levels is divided into two subgroups to reflect progress in language learning. For the purposes of this project, I have provided exercises for
+- A2
+- B1
+- B2
+- C1
+
+as these are the groups I am most familiar with. A future iteration could easily cover A1 and C2 groups.
+
+My students come from around the globe; while the majority are German, I have numerous students from France, Italy, Austria, Syria, Lebanon, Egypt, Algeria, Ghana, Mauritius, China, India, Pakistan, Malaysia, South Korea, Colombia Mexico and so on. After teaching at this college for nearly five years, I have developed a decent grasp of what learners of each language level need, and the exercises I provide on the website will be designed to reflect this. 
+
+More information about the CEFR can be found here: https://www.coe.int/en/web/common-european-framework-reference-languages/home
+
 
 ## Gitpod Reminders
 
