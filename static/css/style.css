@@ -93,6 +93,28 @@ main {
     background-color: whitesmoke;
 }
 
+/* Homepage: images */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.accordion-container {
+  flex-grow: 1;
+  margin: 0 20px;
+  max-width: 100%;
+}
+
+/* Styles for the side images */
+.accordion-side-img {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
+
+
 /* Register account page */
 .register-container {
     background-color: whitesmoke;
@@ -277,5 +299,21 @@ footer {
 
   .cancel-button {
     margin-top: 5px;
+  }
+}
+
+/* Media query for screens with a max-width of 1024px */
+@media (max-width: 1024px) {
+  .flex-container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+  
+  .side-image {
+    display: none; /* Hides images on smaller screens */
+  }
+
+  .accordion-container {
+    margin: 20px 0; /* Adds margin to the top and bottom */
   }
 }
