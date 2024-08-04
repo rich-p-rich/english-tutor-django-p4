@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Homepage: signin modal from the explanation cards
 document.addEventListener('DOMContentLoaded', function () {
     const bookCallLink = document.getElementById('bookCallLink');
+    const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
     const loginButton = document.getElementById('loginButton');
     const registerButton = document.getElementById('registerButton');
 
@@ -115,14 +116,17 @@ function submitAnswer(questionId) {
     }
 }
 
+// Event listener for the Exercise Form -> games_and_exercises/templates/question-list
 document.addEventListener('DOMContentLoaded', function() {
-    // Event listener for the Exercise Form -> games_and_exercises/templates/question-list
-    document.getElementById('exerciseForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const questions = document.querySelectorAll('li[id^="question-"]');
-        questions.forEach(question => {
-            submitAnswer(question.id);
+    const form = document.getElementById('exercises');
+   
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const questions = document.querySelectorAll('li[id^="question-"]');
+            questions.forEach(question => {
+                submitAnswer(question.id);
+            });
         });
-    });
+    } 
 });
