@@ -100,7 +100,7 @@ function submitAnswer(questionId) {
     const feedback = question.querySelector('.feedback');
 
     if (selectedOption) {
-        // Get the value of the data-correct attribute
+        // Get the value of the data-correct attributes
         const isCorrect = selectedOption.getAttribute('data-correct') === 'True' || selectedOption.getAttribute('data-correct') === 'true';
         if (isCorrect) {
             feedback.textContent = 'Correct!';
