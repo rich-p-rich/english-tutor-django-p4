@@ -2,29 +2,28 @@
 
 {% block content %}
 <div class="container">
-    <form id="exercises" method="post"></form>
     <h1>{{ section.title }}</h1>
-    {% csrf_token %}
-    <ol class="questions-list">
-        {% for question in questions %}
-        <li id="question-{{ question.id }}" class="question-item">
-            <p class="question-text">{{ question.question_text }}</p>
-            <ul class="choices-list">
-                {% for choice in question.choices.all %}
-                <li class="choice-item">
-                    <label>
-                        <input type="radio" name="question-{{ question.id }}" value="{{ choice.id }}"
-                            data-correct="{{ choice.is_correct }}">
-                        {{ choice.choice_text }}
-                    </label>
-                </li>
-                {% endfor %}
-            </ul>
-            <p class="feedback"></p>
-        </li>
-        {% endfor %}
-    </ol>
-    <button type="submit" class="submit-button">Submit</button>
+    <form id="exerciseForm" method="post">
+        {% csrf_token %}
+        <ol class="questions-list">
+            {% for question in questions %}
+            <li id="question-{{ question.id }}" class="question-item">
+                <p class="question-text">{{ question.question_text }}</p>
+                <ul class="choices-list">
+                    {% for choice in question.choices.all %}
+                    <li class="choice-item">
+                        <label>
+                            <input type="radio" name="question-{{ question.id }}" value="{{ choice.id }}" data-correct="{{ choice.is_correct }}">
+                            {{ choice.choice_text }}
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <p class="feedback"></p>
+            </li>
+            {% endfor %}
+        </ol>
+        <button type="submit" class="submit-button">Submit</button>
     </form>
 </div>
 {% endblock %}
