@@ -43,6 +43,10 @@ header {
     margin-bottom: 0;
 }
 
+.error-img {
+  max-width: 75%;
+}
+
 /* Main */
 html, body {
   height: 100%;
@@ -278,4 +282,9 @@ footer {
   .cancel-button {
     margin-top: 5px;
   }
+}
+
+/* Media query: small laptops and larger (768px and up) */
+@media screen and (min-width: 768px) {
+
 }
