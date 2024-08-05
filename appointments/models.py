@@ -21,7 +21,7 @@ class Appointment(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     meeting_date = models.DateField()
     meeting_time = models.TimeField()
-    message = models.TextField(max_length=1000)
+    message = models.TextField(max_length=1000, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
