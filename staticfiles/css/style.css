@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900|Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /*Asterisk wildcard selector to override default browser styles */
 * {
@@ -92,6 +92,28 @@ main {
     margin: auto;
     background-color: whitesmoke;
 }
+
+/* Homepage: images */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.accordion-container {
+  flex-grow: 1;
+  margin: 0 20px;
+  max-width: 100%;
+}
+
+/* Styles for the side images */
+.accordion-side-img {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* Register account page */
 .register-container {
@@ -277,5 +299,21 @@ footer {
 
   .cancel-button {
     margin-top: 5px;
+  }
+}
+
+/* Media query for screens with a max-width of 1024px */
+@media (max-width: 1024px) {
+  .flex-container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+  
+  .side-image {
+    display: none; /* Hides images on smaller screens */
+  }
+
+  .accordion-container {
+    margin: 20px 0; /* Adds margin to the top and bottom */
   }
 }
