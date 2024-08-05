@@ -57,15 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookCallLink = document.getElementById('bookCallLink');
     const exercisesLink = document.getElementById('exercisesLink');
 
-    console.log('Document loaded.');  // Debugging
-
     if (!bookCallLink && !exercisesLink) {
-        console.log('No links found. Exiting.');  // Debugging
         return;
     }
 
     const handleLinkClick = (event) => {
-        console.log('Link clicked.');  // Debugging
         const link = event.currentTarget;
         const isAuthenticated = link.dataset.isAuthenticated === 'true';
         const loginUrl = link.dataset.loginUrl;
@@ -73,35 +69,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetUrl = link.dataset.appointmentsUrl || link.dataset.games_and_exercisesUrl;
         const signInModal = new bootstrap.Modal(document.getElementById('signInModal'));
 
-        console.log('isAuthenticated:', isAuthenticated);  // Debugging
-        console.log('targetUrl:', targetUrl);  // Debugging
-
-        if (!isAuthenticated) {
+         if (!isAuthenticated) {
             event.preventDefault();
             signInModal.show();
 
             document.getElementById('loginButton').addEventListener('click', () => {
-                console.log('Login button clicked. Redirecting to:', loginUrl);  // Debugging
                 window.location.href = loginUrl;
             });
 
             document.getElementById('registerButton').addEventListener('click', () => {
-                console.log('Register button clicked. Redirecting to:', registerUrl);  // Debugging
                 window.location.href = registerUrl;
             });
         } else {
-            console.log('User is authenticated. Redirecting to:', targetUrl);  // Debugging
             window.location.href = targetUrl;
         }
     };
 
     if (bookCallLink) {
-        console.log('Adding event listener to bookCallLink');  // Debugging
         bookCallLink.addEventListener('click', handleLinkClick);
     }
 
     if (exercisesLink) {
-        console.log('Adding event listener to exercisesLink');  // Debugging
         exercisesLink.addEventListener('click', handleLinkClick);
     }
 });
