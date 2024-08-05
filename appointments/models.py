@@ -40,7 +40,7 @@ class Appointment(models.Model):
             raise ValidationError("Please check your appointment date:")
         
         if not (min_date <= self.meeting_date <= max_date):
-            raise ValidationError(f"Meeting date must be between {min_date} and {max_date}.")
+            raise ValidationError(f"your appointment must be between {min_date} and {max_date}.")
 
         # Ensures the meeting time is within the allowed ranges
         if not (MORNING_START_TIME <= self.meeting_time <= MORNING_END_TIME or

@@ -1,146 +1,89 @@
 # Welcome to PP4: Learn English Online! 
 
-For project four I decided to deveop a site for learners of English as a Foreign Language. I am currently working as an English Teacher at a college in Germany and thought an online resource for my students would be ain interesting and fulfilling project to pursue. 
+For project four I decided to deveop a site for learners of English as a Foreign Language. I am currently working as an English Teacher at a college in Germany and thought an online resource for my students would be an interesting and fulfilling project to pursue. 
+
+## Project Overview
+This website is designed to allow Learners of English as a Foreign Language to create an account, make an online appointment with a tutor to discuss anything about the English language, and also practise some skills with our online games and exercises. This Minimum Viable Product (MVP) version has full 'Create - Read - Update - Delete' (CRUD) functionality in that the user can make an appointment, change the date, the time, or both the date and time of their appointment, or cancel the appointment altogether.
+
+It built on the mobile-first principle around a Django framework in which I use Bootstrap elements to style the website and enhance the user experience across different browsers and devices. The front-end and back-end security is provided by the @login_required decorator along with CSRF protection implemented via the {% csrf_token %} template tag. It also has a basic admin interface in which the superuser has an overview of all users and appointments, can add language exercises, and can update or delete users, appointments and exercises as required.  
+
+## Structure
+The most important apps and folders are: 
+
+- english_tutor: the main project app
+- appointments: for booking and managing calls between the users and the tutors
+- env.py: stores environment variables
+- games_and_exercises: stores the online exercises
+- home: the homepage
+- Procfile_ specifies what commands are run when it starts 
+- requirements.txt: lists project dependencies
+- static and staticfiles: CSS, favicon, images, JS
+- templates: base.html, 404.html, login.html, logout.html, signup.html
+- user_accounts: stores user information at registration
 
 ## User Demographic
-This game is aimed at learners of English as a foreign language of all ages. The exercises are set between the A2 and C1 levels; these levels are correspond to levels of language proficiency as defined by the Common European Framework of Reference for Languages (the CEFR). Broadly speaking levels A - C equate to the following:  
+This game is aimed at learners of English as a foreign language of all ages. The exercises are set between the A2 and C1 levels; these levels are correspond to levels of language proficiency as defined by the Common European Framework of Reference for Languages (the CEFR). Broadly speaking, levels A - C equate to the following:  
 - A: basic users
 - B: intermediate users
 - C: proficient users 
 
-Each of these levels is divided into two subgroups to reflect progress in language learning. For the purposes of this project, I have provided exercises for
+Each of these levels is divided into two subgroups to reflect progress in language learning. For the purposes of this project, I have provided exercises for the following groups: 
 - A2
 - B1
 - B2
 - C1
 
-as these are the groups I am most familiar with. A future iteration could easily cover A1 and C2 groups.
+as these are the groups I am most familiar with. A future iteration could easily cover A1 and C2 students.
 
-My students come from around the globe; while the majority are German, I have numerous students from France, Italy, Austria, Syria, Lebanon, Egypt, Algeria, Ghana, Mauritius, China, India, Pakistan, Malaysia, South Korea, Colombia Mexico and so on. After teaching at this college for nearly five years, I have developed a decent grasp of what learners of each language level need, and the exercises I provide on the website will be designed to reflect this. 
+My students come from around the globe; while the majority are German, I have students from France, Italy, Latvia, Ukraine, Russia, Syria, Lebanon, Egypt, Algeria, Ghana, Mauritius, China, India, Pakistan, Malaysia, South Korea, Colombia, Mexico and so on. It is often the case that language learners from a particular groups struggle with different aspects of the English language; German speakers find the difference between the past simple and present perfect difficult, for example, whereas Russian and Arabic speakers need extra practise on when to use the definite and indefinite articles ('the' vs 'a / an' ). Learners of all languages find phrasal verbs and linking words challenging. So after teaching at this college for nearly five years, I have developed a decent grasp of what learners from each language group and level need. The exercises I have designed for this MVP are just the first step, and further iterations will both deepen and expand the offer to reflect this. 
 
 More information about the CEFR can be found here: https://www.coe.int/en/web/common-european-framework-reference-languages/home
 
+# UX and Design
+Following the mobile-first approach of the Code Institute, as well as the educational purpose of the website itself, I have tried to keep the design and layout of this project as simple as possible. 
 
-## Gitpod Reminders
+## Design
+Some basic research showed me that educational or language learning-related websites utilise a mix of whites and blues / greens, e.g. [Grammarly](https://www.grammarly.com/), [the DeepL Translator](https://www.deepl.com/en/translator), and [DuoLingo](https://www.duolingo.com/learn). Related websites like [ChatGPT](https://chatgpt.com/) and [Google Translate](https://translate.google.com/?sl=de&tl=en&op=translate) follow a similar aesthetic, and this [Verpex Blog](https://verpex.com/blog/website-tips/best-color-combinations-for-educational-websites#) was very informative on the subject.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+I therefore settled on a fairly muted mix of whites and blues to minimise distraction from the educational content, and to strike a professional tone with my audience. Duolingo is notably different in that it utilises a range of symbols and stickers to liven up progress, but in order to get my MVP ready for submission by the set deadline, I decided against adapting this much more challenging approach as it would require not only significantly better coding skills, but I suspect extensive market research and analysis of on-site user behaviour!  
 
-`python3 -m http.server`
+## Text vs Images 
+This website has fewer images than might be expected of a modern website. This is however deliberate. As the focus is on language practise, it is difficult to translate this into engaging images as is possible for, e.g. a food or travel site. There are some images, but I have kept them to a minimum to avoid distraction, and they seemed rather superfluous.  
 
-A blue button should appear to click: _Make Public_,
+## Homepage Explainers
+I chose to add some explainers to the homepage for several reasons.  
+- The card explainers: these cards appear at the top of the page and are small enough to give the visitor an 'at-a-glance' survey of the purpose of the website and what we offer. I chose to convey the information with Bootstrap Cards are the headers are concise, can be configured to give more information, and work well on mobile. 
+- The accordion explainers: the feature: the accordion feature is similar to the cards in that it can convey precise information in an extremely concise way, doesn't take up too much room - so is excellent for mobile - and can expand for more information when necessary. 
+- The accordion explainers: why give this information? English is very widely spoken, often to a decent standard, and during my teaching career I have often heard the question "Why must I bother with English, I can do it anyway!" My answer in those cases is to tie the language skills to particular purposes: yes, your English is good, but would you be comfortable leading a team or writing an essay or dissertation in English? What about doing a degree program in English, not just in an English-speaking country, but even in a coutry like Japan? And for everyone with a second or third language, there are always gaps to fill or things to improve. I have included this information to appeal not just to that sense of ambition to get better, but also to provide practical use-cases where better English skills will be a definite, practical benefit.    
 
-Another blue button should appear to click: _Open Browser_.
+Together, the card and accordion explainers should give the user a decent impression of what the site can offer, what they can do on the site and what benefit they will gain from interacting with it. This Bootstrap functions are also excellent for mobile devices, which is why I chose to go with them. 
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Registration page
+The details requested of the user during the account registration is at an absolute minimum. The benefits of this approach are:
+- it is easy for the user, which means it will convert a greater percentage of 'hit-and-run' visitors into actual site users
+- in a post-mvp world, I will enable a 'user portal' where regular users can add personal details, if they wish 
+- security: the less information a website holds the better. Hacking and / data leaks (intentional or not) are an ever-present risk, so I prefer websites which ask for less personal and sensitive information over those which request more than the bare minimum.  
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+# Database overview
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## User Information Model
+This is captured at the user-registration page and stored in the user_accounts app -> model.py
+In the future, this will be the basis for the user account section, where the User will be the ForeignKey around which other information will be arranged. It captures information for username, email and password. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter the. In the future, this will happen in the 'user account' section which is not yet implemented.  
 
-To log into the Heroku toolbelt CLI:
+## Appointments Model
+This is stored in the appointments app -> models.py. The user_profile captured at registration is the ForeignKey as the core of a one-to-many relationship. At this stage, the model also captures meeting date and time, a message provided by the user, and a hidden created_on = models.DateTimeField field.  
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+**Form Validation and Constraints.** I have implemented the following validations and constraints on the appointments model by implementing the Django 'clean' method.  
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+Variables explanation: 
+- min_date: this is designed to ensure that appointments can only be made in the future, to avoid unintentional / intentional appointments in the past.
+- max_date: in order to keep the overview of the appointments, users can only book up to 4 weeks in advance. This variable is easily changed.
+- meeting_duration: appointments are advertised as 30 minutes, but I have set up a 40 minute block to give the tutor a buffer between meetings. This variable also helps avoid meeting overlap (see below) and can be easily changed.  
+- meeting_start and meeting_end: based on the meeting_duration, this tracks what block of time should be marked as 'unavailable' for when other users attempt to make appointments.
+- overlapping_appointments: when a user books an appointment, this is run in order to identify if another meeting is in place during this booking request.  
 
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+In each of the above cases, error messages are shown to the user to alert them to the problem:
+- Please check your appointment date: your appointment must be between {min_date} and {max_date}
+- Please choose a different time. Our appointments run between {MORNING_START_TIME.strftime('%H:%M')} and {MORNING_END_TIME.strftime('%H:%M')}
+- "This appointment slot is unavailable. Please choose a different time."
