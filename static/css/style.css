@@ -44,7 +44,7 @@ header {
 }
 
 /* Error pages: 404 and 500 */
-error-img {
+.error-img {
   max-width: 100%;
   height: auto;
   align-items: center;
@@ -69,6 +69,19 @@ html, body {
 
 main {
     flex: 1 0 auto;
+}
+
+/*Account status: login, signout, register */
+.account-img {
+  max-width: 75%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.signout-wrapper {
+  width: 75%;
 }
 
 /*Logged in status message: welcome NAME or you are logged out*/

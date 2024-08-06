@@ -1,6 +1,8 @@
 
 {% extends "base.html" %}
 
+{% load static %}
+
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -26,9 +28,20 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
+                <div class="signin-wrapper">
                 <button class="btn btn-signup right" type="submit" id="submit">{% trans "Sign In" %}</button>
+                </div>
+                <br> 
+                <div class="signin-wrapper">
+                    <img class="img-fluid w-100 account-img" src="{% static 'images/students-female-outside.webp' %}" alt="Two students studying outside"/>
+                </div>
             </form>
         </div>
     </div>
 </div>
 {% endblock %}
+
+
+<div class="signout-wrapper">
+    <button class="btn btn-warning right w-100" type="submit">{% trans 'Sign Out' %}</button>
+</div>
