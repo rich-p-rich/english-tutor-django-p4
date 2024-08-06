@@ -43,8 +43,12 @@ header {
     margin-bottom: 0;
 }
 
-.error-img {
-  max-width: 75%;
+/* Error pages: 404 and 500 */
+error-img {
+  max-width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Main */

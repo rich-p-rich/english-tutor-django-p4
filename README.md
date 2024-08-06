@@ -74,6 +74,9 @@ I have tried to build upon functionalities that we covered in Project 1, such as
 
 Note: all key functionalities are easily accessible from the navbar and / or pop-up modals.  
 
+## DRY Templates 
+The header, navbar and footer are all stored in templates/base.html and all other templates are designed to allow this template inheritance; this is one feature of Django I particularly appreciate as it conforms to the 'Do Not Repeat Yourself' (DRY) principle. My base.html is therefore visible on all pages, including the custom 404 and 500 pages.  
+
 ## Homepage: cards and accordions  
 I chose to add some explainers to the homepage for several reasons.  
 - The card explainers: these cards appear at the top of the page and are small enough to give the visitor an 'at-a-glance' survey of the purpose of the website and what we offer. I chose Bootstrap Cards because the headers are concise, can be expanded to give more information, and work well on mobile. 
