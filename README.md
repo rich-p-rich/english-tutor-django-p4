@@ -3,12 +3,19 @@
 For project four I have developed a site for learners of English as a Foreign Language. I am currently working at a university in Germany as an English Teacher, and thought an online resource for my students would be an interesting and fulfilling project to pursue. 
 
 ## Project Overview
-This website is designed to allow Learners of English as a Foreign Language to create an account, make an online appointment with a tutor to discuss anything about the English language, and also practise some skills with our online games and exercises. This Minimum Viable Product (MVP) version has full 'Create - Read - Update - Delete' (CRUD) functionality as the user can:
+This website is designed to allow Learners of English as a Foreign Language to create an account, make an online appointment with a tutor to discuss anything about the English language, and also practise some skills with our online games and exercises. This Minimum Viable Product (MVP) version has full 'Create - Read - Update - Delete' (CRUD) functionality as the signed-in user can:
 - make an appointment
 - change the date, the time, or both the date and time of their appointment
 - cancel the appointment altogether.
 
-It is built on the mobile-first principle around a Django framework in which I use Bootstrap elements to style the website and enhance the user experience across different browsers and devices. It is supported by a PostgreSQL database issued by the Code Institute. The front-end and back-end security is provided by the @login_required decorator along with CSRF protection implemented via the {% csrf_token %} template tag. It also has a basic admin interface in which the superuser can do the following: 
+**CRUD Options**
+![navbar-options](read-me_images/navbar_book-manage-appointments.PNG)
+
+![book-appointments](read-me_images/book-appointment.PNG)
+
+![edit-cancel-appointments](read-me_images/change-cancel_appointments.PNG)
+
+It is built on the mobile-first principle around a Django framework in which I use Bootstrap elements to style the website and enhance the user experience across different browsers and devices. It is supported by a PostgreSQL database issued by the Code Institute. It is secured by a secret key which I generated randomly using https://randomkeygen.com/; the key is set in the env.py which is added to .gitignore, as shown on the 'I think therefore I blog' walk-through project. Additionally, the front-end and back-end security is provided by the @login_required decorator along with CSRF protection implemented via the {% csrf_token %} template tag. It also has a basic admin interface in which the superuser can do the following: 
 - view all users and appointments
 - add language exercises
 - update or delete users, appointments and exercises as required.  
@@ -27,14 +34,11 @@ I decided to implement the CRUD functionality around the appointment function to
 
  
 ## Structure
-The most important apps and folders are: 
+The most important apps and folders which I customised to my project are: 
 - english_tutor: the main project app
 - appointments: for booking and managing calls between the users and the tutors
-- env.py: stores environment variables
 - games_and_exercises: stores the online exercises
 - home: the homepage
-- Procfile: specifies what commands are run when it starts 
-- requirements.txt: lists project dependencies
 - static and staticfiles: CSS, favicon, images, JS
 - templates: base.html, 404.html, login.html, logout.html, signup.html
 - user_accounts: stores user information at registration
@@ -65,8 +69,23 @@ Some basic research showed me that educational or language learning-related webs
 
 I therefore settled on a fairly muted mix of whites and blues to minimise distraction from the educational content, and to strike a professional tone with my audience. Duolingo is notably different in that it utilises a range of symbols and stickers to liven up progress, but in order to get my MVP ready for submission by the set deadline, I decided against adapting this much more challenging approach as it would require not only significantly better coding skills, but I suspect extensive market research and analysis of on-site user behaviour!  
 
+**Brand Image**
+The base colours are as follows:
+- The header image: is a picture of the sky. I originally planned to use a colour like Viennese Blue (#407aac) but found this picture of the sky and decided the colour gradient provided a bit more visual interest; additionally, I found there to be a nice link between travel and language learning which is inspired by the sky.  
+- The background colour of the website body is white (RGB 255, 255, 255).
+- The background colour for containers is white-smoke (RGB 245, 245, 245). 
+
+*Viennese Blue:*
+![Viennese Blue](read-me_images/viennese-blue.PNG)
+
+Taken from: https://icolorpalette.com/color/407aac
+
+*The image I used for the header:*
+![Sky picture](read-me_images/header-sky.PNG)
+
+
 ## Text vs Images 
-This website has fewer images than might be expected of a modern website. This is however deliberate. As the focus is on language practice, it is difficult to translate this into engaging images as is possible for, e.g. a food or travel site. There are some images, but I have kept them to a minimum to avoid distraction, and I was wanted to keep the design lean.   
+This website has fewer images than might be expected of a modern website. This is however deliberate. As the focus is on language practice, it is difficult to translate this into engaging images as is possible for, e.g. a food or travel site. There are some images, but I have kept them to a minimum to avoid distraction, and I was concerned that superfluous images would detract from my goal to keep the design as lean as possible.   
 
 # Site overview
 
@@ -74,7 +93,7 @@ I have tried to build upon functionalities that we covered in Project 1, such as
 
 Note: all key functionalities are easily accessible from the navbar and / or pop-up modals.  
 
-## DRY Templates 
+## Django DRY Templates 
 The header, navbar and footer are all stored in templates/base.html and all other templates are designed to allow this template inheritance; this is one feature of Django I particularly appreciate as it conforms to the 'Do Not Repeat Yourself' (DRY) principle. My base.html is therefore visible on all pages, including the custom 404 and 500 pages.  
 
 ## Homepage: cards and accordions  
@@ -86,22 +105,33 @@ I chose to add some explainers to the homepage for several reasons.
 I view the relationship between the two sections as the cards are the top-fold of the website - what people see first - and the accordion elements are the bottom-fold, providing more information for those who are interested.  
 
 ## Homepage: modals
-As the CRUD functionality can only be accessed by registered and sign-ed in users, I have added Modals to the homepage to encourage users to either register or sign-up at relevant calls-to-action. Again, these are excellent for mobile devices.  
+As the CRUD functionality can only be accessed by registered and signed in users, I have added Modals to the two of the cards on the homepage to encourage users to either register or sign-up at relevant calls-to-action. Again, these are excellent for mobile devices.  
+
+![Sky picture](read-me_images/sign-in-modal.PNG)
 
 ## Registration page
 You can register with this site with an absolute minimum of information. The benefits of this approach are:
 - it is easy for the user, which means it will convert a greater percentage of 'hit-and-run' visitors into actual site users
 - in a post-mvp world, I will enable a 'user account' section where users can add personal details, such as names, if they wish 
 - security: the less information a website holds the better. Hacking and / data leaks (intentional or not) are an ever-present risk, so I prefer websites which ask for less personal and sensitive information over those which request more than the bare minimum.  
-- I implemented the 'view password' functionality here because it is a feature that I personally like, particularly at registration, so I was happy to implement it here.  
+- I implemented the 'view password' functionality here because it is a feature that I personally like, particularly at registration where typos can slow things down, so I was happy to implement it here.  
+
+*Catching a typo with toggle password:*
+![toggle password](read-me_images/toggle-password.PNG)
+
+**Next steps:**
+- Implement email confirmation link
 
 ## Sign In and Sign Out
 - The Sign In page carries a link to registration in case the user is not registered
 - The Sign Out function is a two-step process: first navbar link then an 'are you sure?' page to confirm the action.
 
+**Next steps:**
+- Implement function to change password via email link
+
 ## Make an appointment
 - The user must be signed in
-- They chooses first the date, then time and can add an optional message 
+- They choose first the date, then time and can add an optional message 
 - So long as the appointment is successfully made, the user is guided to a confirmation page
 - Validation messages: see the section on the Appointments Model for a run-through of the form validators
 
@@ -117,24 +147,25 @@ You can register with this site with an absolute minimum of information. The ben
     - a new date
     - a new time
     - a new date and time 
-  and draws on the same model as the 'make an appointment' function; it therefore has the same form validation.
+
+This draws on the same model as the 'make an appointment' function; it therefore has the same form validation.
 
 - Cancelling the appointment triggers another Modal to confirm with the user that this is what they really want to do.  
 
 Both actions lead to confirmation screens.  
   
 **Next steps:**
-- Filter the appointments by date
-- Incorporate them into a user account section 
+- Filter the display of appointments by date (choose between ascending and descending)
+- Incorporate the appointments into a user account section 
 - Allow the users to view their own appointment history 
 
 ## Games and Exercises 
 - The different sub-navbar points lead to excercises for the different language levels 
 - Multiple secions can be made for each language level 
-- People doing the exercists get right / wrong feedback when they submit their answers
+- People doing the exercises get right / wrong feedback when they submit their answers
 
 **Next steps:**
-- Expand the offering beyond multiple choice to include free-text fields
+- Expand the offering beyond multiple choice to include free-text fields and other different types of exercises
 - Allow a 'hint' function for some exercises
 - Keep a history of the user's progress in their 'user account'
 - More exercises!  
@@ -142,32 +173,62 @@ Both actions lead to confirmation screens.
 
 # Database overview
 
+My database is supported by a PostgreSQL database issued by the Code Institute.
+
 ## User Information Model
-This is captured at the user-registration page and stored in the user_accounts app -> model.py
-In the future, this will be the basis for the user account section, where the User will be the ForeignKey around which other information will be arranged. It captures information for username, email and password. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter them. In the future, this will happen in the 'user account' section which is not yet implemented.  
+This is captured at the user-registration page and stored in the user_accounts app/model.py.
+In the future, this will be the basis for the user account section, where the User will be the ForeignKey around which other information will be arranged. 
+
+At present, it allows for the capture of a username, email and password on-screen when the user registers. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter them. In the future, this will happen in the 'user account' section which is not yet implemented.  
+
+![UserProfile-Model](read-me_images/user-profile_model_code.PNG)
+
+**Next Steps**
+- Implement a user account for signed-in users
+- Define 'user_profile' as the FK for this section
+- Allow users to change and update names (but not 'username'), email, password
+- Allow users to view appointments and progress with exercises 
 
 ## Appointments Model
-This is stored in the appointments app -> models.py. The user_profile captured at registration is the ForeignKey as the core of a one-to-many relationship. At this stage, the model also captures meeting date and time, a message provided by the user, and a hidden created_on = models.DateTimeField field.  
+This is stored in the appointments app/models.py. The user_profile captured at registration is the ForeignKey as the core of a one-to-many relationship. At the point the user makes an appointment, the user is already signed-in so the information provided by the user_profile FK is present; by booking an appointment, the model captures meeting date and time, an option message provided by the user, and a hidden created_on = models.DateTimeField field; this is all then linked to the user_profile.
 
-**Form Validation and Constraints.** I have implemented the following validations and constraints on the appointments model by implementing the Django 'clean' method.  
+![Appointments-Model](read-me_images/appointments_model_code.PNG)
+
+**Diagram of the relationship**
+
+![ForeignKey - Appointments](read-me_images/appointments-model.PNG)
+
+**Explanation of the relationship.**
+The UserProfile captured at registration provides the ForeignKey for the Appointment model; it links the meeting date, time and any message to the user currently signed-in to the website.  
+
+It also allows the ‘manage appointment’ feature to function, populating the field with any appointments already made (by clicking on 'manage appointments), and linking any changes to the appointment (time, date, cancellation) to that signed-in user.  
+
+
+**Form Validation and Constraints.** I have added the following validations and constraints on the appointments model by implementing the Django 'clean' method.  
+
+Note: this is set up with the idea that just one tutor is available. 
 
 Variables explanation: 
 - min_date: this is designed to ensure that appointments can only be made in the future, to avoid unintentional / intentional appointments in the past.
 - max_date: in order to keep the overview of the appointments, users can only book up to 4 weeks in advance. This variable is easily changed.
 - meeting_duration: appointments are advertised as 30 minutes, but I have set up a 40 minute block in the back-end to give the tutor a buffer between meetings. This variable also helps avoid meeting overlap (see below) and can be easily changed.  
 - meeting_start and meeting_end: based on the meeting_duration, this tracks what block of time should be marked as 'unavailable' for when other users attempt to make appointments.
-- overlapping_appointments: when a user books an appointment, this is run in order to identify if another meeting is in place during this booking request.  
+- overlapping_appointments: this draws on the meeting start/end so when a user books an appointment, this is run in order to identify if another meeting is in place during this booking request. 
 
+Error messages: 
 In each of the above cases, error messages are shown to the user to alert them to the problem:
 - Please check your appointment date: your appointment must be between {min_date} and {max_date}
 - Please choose a different time. Our appointments run between {MORNING_START_TIME.strftime('%H:%M')} and {MORNING_END_TIME.strftime('%H:%M')}
 - "This appointment slot is unavailable. Please choose a different time."
 
-
+**Next steps**
+- Allow for extra tutors to be added to the schedule 
+- Implement a trigger for email confirmation for any bookings / changes / cancellations.
+- Implement a filter so users can list their appointments sequentially by date 
 
 # Planning and Agile Methodologies
 
-I followed the Agile methodology as outlined in the 00000 walk-though according to MoSCoW prioritization 
+I followed the Agile methodology as outlined in the "I think therefore I blog" walk-though according to MoSCoW prioritization 
 
 Here is the link to my Kanban board: https://github.com/users/rich-p-rich/projects/3/views/1  
 
@@ -175,7 +236,7 @@ The nummeration of the user stories: I did not add the user stories to the Kanba
 
 Note: the # of each story corresponds to their Number on the Kanban board.  
 
-**Must have** 
+**Must have: all implemented** 
 
 - #1: User story: view the homepage
 - #3: User story: account registration
@@ -186,8 +247,9 @@ Note: the # of each story corresponds to their Number on the Kanban board.
 - #12: User story: enable log-in and sign-out functionality
 - #13: Website owner story: restrict content to signed-in users
 - #15: User Story: view all appointments
+- #16: Website owner story: add modal to user_account app
 
-**Should have**
+**Should have: all implemented**
 - #7: Uer story: choose between exercises
 - #10: Website owner story: retrictions on appointment time and date
 - #11: Website owner story: ensure appointment clashes are not possible
@@ -195,9 +257,11 @@ Note: the # of each story corresponds to their Number on the Kanban board.
 - #19: User story: custom 404 page
 - #23: User story: feedback on answers in exercises
 
-**Could have (not yet implemented)**
-- #2: User story: see sample content.
-- #8: User story: participate in forum
+**Could have: implementation status varies**
+- #14: User story: toggle password at registration: implemented
+- #2: User story: see sample content: not implemented
+- #8: User story: participate in forum: not implemented
+- #24: User story: custom 500 page: partially implemented
 
 In addition to the CodeInstitute's overview of the Agile methodology, I found the following Atlassian resource very helpful: 
 https://community.atlassian.com/t5/App-Central/Understanding-the-MoSCoW-prioritization-How-to-implement-it-into/ba-p/2463999
@@ -209,6 +273,6 @@ Originally, I wanted anyone - including unregistered users - to be able to book 
 
 In practice this worked fine, but it was an insecure approach as it was then possible for anyone with the email and surname combination to search and change appointments, which was obviously undesirable. 
 
-I therefore changed the approach and required anyone who wants to make / change / cancel and appointment to have registered an account and be signed in: this is why I added a model to the user_account app, as this stores the user_profle, and it is a much more secure approach and works fine. 
+I therefore changed the approach and required anyone who wants to make / change / cancel and appointment to have registered an account and be signed in: this is why I added a model to the user_account app, as this stores the user_profle, and it is a much more secure approach. 
 
 My take-aways from that change in approach were (i) I learned how to implement that search functionality and, more importantly, (ii) pay more attention to the big picture during the early development phase.  

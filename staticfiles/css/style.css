@@ -43,8 +43,12 @@ header {
     margin-bottom: 0;
 }
 
+/* Error pages: 404 and 500 */
 .error-img {
-  max-width: 75%;
+  max-width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Main */
@@ -65,6 +69,25 @@ html, body {
 
 main {
     flex: 1 0 auto;
+}
+
+/*Account status: login, signout, register */
+.account-img {
+  max-width: 75%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.signout-wrapper {
+  width: 75%;
+}
+
+.register-wrapper {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /*Logged in status message: welcome NAME or you are logged out*/
@@ -134,18 +157,10 @@ main {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    width: 100%;
+    display: block; /* Ensure block level to take full width */
+    width: 100%; /* Ensure the button takes full width of the register-wrapper */
   }
-  .btn-signup:hover {
-    background-color: #5b6eae;
-  }
-  .link {
-    color: #7289DA;
-    text-decoration: none;
-  }
-  .link:hover {
-    text-decoration: underline;
-  }
+
   .form-checkbox {
     display: flex;
     align-items: center;
