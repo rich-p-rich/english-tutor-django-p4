@@ -1,3 +1,4 @@
+
 // Register page: the 'show password' toggle functionality
 function togglePassword(fieldId) {
     var x = document.getElementById(fieldId);
@@ -11,45 +12,67 @@ function togglePassword(fieldId) {
 // Add custom validation messages to Registration and Login
 // registration form: templates/account/signup-html
 // login form: templates/account/login.html
-document.addEventListener('DOMContentLoaded', function () {
+/* document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded and parsed");
+  
     // Select all forms with the class 'needs-validation'
     const forms = document.querySelectorAll('form.needs-validation');
-
+  
     forms.forEach((form) => {
-        form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            // Apply custom validation feedback to all fields except for submit button
-            Array.from(form.elements).forEach((input) => {
-                if (input.type !== "submit") {
-                    let feedback = input.closest('.form-group')?.querySelector('.invalid-feedback');
-
-                    if (feedback) {
-                        if (input.checkValidity() === false) {
-                            if (input.validity.valueMissing) {
-                                feedback.textContent = `The ${input.name} field is required.`;
-                            } else if (input.validity.typeMismatch) {
-                                feedback.textContent = `Please enter a valid ${input.type}.`;
-                            } else if (input.validity.tooShort) {
-                                feedback.textContent = `The ${input.name} needs to be at least ${input.minLength} characters; you entered ${input.value.length}.`;
+      console.log("Form found:", form);
+  
+      form.addEventListener('submit', function (event) {
+        console.log("Form submit event triggered");
+  
+        // Check form validity
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+  
+          // Apply custom validation feedback to all fields except for the submit button
+          forms.forEach((form) => {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+        
+                // Apply custom validation feedback to all fields except for submit button
+                Array.from(form.elements).forEach((input) => {
+                    if (input.type !== "submit") {
+                        // Replace optional chaining with a more compatible approach
+                        let formGroup = input.closest('.form-group');
+                        let feedback = formGroup ? formGroup.querySelector('.invalid-feedback') : null;
+        
+                        if (feedback) {
+                            if (input.checkValidity() === false) {
+                                if (input.validity.valueMissing) {
+                                    feedback.textContent = `The ${input.name} field is required.`;
+                                } else if (input.validity.typeMismatch) {
+                                    feedback.textContent = `Please enter a valid ${input.type}.`;
+                                } else if (input.validity.tooShort) {
+                                    feedback.textContent = `The ${input.name} needs to be at least ${input.minLength} characters; you entered ${input.value.length}.`;
+                                }
+        
+                                input.classList.add('is-invalid');
+                            } else {
+                                input.classList.remove('is-invalid');
+                                feedback.textContent = '';
                             }
-
-                            input.classList.add('is-invalid');
-                        } else {
-                            input.classList.remove('is-invalid');
-                            feedback.textContent = '';
                         }
                     }
-                }
+                });
             });
-
-            form.classList.add('was-validated');
-        }, false);
+        });
+  
+          form.classList.add('was-validated');
+        } else {
+          // Form is valid, allow submission
+          form.submit();
+        }
+      }, false);
     });
-});
+  }); */
 
 
 // Homepage: signin modal from the explanation cards
@@ -89,8 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bookCallLink.addEventListener('click', handleLinkClick);
     }
 
-    if (tryExercises) {
-        tryExercises.addEventListener('click', handleLinkClick);
+    if (exercisesLink) {
+        exercisesLink.addEventListener('click', handleLinkClick);
     }
 });
 
