@@ -30,12 +30,12 @@ I decided to implement the CRUD functionality around the appointment function to
 - HTML
 - CSS
 - Javascript
-- PostgreSQL supported by the CodeInstitute (https://dbs.ci-dbs.net/manage/D6gcyh37KsaEjR3u/)
+- PostgreSQL supported by the CodeInstitute (https://dbs.ci-dbs.net/)
 
  
 ## Structure
 The most important apps and folders which I customised to my project are: 
-- english_tutor: the main project app
+- english_tutor: the project app
 - appointments: for booking and managing calls between the users and the tutors
 - games_and_exercises: stores the online exercises
 - home: the homepage
@@ -102,7 +102,7 @@ I chose to add some explainers to the homepage for several reasons.
 - The accordion explainers - why this feature? It is similar to the cards in that it can convey precise information in an extremely concise way, doesn't take up too much room - so is excellent for mobile - and can expand for more information when necessary. 
 - The accordion explainers - why even give this information? English is very widely spoken, often to a decent standard, and during my teaching career I have often heard the question "Why must I bother with English, I can do it anyway!" My answer in those cases is to tie the language skills to particular purposes: yes, your English is good, but would you be comfortable leading a team or writing an essay or dissertation in English? What about doing a degree program in English, not just in an English-speaking country, but even in a coutry like Japan? And for everyone with a second or third language, there are always gaps to fill or things to improve. I have included this information to appeal not just to that sense of ambition to get better, but also to provide practical use-cases where better English skills will be a definite, practical benefit.    
 
-I view the relationship between the two sections as the cards are the top-fold of the website - what people see first - and the accordion elements are the bottom-fold, providing more information for those who are interested.  
+I view the relationship between the two sections on the homepage like the front page of a newspaper: the cards are the top-fold of the website - what people see first - and the accordion elements are the bottom-fold, providing more information for those who are interested.  
 
 ## Homepage: modals
 As the CRUD functionality can only be accessed by registered and signed in users, I have added Modals to the two of the cards on the homepage to encourage users to either register or sign-up at relevant calls-to-action. Again, these are excellent for mobile devices.  
@@ -228,7 +228,7 @@ In each of the above cases, error messages are shown to the user to alert them t
 
 # Planning and Agile Methodologies
 
-I followed the Agile methodology as outlined in the "I think therefore I blog" walk-though according to MoSCoW prioritization 
+I followed the Agile methodology as outlined in the "I think therefore I blog" walk-though according to MoSCoW prioritization. I have completed 17 user stories, with the rest divided between 'saved for later' (i.e. the post-MVP version) and 'did not finish'.  
 
 Here is the link to my Kanban board: https://github.com/users/rich-p-rich/projects/3/views/1  
 
@@ -266,7 +266,9 @@ Note: the # of each story corresponds to their Number on the Kanban board.
 In addition to the CodeInstitute's overview of the Agile methodology, I found the following Atlassian resource very helpful: 
 https://community.atlassian.com/t5/App-Central/Understanding-the-MoSCoW-prioritization-How-to-implement-it-into/ba-p/2463999
 
-## Changes to the development of the appointments app
+# Challenges, changes and bugs 
+
+## The development of the appointments app
 My plans regarding the 'make an appointment' functionality changed significantly during the course of development. 
 
 Originally, I wanted anyone - including unregistered users - to be able to book an appointment without setting up an account as I thought this would help covert a higher number of visitors to customers, and this is how I implemented it. In order to implement the rest of the CRUD functionality, the 'manage appointments' section was called 'search and edit appointments' so that the user could search for their appointments via email and surname. I took the idea from airlines that allow you to view your flight via surname and booking number without actually logging into the account.
@@ -276,3 +278,95 @@ In practice this worked fine, but it was an insecure approach as it was then pos
 I therefore changed the approach and required anyone who wants to make / change / cancel and appointment to have registered an account and be signed in: this is why I added a model to the user_account app, as this stores the user_profle, and it is a much more secure approach. 
 
 My take-aways from that change in approach were (i) I learned how to implement that search functionality and, more importantly, (ii) pay more attention to the big picture during the early development phase.  
+
+## Changes to the Games and Exercises App
+
+I went through several different iterations of the Games and Exercises App. An initial version was implemented a drop-down menu, but as I added more exercises it became more unwieldy and hard to manage.
+
+![All exercises drop-down](read-me_images/exercises-all-levels.PNG)
+
+I then switched to the admin section where the superuser can add a section and link the questions to the section.
+
+![Exercises admin](read-me_images/games_exercises-admin.PNG)
+
+![Add section](read-me_images/games_admin-section.PNG)
+
+![Add question](read-me_images/games_admin-questions.PNG)
+
+**Next Steps**
+- I have not optimised the 'all exercises' link. It currently leads to a blank page and I could not find a reliable way to add the sections to this page: https://8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net/exercises/sections/All/  
+
+In order to get the MVP ready, however, I decided this was more of a 'Could' than 'Should' have task, so have not taken the time to work on it. However, for a post-MVP website, this is a 'Should have' task. 
+
+Although it is possible to link questions to sections, it needs a better admin panel where you can:
+- filter first by language level -> then see all sections
+This would be the next step for the admin section and would enhance the scalability of the site. 
+- I also need a better solution for the 
+
+## Other bugs and challenges
+In addition to the challenges described above, I encountered many bugs and challenges during the development of this app. In particular, the Games and Exercises was difficult to get right. I found it a challenge to work out the logic to correctly display the correct / incorrect answers when the user submitted their solutions. The calculation on the backend was correct, but the display was wrong. This took some time to solve.  
+
+# Deployment
+
+Here follows an overview of the steps I took to deploy the project.
+
+## GitHub and GitPod
+- Find and use the CodeInstitute's 'Gitpod' template: https://github.com/Code-Institute-Org/ci-full-template
+- Use this template -> create new repository
+- Ensure visibility is set to public
+- Create repository 
+- Open in GitPod
+- Run initial commit to ensure the GitPod repository is correctly linked to GitHub
+
+## GitHub User Stories
+- I chose to create my user stories on GitHub
+- In your project: click 'Board template' -> name it 
+- Go to the ellipses in the top-right and  choose 'Workflows' 
+- Click 'item added to project' -> edit -> deslect 'pull request'
+- Define as 'Status: ToDo' 
+- Save
+- Turn on workflow 
+- Create your user stories  
+
+## Django
+- Install Django with the pip3 install command
+- Create a new app
+- Update settings.py Installed_Apps with the app name
+- Import HttpReponse in views.py
+- Import the app into urls.py
+- Run the server at port 8000
+- Copy the hostname between square brackets and add it to the 'Allowed_Hosts' section of settings.py
+- Add requirements.txt file with pip3 freeze local > requirements.txt
+- Create the project with django-admin startproject <project name>
+- Create the env.py file, add to .gitignore, commit changes to check that env.py has been ignored
+- If successful, create a secret key and add to env.py
+
+## Database
+Sign-up to a database provider and get your database link
+- I chose to go with the CodeInstitute for this project: https://dbs.ci-dbs.net/
+- Add the database URL to env.py
+
+## Heroku
+- First in your GitPod repo, install gunicorn and add to requirements
+- Then add the Procfile
+- Set DEBUG to False 
+- add '.herokuapp.com' to allowed_hosts in your settings file 
+- Create a new app on by going to the Heroku homepage -> 'new' -> 'create new app'.
+- Name it accordingly: I chose to give it the same name as my GitPod repository for clarity  
+- Go to Config Vars: add the secret key, port 8000  and database_url
+- Deploy app  
+
+## Other technologies used
+- Am I responsive for the device image at the top of the ReadMe: [Am I Responsive? (ui.dev](https://ui.dev/amiresponsive)
+- Google Fonts: https://fonts.google.com/: Roboto and Libre Franklin
+- For generating the Favicon: https://favicon.io/
+- To generate a random secret key: https://randomkeygen.com/
+- Pexels for images: https://www.pexels.com/
+- I HEART IMG for resizing images: https://www.iloveimg.com/resize-image
+- CloudConvert for converting images to webp files: https://cloudconvert.com/jpg-to-webp
+
+
+
+
+
+
