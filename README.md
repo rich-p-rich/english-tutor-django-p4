@@ -357,7 +357,7 @@ Sign-up to a database provider and get your database link
 - I chose to go with the CodeInstitute for this project: https://dbs.ci-dbs.net/
 - Add the database URL to env.py
 
-## Heroku
+## Heroku: set up
 - First in your GitPod repo, install gunicorn and add to requirements
 - Then add the Procfile
 - Set DEBUG to False 
@@ -365,6 +365,10 @@ Sign-up to a database provider and get your database link
 - Create a new app on by going to the Heroku homepage -> 'new' -> 'create new app'.
 - Name it accordingly: I chose to give it the same name as my GitPod repository for clarity  
 - Go to Config Vars: add the secret key, port 8000  and database_url
+
+## Heroku: deploy
+- Enure your GitPushes are up-to-date
+- Enable automatic deloyment from GitHub
 - Deploy app  
 
 ## Other technologies used

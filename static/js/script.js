@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bookCallLink.addEventListener('click', handleLinkClick);
     }
 
-    if (exercisesLink) {
-        exercisesLink.addEventListener('click', handleLinkClick);
+    if (tryExercises) {
+        tryExercises.addEventListener('click', handleLinkClick);
     }
 });
 

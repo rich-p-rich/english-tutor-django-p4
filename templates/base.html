@@ -12,7 +12,7 @@
 
 <head>
   <title>{% block title %}English Tuition Online | Boost your English Language Skills{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -21,7 +21,7 @@
   <!--Fontawesome-->
   <script src="https://kit.fontawesome.com/7a1565e963.js" crossorigin="anonymous"></script>
   <!--Custom CSS-->
-  <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css"/>
 
   <!--Favicon-->
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -87,7 +87,7 @@
   </nav>
 
   <!-- Message to confirm login status -->
-  <main class="flex-fill main-bg">
+  <div class="flex-fill main-bg">
     <div id="login-status">
       {% if user.is_authenticated %}
       <p class="text-end m-3">Welcome {{ user.username }}</p>
@@ -95,13 +95,12 @@
       <p class="text-end m-3">You are not logged in</p>
     </div>
     {% endif %}
+  </div>
 
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
-
-  </main>
-
+    
   <!-- Footer -->
   <footer>
     <ul id="social-networks">
