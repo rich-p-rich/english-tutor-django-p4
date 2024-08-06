@@ -9,6 +9,7 @@ This website is designed to allow Learners of English as a Foreign Language to c
 - cancel the appointment altogether.
 
 **CRUD Options**
+
 ![navbar-options](read-me_images/navbar_book-manage-appointments.PNG)
 
 ![book-appointments](read-me_images/book-appointment.PNG)
@@ -26,7 +27,7 @@ I decided to implement the CRUD functionality around the appointment function to
 ## Key Technology
 - Django Web Framework
 - Python
-- Bootstrap front-end framework
+- Bootstrap front-end framework, with Bootstrap CSS and JS
 - HTML
 - CSS
 - Javascript
@@ -76,11 +77,13 @@ The base colours are as follows:
 - The background colour for containers is white-smoke (RGB 245, 245, 245). 
 
 *Viennese Blue:*
+
 ![Viennese Blue](read-me_images/viennese-blue.PNG)
 
 Taken from: https://icolorpalette.com/color/407aac
 
 *The image I used for the header:*
+
 ![Sky picture](read-me_images/header-sky.PNG)
 
 
@@ -89,7 +92,11 @@ This website has fewer images than might be expected of a modern website. This i
 
 # Site overview
 
-I have tried to build upon functionalities that we covered in Project 1, such as responsive design, using a hamburger menu for the mobile navbar, and so on. What follows are features that I have not coverd before. 
+I have tried to build upon functionalities that we covered in Project 1, such as responsive design, using a hamburger menu for the mobile navbar, and so on. 
+
+What follows are:
+- features that I have not implemented before. 
+- a short overview for each section of my next steps, i.e. how I would develop this after the MVP. 
 
 Note: all key functionalities are easily accessible from the navbar and / or pop-up modals.  
 
@@ -98,13 +105,16 @@ The header, navbar and footer are all stored in templates/base.html and all othe
 
 ## Homepage: cards and accordions  
 I chose to add some explainers to the homepage for several reasons.  
+
 - The card explainers: these cards appear at the top of the page and are small enough to give the visitor an 'at-a-glance' survey of the purpose of the website and what we offer. I chose Bootstrap Cards because the headers are concise, can be expanded to give more information, and work well on mobile. 
+
 - The accordion explainers - why this feature? It is similar to the cards in that it can convey precise information in an extremely concise way, doesn't take up too much room - so is excellent for mobile - and can expand for more information when necessary. 
+
 - The accordion explainers - why even give this information? English is very widely spoken, often to a decent standard, and during my teaching career I have often heard the question "Why must I bother with English, I can do it anyway!" My answer in those cases is to tie the language skills to particular purposes: yes, your English is good, but would you be comfortable leading a team or writing an essay or dissertation in English? What about doing a degree program in English, not just in an English-speaking country, but even in a coutry like Japan? And for everyone with a second or third language, there are always gaps to fill or things to improve. I have included this information to appeal not just to that sense of ambition to get better, but also to provide practical use-cases where better English skills will be a definite, practical benefit.    
 
 I view the relationship between the two sections on the homepage like the front page of a newspaper: the cards are the top-fold of the website - what people see first - and the accordion elements are the bottom-fold, providing more information for those who are interested.  
 
-## Homepage: modals
+## Homepage: Modals
 As the CRUD functionality can only be accessed by registered and signed in users, I have added Modals to the two of the cards on the homepage to encourage users to either register or sign-up at relevant calls-to-action. Again, these are excellent for mobile devices.  
 
 ![Sky picture](read-me_images/sign-in-modal.PNG)
@@ -117,6 +127,7 @@ You can register with this site with an absolute minimum of information. The ben
 - I implemented the 'view password' functionality here because it is a feature that I personally like, particularly at registration where typos can slow things down, so I was happy to implement it here.  
 
 *Catching a typo with toggle password:*
+
 ![toggle password](read-me_images/toggle-password.PNG)
 
 **Next steps:**
@@ -173,13 +184,13 @@ Both actions lead to confirmation screens.
 
 # Database overview
 
-My database is supported by a PostgreSQL database issued by the Code Institute.
+My database is supported by a PostgreSQL database issued by the Code Institute and is built around two models.  
 
 ## User Information Model
 This is captured at the user-registration page and stored in the user_accounts app/model.py.
 In the future, this will be the basis for the user account section, where the User will be the ForeignKey around which other information will be arranged. 
 
-At present, it allows for the capture of a username, email and password on-screen when the user registers. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter them. In the future, this will happen in the 'user account' section which is not yet implemented.  
+At present, it allows for the capture of a username, email and password on-screen when the user registers. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter them; the fields are visible in the admin section. In the future, this will happen in the 'user account' section which is not yet implemented.  
 
 ![UserProfile-Model](read-me_images/user-profile_model_code.PNG)
 
@@ -209,7 +220,7 @@ It also allows the ‘manage appointment’ feature to function, populating the 
 Note: this is set up with the idea that just one tutor is available. 
 
 Variables explanation: 
-- min_date: this is designed to ensure that appointments can only be made in the future, to avoid unintentional / intentional appointments in the past.
+- min_date: this is designed to ensure that appointments can only be made in the future, to avoid unintentional / intentional appointments which are scheduled with a date in the past.
 - max_date: in order to keep the overview of the appointments, users can only book up to 4 weeks in advance. This variable is easily changed.
 - meeting_duration: appointments are advertised as 30 minutes, but I have set up a 40 minute block in the back-end to give the tutor a buffer between meetings. This variable also helps avoid meeting overlap (see below) and can be easily changed.  
 - meeting_start and meeting_end: based on the meeting_duration, this tracks what block of time should be marked as 'unavailable' for when other users attempt to make appointments.
