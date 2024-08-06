@@ -16,12 +16,13 @@
         Already have an account? Then please
         <a class="link" href="{{ login_url }}">sign in</a>
         instead.
-      {% endblocktrans %}</p>
+        {% endblocktrans %}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <form class="signup needs-validation" id="signup_form" method="post" action="{% url 'account_signup' %}" novalidate>
+      <form class="signup needs-validation" id="signup_form" method="post" action="{% url 'account_signup' %}"
+        novalidate>
         {% csrf_token %}
 
         <div class="form-grid">
@@ -67,9 +68,16 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
 
-          <button class="btn btn-signup" type="submit">
-            {% trans "Sign Up" %} &raquo;
-          </button>
+          <div class="register-wrapper">
+            <button class="btn btn-signup" type="submit">
+              {% trans "Sign Up" %} &raquo;
+            </button>
+          </div>
+          <br>
+          <div class="register-wrapper">
+            <img class="img-fluid w-100 account-img" src="{% static 'images/students-stairs.webp' %}"
+              alt="Three students sitting on stairs talking and looking at devices" />
+          </div>
         </div>
       </form>
     </div>

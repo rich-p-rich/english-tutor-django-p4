@@ -84,6 +84,12 @@ main {
   width: 75%;
 }
 
+.register-wrapper {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /*Logged in status message: welcome NAME or you are logged out*/
 #login-status {
     background-color: whitesmoke;
@@ -151,18 +157,10 @@ main {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    width: 100%;
+    display: block; /* Ensure block level to take full width */
+    width: 100%; /* Ensure the button takes full width of the register-wrapper */
   }
-  .btn-signup:hover {
-    background-color: #5b6eae;
-  }
-  .link {
-    color: #7289DA;
-    text-decoration: none;
-  }
-  .link:hover {
-    text-decoration: underline;
-  }
+
   .form-checkbox {
     display: flex;
     align-items: center;
