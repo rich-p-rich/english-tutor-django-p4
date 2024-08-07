@@ -149,3 +149,35 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Games and Exercises - click language section A2 - C1           | opens the section page displaying exercise topics         | Pass    	      	| yes
 |Games and Exercises - click the language topic           | reveals the exercises        | Pass    	      	| yes
 |Games and Exercises - click submit for answers                    | get feedback on correct, incorrect, reminder to add an answer  | Pass    	      	| yes
+
+**Test 5: Admin section**
+|Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
+| ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------
+|Admin availability                   | can only be accessed with superuser creds         | Pass   |  yes
+|Admin - email addresses           | can be deleted | Pass   |  yes
+|Admin - email addresses: click on one           | displays user details | Pass   |  yes
+|Admin - email addresses: click on one           | is linked to a specific user number | Pass   |  yes
+|Admin - email addresses: click on one           | not possible to change the user number to one assigned to a different user | Pass   |  yes
+|Admin - email addresses: click on one           | can click through to the specific user | Pass   |  yes
+|Admin - appointments           | displays all appointments | Pass   |  yes
+|Admin - appointments           | can delete an appointments | Pass   |  yes
+|Admin - appointments           | can make a new appointment | Pass   |  yes
+|Admin - authentication and authorisation - groups           | not currently in use | n/a   |  n/a 
+|Admin - authentication and authorisation - users           | can add a user | pass   |  yes
+|Admin - authentication and authorisation - personal info           | can first name, last name, new email | pass   |  yes
+|Admin - django summernote           | not currently in use | n/a   |  n/a 
+|Admin - games and exercises           | can add a quiz question | pass   |  yes
+|Admin - games and exercises           | can edit a quiz question | pass   |  yes
+|Admin - games and exercises           | can delete a quiz question | pass   |  yes
+|Admin - games and exercises           | can link a quiz question to a section | pass   |  yes
+|Admin - games and exercises           | can add a section | pass   |  yes
+|Admin - games and exercises           | can edit a section | pass   |  yes
+|Admin - games and exercises           | can delete a section | pass   |  yes
+|Admin - No other sections are currently in use.          | n/a | n/a   |  n/a
+
+
+
+
+|Games and Exercises - click language section A2 - C1           | opens the section page displaying exercise topics         | Pass    	      	| yes
+|Games and Exercises - click the language topic           | reveals the exercises        | Pass    	      	| yes
+|Games and Exercises - click submit for answers                    | get feedback on correct, incorrect, reminder to add an answer  | Pass    	      	| yes
