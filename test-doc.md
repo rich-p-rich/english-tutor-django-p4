@@ -32,7 +32,10 @@ I added the following comments to JSHint so it recognised which version to use, 
 |Appointments - forms.py                   |  Clear      | -    |  
 |Appointments - models.py                   | Clear      | -    |   
 |Appointments - urls.py                   | Clear      | -    |   
-|Appointments - views.py                   | Clear      | -    |   
+|Appointments - views.py                   | Clear      | -    |  
+|English_tutor - settings.py                   |       | -    |   
+|English_tutor - urls.py                   |       | -    |   
+|English_tutor - views.py                   |       | -    |   
 
 
 ## Lighthouse 
