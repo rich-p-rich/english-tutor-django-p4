@@ -85,9 +85,17 @@ main {
 }
 
 .register-wrapper {
-  width: 75%;
+  width: 100%;
+  max-width: 400px; /* Adjust this width as needed */
   margin: 0 auto;
-  text-align: center;
+}
+
+.btn.btn-signup {
+  width: 100%;
+}
+
+.img-fluid.account-img {
+  width: 100%;
 }
 
 /*Logged in status message: welcome NAME or you are logged out*/

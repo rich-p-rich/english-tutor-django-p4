@@ -27,20 +27,19 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <div class="register-wrapper"></div>
-        <button class="btn btn-signup right" type="submit">
-          {% trans "Sign Up" %} &raquo;</button>
+        <div class="register-wrapper">
+          <button class="btn btn-signup right" type="submit">
+            {% trans "Sign Up" %} &raquo;
+          </button>
+        </div>
+      </form>
     </div>
     <br>
     <div class="register-wrapper">
       <img class="img-fluid w-100 account-img" src="{% static 'images/students-stairs.webp' %}"
         alt="Three students sitting on stairs talking and looking at devices" />
     </div>
-
-    </form>
   </div>
 </div>
-</div>
-
 
 {% endblock content %}
