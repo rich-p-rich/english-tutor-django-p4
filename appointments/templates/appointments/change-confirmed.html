@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Appointment Change Confirmation{% endblock %}
 
 {% block content %}
@@ -11,5 +11,9 @@
         <li>Time: {{ appointment.meeting_time }}</li>
     </ul>
     <a href="{% url 'home' %}">Return to Home</a>
+    <div class="w-100 mt-3 d-flex justify-content-center">
+        <img class="img-fluid account-img" src="{% static 'images/student-female.webp' %}" alt="Female student smiling into camera" style="max-width: 600px;" />
+    </div>
 </div>
+
 {% endblock content %}
