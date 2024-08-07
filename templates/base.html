@@ -86,7 +86,7 @@
 
   <!-- Message to confirm login status -->
   <div class="flex-grow-1 main-bg">
-    <div class="login-status">
+    <div id="login-status">
       {% if user.is_authenticated %}
       <p class="text-end m-3">welcome {{ user.username }}</p>
       {% else %}

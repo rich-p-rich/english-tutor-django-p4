@@ -204,10 +204,20 @@ main {
   color: red;
 }
 
+#book-appt-img {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /*Appointments change or cancel: search results */
 .appointment-details {
   display: flex;
   flex-direction: column;
+}
+
+#manage-appt-img {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .appointment-name {
