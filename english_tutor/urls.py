@@ -26,10 +26,13 @@ urlpatterns = [
     path('user_accounts/', include('user_accounts.urls')),
     path('summernote/', include('django_summernote.urls')),
     path("accounts/", include("allauth.urls")),
-    path('appointments/', include("appointments.urls"), name='appointments-urls'), 
+    path(
+        'appointments/', include("appointments.urls"),
+        name='appointments-urls'),
     path('homepage/', include("home.urls"), name='home-urls'),
-    path('exercises/', include('games_and_exercises.urls'), name='games_and_exercises.urls'),
-    path('', HomePage.as_view(), name='homepage'), 
+    path('exercises/', include('games_and_exercises.urls'),
+         name='games_and_exercises.urls'),
+    path('', HomePage.as_view(), name='homepage'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = 'english_tutor.views.error_404'

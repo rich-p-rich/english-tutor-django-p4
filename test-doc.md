@@ -25,6 +25,8 @@ I added the following comments to JSHint so it recognised which version to use, 
 
 ## Python
 
+Note: I did not check auto-generated files such as migrations and ___init__.py.  
+
 |Test file                                          | Outcome	                |  Comments              
 | ---------------------------------------------	| ---------------------------------	| -------------------	  	
 |Appointments - admin.py                    |  Clear      | -    |  
@@ -33,10 +35,14 @@ I added the following comments to JSHint so it recognised which version to use, 
 |Appointments - models.py                   | Clear      | -    |   
 |Appointments - urls.py                   | Clear      | -    |   
 |Appointments - views.py                   | Clear      | -    |  
-|English_tutor - settings.py                   |       | -    |   
-|English_tutor - urls.py                   |       | -    |   
-|English_tutor - views.py                   |       | -    |   
-
+|English_tutor - settings.py                   | Clear       | Blank and trailing spaces corrected; otherwise I followed Joanna Gorska's advice here https://www.youtube.com/watch?t=1648&v=6j9dZTW4owI&feature=youtu.be and added # noqa as appropriate -    |   
+|English_tutor - urls.py                   | Clear      | -    |   
+|English_tutor - views.py                   | Clear      | -    |   
+|Games_and_exercises - admin.py                    | Clear       | -    |  
+|Games_and_exercises - forms.py                   |   Clear     | -    |  
+|Games_and_exercises - models.py                   | Clear       | -    |   
+|Games_and_exercises - urls.py                   |  Clear     | -    |   
+|Games_and_exercises - views.py                   |       | -    |   
 
 ## Lighthouse 
 
