@@ -52,8 +52,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'bootstrap5',
-    'crispy_forms',
-    'crispy_bootstrap5',
     'home',
     'appointments',
     'games_and_exercises',
@@ -63,9 +61,6 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
