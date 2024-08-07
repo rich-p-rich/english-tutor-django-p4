@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
 
 /*Asterisk wildcard selector to override default browser styles */
 * {
@@ -15,9 +15,9 @@ html, body {
 }
 
 body {
-    min-height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     background-color: white;
 }
 
@@ -52,21 +52,10 @@ header {
 }
 
 /* Main */
-html, body {
-  height: 100%;
-  margin: 0;
-  flex: 1;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  flex: 1;
 }
 
 .content {
@@ -171,8 +160,8 @@ main {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    display: block; /* Ensure block level to take full width */
-    width: 100%; /* Ensure the button takes full width of the register-wrapper */
+    display: block; 
+    width: 100%; 
   }
 
   .form-checkbox {
@@ -261,9 +250,9 @@ footer {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    padding: 15px;
+    margin-top: auto;
+    width: 100%;
 }
 
 #social-networks {
@@ -311,9 +300,4 @@ footer {
   .cancel-button {
     margin-top: 5px;
   }
-}
-
-/* Media query: small laptops and larger (768px and up) */
-@media screen and (min-width: 768px) {
-
 }
