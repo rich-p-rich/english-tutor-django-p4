@@ -16,20 +16,16 @@
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <form method="post" action="{% url 'account_logout' %}">
+            <form method="post" action="{% url 'account_logout' %}" class="d-flex flex-column align-items-center">
                 {% csrf_token %}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <div class="signout-wrapper">
-                    <button class="btn btn-warning right w-100" type="submit">{% trans 'Sign Out' %}</button>
-                </div>
-                <br> 
-                <div class="signout-wrapper">
-                    <img class="img-fluid w-100 account-img" src="{% static 'images/student-male-backpack.webp' %}" alt="A student leaving a building"/>
-                </div>
+                <button class="btn btn-warning w-100 mb-3" type="submit" style="max-width: 600px;">{% trans 'Sign Out' %}</button>
+                <img class="img-fluid account-img" src="{% static 'images/student-male-backpack.webp' %}" alt="A student leaving a building" style="max-width: 600px;" />
             </form>
         </div>
     </div>
 </div>
+
 {% endblock %}

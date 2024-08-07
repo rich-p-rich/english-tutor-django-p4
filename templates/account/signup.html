@@ -8,7 +8,7 @@
 {% block content %}
 {% load static %}
 
-<div id="log-in-page" class="register-container">
+<div id="log-in-page" class="register-container container">
   <div class="row">
     <div class="col-12">
       <h3>{% trans "Register your Account" %}</h3>
@@ -27,17 +27,13 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <div class="register-wrapper">
-          <button class="btn btn-signup right" type="submit">
+        <div class="d-flex flex-column align-items-center">
+          <button class="btn btn-signup w-100 mb-3" type="submit" style="max-width: 600px;">
             {% trans "Sign Up" %} &raquo;
           </button>
+          <img class="img-fluid account-img" src="{% static 'images/students-stairs.webp' %}" alt="Three students sitting on stairs talking and looking at devices" style="max-width: 600px;" />
         </div>
       </form>
-    </div>
-    <br>
-    <div class="register-wrapper">
-      <img class="img-fluid w-100 account-img" src="{% static 'images/students-stairs.webp' %}"
-        alt="Three students sitting on stairs talking and looking at devices" />
     </div>
   </div>
 </div>

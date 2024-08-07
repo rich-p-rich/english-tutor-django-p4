@@ -87,10 +87,6 @@ main {
   margin: 0 auto;
 }
 
-.btn.btn-signup {
-  width: 100%;
-}
-
 .img-fluid.account-img {
   width: 100%;
 }
@@ -257,6 +253,11 @@ main {
   margin-bottom: 5px;
 }
 
+#exercise-img {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /* The footer */
 footer {
   background-color: whitesmoke;
@@ -264,7 +265,7 @@ footer {
   justify-content: center;
   padding: 15px;
   width: 100%;
-  margin-top: auto;
+  margin-top: 20px;
 }
 
 #social-networks {

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}{{ level }} Level Sections{% endblock %}
 
 {% block content %}
@@ -10,5 +10,8 @@
             <li><a href="{% url 'question_list' section.id %}">{{ section.title }}</a></li>
         {% endfor %}
     </ul>
+    <div class="w-100 mt-3 d-flex justify-content-center">
+      <img class="img-fluid" src="{% static 'images/tutor-classroom.webp' %}" alt="A tutor standing by a whiteboard in a classroom" />
+    </div>
 </div>
 {% endblock %}
