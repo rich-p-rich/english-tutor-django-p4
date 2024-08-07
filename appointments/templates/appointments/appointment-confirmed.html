@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Confirm Appointment{% endblock %}
 
 {% block content %}
@@ -12,6 +12,10 @@
         <li>Time: {{ appointment.time }}</li>
     </ul>
     <a href="{% url 'home' %}">Return to Home</a>
+    <div class="w-100 mt-3 d-flex justify-content-center">
+        <!--Pexels 2826131-->
+        <img class="img-fluid account-img" src="{% static 'images/student-male.webp' %}" alt="Smiling student looking to the right" style="max-width: 600px;" />
+    </div>
 </div>
 
 {% endblock content %}
