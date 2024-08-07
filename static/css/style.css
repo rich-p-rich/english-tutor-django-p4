@@ -96,7 +96,7 @@ main {
 }
 
 /*Logged in status message: welcome NAME or you are logged out*/
-#login-status {
+.login-status {
     background-color: whitesmoke;
     margin-top: 0;
 }

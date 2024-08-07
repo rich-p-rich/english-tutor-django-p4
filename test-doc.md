@@ -91,6 +91,21 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
 
 **Test 2: User signed in: homepage**
+|Hompage - navbar links                  | All navbar options are visible         | Pass   |  yes
+|Hompage - navbar links                  | Accessible via burger icon for mobile & tablet         | Pass   |  yes
+|Navbar - home - click logo                     | Refresh page             	        | Pass    	      	| yes
+|Navbar - click burger bar (mobile only)        | Opens navigation         	        | Pass    | yes
+|Hompage - click Home button                    | Refresh page             	        | Pass  | yes
+|Hompage - click Register button                | Not visible or accessible              | Pass  | yes
+|Hompage - click Sign-in button                 | Not visible or accessible          | Pass   | yes
+|Hompage - Sign-out button                 | visible         | Pass   | yes 
+|Hompage - click Sign-in button                 | Successful sign-in leads to full functionality         | Pass   | yes 
+|Hompage - Registration page                    | Successful registration: user welcomed by name on top-right of page             | Pass  | yes
+|Hompage - card elements                        | Can be opened and closed individually         | Pass   | yes 
+|Hompage - card elements: registration link     | Leads to registration page         | Pass   | yes 
+|Hompage - card elements: book a call  link     | Opens sign-in Modal         | Pass   | yes 
+|Hompage - card elements: book a call - Modal   | Links to sign-in and registration work        | Pass   | yes 
+|Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
 
 **Test 3: User signed in: appointments - making and managing**
 
