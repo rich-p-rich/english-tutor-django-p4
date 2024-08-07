@@ -66,7 +66,7 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 
 ## Site functionality testing
 
-**Test 1: User: not signed in**
+**Test 1. User not signed in: homepage**
 |Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
 | ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------	 	
 |Hompage - navbar links                  | Only home, register and log-in are visible         | Pass   |  yes
@@ -89,8 +89,11 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Hompage - card elements: book a call  link     | Opens sign-in Modal         | Pass   | yes 
 |Hompage - card elements: book a call - Modal   | Links to sign-in and registration work        | Pass   | yes 
 |Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
+|Footer - links are clickable and lead to correct destinations  | Open Facebook, Instagram, YouTube        | Pass   | yes 
 
-**Test 2: User signed in: homepage**
+**Test 2. User signed in: homepage**
+|Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
+| ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------
 |Hompage - navbar links                  | All navbar options are visible         | Pass   |  yes
 |Hompage - navbar links                  | Accessible via burger icon for mobile & tablet         | Pass   |  yes
 |Navbar - home - click logo                     | Refresh page             	        | Pass    	      	| yes
@@ -107,9 +110,42 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Hompage - card elements: book a call - Modal   | Links to sign-in and registration work        | Pass   | yes 
 |Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
 
-**Test 3: User signed in: appointments - making and managing**
+**Test 3. User signed in: appointments - making, changing and cancelling**
+|Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
+| ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------
+|Book appointment - navbar links                  | All navbar options are visible         | Pass   |  yes
+|Book appointment - appt form                  | Accessible via burger icon for mobile & tablet         | Pass   |  yes
+|Book appointment - click link                   | opens book appointment page            	        | Pass    	      	| yes
+|Book appointment - meeting date                     | can choose date             	        | Pass    	      	| yes
+|Book appointment - meeting time        | can choose time         	        | Pass    | yes
+|Book appointment - add optional message                    | can add message             	        | Pass  | yes
+|Book appointment - empty optional message                    | can book appt without message             	        | Pass  | yes
+|Book appointment - validation: date                    | can't choose a time in the past             	        | Pass  | yes
+|Book appointment - validation: date                    | can't choose a time more than 4 weeks in the future             	        | Pass  | yes
+|Book appointment - validation: date error messages                    | error messages show            	        | Pass  | yes
+|Book appointment - validation: morning time                    | appts available 08:00 - 12:30 only            	        | Pass  | yes
+|Book appointment - validation: afternoon time                    | appts available 14:00 - 18:00 only            	        | Pass  | yes
+|Book appointment - validation: meeting clash                    | can't schedule 2 appointments at the same time           	        | Pass  | yes
+|Book appointment - success                   | confirmation page is shown           	        | Pass  | yes
+|Manage your appointment(s): click link                    | if there are no appointments, 'no appointments' message is shown        	        | Pass  | yes
+|Manage your appointment(s): overview               | if there are appointments, they are listed          	        | Pass  | yes
+|Manage your appointment(s): overview                    | if there are appointments, they are listed with edit and cancel options         	        | Pass  | yes
+|Manage your appointment(s): overview               | if there are appointments, they are listed          	        | Pass  | yes
+|Manage your appointment(s): click edit               | it is possible to change date, time, date and time    	        | Pass  | yes
+|Manage your appointment(s): click edit               | same validation is applied as 'book appointments'  	        | Pass  | yes
+|Manage your appointment(s): click edit               | can save new appointment  	        | Pass  | yes
+|Manage your appointment(s): click edit               | confirmation is shown  	        | Pass  | yes
+|Manage your appointment(s): click cancel               | triggers confirmation modal  	        | Pass  | yes
+|Manage your appointment(s): click cancel               | modal allows for user to keep original appt   	        | Pass  | yes
+|Manage your appointment(s): click cancel               | modal allows user to cancel appointment   	        | Pass  | yes
+|Manage your appointment(s): click cancel               | cancellation is shown   	        | Pass  | yes
+
 
 **Test 4: User signed in: games and exercises**
-
-
-|Footer - links are clickable and lead to correct destinations  | Open Facebook, Instagram, YouTube        | Pass   | yes 
+|Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
+| ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------
+|Games and Exercises - click navbar link                  | triggers dropdown menue         | Pass   |  yes
+|Games and Exercises - navbar language section            | each language section A2 - C1 is clickable and leads to the relevant section | Pass   |  yes
+|Games and Exercises - click language section A2 - C1           | opens the section page displaying exercise topics         | Pass    	      	| yes
+|Games and Exercises - click the language topic           | reveals the exercises        | Pass    	      	| yes
+|Games and Exercises - click submit for answers                    | get feedback on correct, incorrect, reminder to add an answer  | Pass    	      	| yes
