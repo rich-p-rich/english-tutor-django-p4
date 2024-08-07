@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <h1>{{ section.title }}</h1>
-    <form id="exerciseForm" method="post">
+    <form id="exercises" method="post">
         {% csrf_token %}
         <ol class="questions-list">
             {% for question in questions %}
@@ -27,3 +27,4 @@
     </form>
 </div>
 {% endblock %}
+

@@ -42,7 +42,13 @@ Note: I did not check auto-generated files such as migrations and ___init__.py.
 |Games_and_exercises - forms.py                   |   Clear     | -    |  
 |Games_and_exercises - models.py                   | Clear       | -    |   
 |Games_and_exercises - urls.py                   |  Clear     | -    |   
-|Games_and_exercises - views.py                   |       | -    |   
+|Games_and_exercises - views.py                   |   Clear    | -    |   
+|Home - urls.py                     |  Clear     | -    |   
+|Home - views.py                   |   Clear    | -    | 
+|user_accounts - admin.py                     |  Clear     | -    |   
+|user_accounts - models.py                     |  Clear     | -    |   
+|user_accounts - urls.py                     |  Clear      | -    |   
+|user_accounts - views.py                   |    Clear    | -    | 
 
 ## Lighthouse 
 
@@ -58,7 +64,7 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 
 ![Lighthouse Desktop](read-me_images/lighthouse-desktop.PNG)
 
-## Site testing
+## Site functionality testing
 
 **Test 1: User: not signed in**
 |Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
@@ -84,7 +90,11 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Hompage - card elements: book a call - Modal   | Links to sign-in and registration work        | Pass   | yes 
 |Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
 
-**Test 2: User: signed in**
+**Test 2: User signed in: homepage**
+
+**Test 3: User signed in: appointments - making and managing**
+
+**Test 4: User signed in: games and exercises**
 
 
 |Footer - links are clickable and lead to correct destinations  | Open Facebook, Instagram, YouTube        | Pass   | yes 

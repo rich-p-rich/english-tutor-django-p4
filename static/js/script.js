@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Appointments page: set appointment ID
+function setAppointmentId(id) {
+    document.getElementById('appointment_id').value = id;
+}
+
 // Games and Exercises pages: show language section
 function submitAnswer(questionId) {
     const question = document.getElementById(questionId);
