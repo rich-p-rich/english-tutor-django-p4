@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Make an Appointment{% endblock %}
 
 {% block content %}
@@ -14,6 +16,9 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-success">Submit</button>
+    <div >
+        <img class="img-fluid w-100 account-img" src="{% static 'images/tutor-female-computer.webp' %}" alt="A tutor sitting at her computer."/>
+    </div>
 </form>
 
 </div>

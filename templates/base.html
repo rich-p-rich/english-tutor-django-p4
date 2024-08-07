@@ -27,7 +27,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
 </head>
 
-<body class="d-flex flex-column h-100">
+<div class="wrapper flex-grow-1 d-flex flex-column">
   <header>
     <h1 class="header-home">Learn English Online</h1>
     <h2 class="header-home">For Learners of English as a Foreign Language</h2>
@@ -88,7 +88,7 @@
   <div class="flex-grow-1 main-bg">
     <div id="login-status">
       {% if user.is_authenticated %}
-      <p class="text-end m-3">Welcome {{ user.username }}</p>
+      <p class="text-end m-3">welcome {{ user.username }}</p>
       {% else %}
       <p class="text-end m-3">You are not logged in</p>
     </div>

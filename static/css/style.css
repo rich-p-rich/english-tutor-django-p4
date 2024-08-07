@@ -15,9 +15,9 @@ html, body {
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     background-color: white;
 }
 
@@ -55,15 +55,17 @@ header {
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-height: 100vh;
 }
 
 .content {
   flex: 1;
+  padding-bottom: 60px;
 }
 
 main {
     flex: 1 0 auto;
+    flex-grow: 1;
 }
 
 /*Account status: login, signout, register */
@@ -247,12 +249,12 @@ main {
 
 /* The footer */
 footer {
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    margin-top: auto;
-    width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  width: 100%;
+  margin-top: auto;
 }
 
 #social-networks {
@@ -300,9 +302,4 @@ footer {
   .cancel-button {
     margin-top: 5px;
   }
-}
-
-/* Media query: small laptops and larger (768px and up) */
-@media screen and (min-width: 768px) {
-
 }
