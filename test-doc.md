@@ -14,9 +14,25 @@ https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2F8000-richprich-eng
 ![CSS Validator](read-me_images/css-validator_no-errors.PNG)
 
 ## Javascript
+My JS passes throws no errors in JSHint: https://jshint.com/
 
+I added the following comments to JSHint so it recognised which version to use, and that I was using Bootstrap in my project: 
+
+- /* jshint esversion: 6 */
+- /* global bootstrap */
+
+![JSHint Validator](read-me_images/jshint-feedback.PNG)
 
 ## Python
+
+|Test file                                          | Outcome	                |  Comments              
+| ---------------------------------------------	| ---------------------------------	| -------------------	  	
+|Appointments - admin.py                    |  Clear      | -    |  
+|Appointments - apps.py                    |   Clear      | -    |  
+|Appointments - forms.py                   |  Clear      | -    |  
+|Appointments - models.py                   | Clear      | -    |   
+|Appointments - urls.py                   | Clear      | -    |   
+|Appointments - views.py                   | Clear      | -    |   
 
 
 ## Lighthouse 

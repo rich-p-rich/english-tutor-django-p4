@@ -82,3 +82,4 @@ def manage_appointments(request):
         'change_form': change_form,
         'appointment_to_edit': appointment_to_edit
     })
+    
