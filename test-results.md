@@ -1,4 +1,4 @@
-# Project 4 English Tutor: Testing Overview 
+# Project 4 English Tutor: Test Results and Overview 
 
 This document details the testing I have done for my Project 4. I have separated the testing out of my ReadMe, as that document was already quite long.
 
@@ -10,13 +10,15 @@ No errors:  **UPDATE WITH HEROKU LINK**
 https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2F8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net%2F#l167c8
 
 ## CSS
+- Resource used: https://jigsaw.w3.org/css-validator/
 - No Errors
 - Method of testing: direct input
 
 ![CSS Validator](read-me_images/css-validator_no-errors.PNG)
 
 ## Javascript
-My JS passes throws no errors in JSHint: https://jshint.com/
+- Resource used: JSHint: https://jshint.com/
+- My JS passes throws no errors
 
 I added the following comments to JSHint so it recognised which version to use, and that I was using Bootstrap in my project: 
 

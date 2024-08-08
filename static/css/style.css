@@ -110,6 +110,7 @@ main {
 /* Homepage 'why' explainer */
 .why-explainer {
     color: whitesmoke;
+    /* Pexels image 87833 */
     background: url("../images/header-sky.webp");
     max-width: 600px;
     margin: auto; 

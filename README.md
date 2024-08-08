@@ -8,6 +8,9 @@ This website is designed to allow Learners of English as a Foreign Language to c
 - change the date, the time, or both the date and time of their appointment
 - cancel the appointment altogether.
 
+# Testing
+I have separated the results of my site testing into a different file called [Test Results](test-results.md).
+
 **CRUD Options**
 
 ![navbar-options](read-me_images/navbar_book-manage-appointments.PNG)
@@ -82,7 +85,7 @@ The base colours are as follows:
 
 Taken from: https://icolorpalette.com/color/407aac
 
-*The image I used for the header:*
+*The image I used for the header (Pexels Image 87833):*
 
 ![Sky picture](read-me_images/header-sky.PNG)
 
