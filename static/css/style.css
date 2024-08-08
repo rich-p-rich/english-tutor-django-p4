@@ -248,6 +248,34 @@ main {
   margin: 0 auto;
 }
 
+
+/* The footer */
+footer {
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  z-index: 20;
+}
+
+#social-networks {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+#social-networks li {
+    margin-right: 20px;  
+}
+
+#social-networks li:last-child {
+    margin-right: 0;  
+}
+
 /* Appointments results page: styling for mobiles */
 @media (max-width: 576px) {
   .list-group-item {
@@ -276,31 +304,4 @@ main {
   .cancel-button {
     margin-top: 5px;
   }
-}
-
-/* The footer */
-footer {
-  background-color: whitesmoke;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  width: 100%;
-  z-index: 10;
-}
-
-#social-networks {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-    justify-content: center;
-}
-
-#social-networks li {
-    margin-right: 20px;  
-}
-
-#social-networks li:last-child {
-    margin-right: 0;  
 }

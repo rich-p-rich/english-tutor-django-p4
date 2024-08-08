@@ -29,9 +29,10 @@
 
 
 <header>
-  <h1 class="header-home">Learn English Online</h1>
-  <h2 class="header-home">For Learners of English as a Foreign Language</h2>
+    <h1 class="header-home">Learn English Online</h1>
+    <h2 class="header-home">For Learners of English as a Foreign Language</h2>
 </header>
+
 <!-- Navigation -->
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -87,19 +88,19 @@
 <!-- Message to confirm login status -->
 <div id="login-status" class="main-bg">
   <div>
-      {% if user.is_authenticated %}
-      <p class="text-end m-3">Welcome {{ user.username }}</p>
-      {% else %}
-      <p class="text-end m-3">You are not logged in; log in <a href="{% url 'account_login' %}">here.</a></p>
-      {% endif %}
+    {% if user.is_authenticated %}
+    <p class="text-end m-3">Welcome {{ user.username }}</p>
+    {% else %}
+    <p class="text-end m-3">You are not logged in; log in <a href="{% url 'account_login' %}">here.</a></p>
+    {% endif %}
   </div>
 </div>
 
-    <main class="flex-grow-1 d-flex flex-column">
-      {% block content %}
-      <!-- Content Goes here -->
-      {% endblock content %}
-    </main>
+<main class="flex-grow-1 d-flex flex-column">
+  {% block content %}
+  <!-- Content Goes here -->
+  {% endblock content %}
+</main>
 
 <!-- Footer -->
 <footer class="mt-3">

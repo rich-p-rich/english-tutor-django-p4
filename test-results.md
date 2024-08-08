@@ -9,6 +9,8 @@ Unfortunately I was unable to implement automated testing properly, so all testi
 No errors:  **UPDATE WITH HEROKU LINK**
 https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2F8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net%2F#l167c8
 
+I have three 'info' alerts about "Trailing slash on void elements" which I have fixed numerous times, but keep they coming back. But there are no errors.
+
 ## CSS
 - Resource used: https://jigsaw.w3.org/css-validator/
 - No Errors
@@ -19,22 +21,22 @@ https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2F8000-richprich-eng
 ## Javascript
 - Resource used: JSHint: https://jshint.com/
 - My JS passes throws no errors
+- Note: is does identify one 'unused variable: setAppointmentId'. However, the setAppointmentId is necessary for the Edit and Cancel appointment functionality, so it needs to be present.  
 
 I added the following comments to JSHint so it recognised which version to use, and that I was using Bootstrap in my project: 
 
 - /* jshint esversion: 6 */
 - /* global bootstrap */
 
-![JSHint Validator](read-me_images/jshint-feedback.PNG)
-
 ## Python
+- Resource used: https://pep8ci.herokuapp.com/
+
 
 Note: I did not check auto-generated files such as migrations and ___init__.py.  
 
 |Test file                                          | Outcome	                |  Comments              
 | ---------------------------------------------	| ---------------------------------	| -------------------	  	
 |Appointments - admin.py                    |  Clear      | -    |  
-|Appointments - apps.py                    |   Clear      | -    |  
 |Appointments - forms.py                   |  Clear      | -    |  
 |Appointments - models.py                   | Clear      | -    |   
 |Appointments - urls.py                   | Clear      | -    |   
