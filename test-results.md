@@ -31,8 +31,8 @@ I added the following comments to JSHint so it recognised which version to use, 
 ## Python
 - Resource used: https://pep8ci.herokuapp.com/
 
-
 Note: I did not check auto-generated files such as migrations and ___init__.py.  
+In some cases, no new line was detected when cross-checking files copied from GitHub rather than GitPod. I could not find a clear reason for this on StackOverflow or any other online discussion.
 
 |Test file                                          | Outcome	                |  Comments              
 | ---------------------------------------------	| ---------------------------------	| -------------------	  	
@@ -77,7 +77,6 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 | ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------	 	
 |Hompage - navbar links                  | Only home, register and log-in are visible         | Pass   |  yes
 |Hompage - navbar links                  | Accessible via burger icon for mobile & tablet         | Pass   |  yes
-|Navbar - home - click logo                     | Refresh page             	        | Pass    	      	| yes
 |Navbar - click burger bar (mobile only)        | Opens navigation         	        | Pass    | yes
 |Hompage - click Home button                    | Refresh page             	        | Pass  | yes
 |Hompage - click Register button                | Opens registration page               | Pass  | yes
@@ -102,7 +101,6 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 | ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------
 |Hompage - navbar links                  | All navbar options are visible         | Pass   |  yes
 |Hompage - navbar links                  | Accessible via burger icon for mobile & tablet         | Pass   |  yes
-|Navbar - home - click logo                     | Refresh page             	        | Pass    	      	| yes
 |Navbar - click burger bar (mobile only)        | Opens navigation         	        | Pass    | yes
 |Hompage - click Home button                    | Refresh page             	        | Pass  | yes
 |Hompage - click Register button                | Not visible or accessible              | Pass  | yes
