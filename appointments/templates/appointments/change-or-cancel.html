@@ -32,7 +32,12 @@
   
   
   {% elif appointments is not None %}
-      <p>No appointments found.</p>
+    <div>
+      <ul>
+      <li><p>No appointments found.</p></li>
+      <li><p>Need to make a new appointment? Click <a href="{% url 'appointments' %}">here.</a></p></li>
+    </ul>
+    </div>
   {% endif %}
   
   <!-- Edit Form -->
