@@ -40,11 +40,13 @@ I decided to implement the CRUD functionality around the appointment function to
 
  
 ## Structure
-The most important apps and folders which I customised to my project are: 
+The most important apps and folders which I customised to my project include: 
 - english_tutor: the project app
 - appointments: for booking and managing calls between the users and the tutors
+- env.py
 - games_and_exercises: stores the online exercises
 - home: the homepage
+- requirements.txt
 - static and staticfiles: CSS, favicon, images, JS
 - templates: base.html, 404.html, login.html, logout.html, signup.html
 - user_accounts: stores user information at registration
