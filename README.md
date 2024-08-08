@@ -345,7 +345,9 @@ This would be the next step for the admin section and would enhance the scalabil
 - I also need a better solution for the 
 
 **Microsoft Edge**
-One bug which I have not been able to fix relates to how the site displays in the Microsoft Edge browser: I cannot get the footer to display reliably in Microsoft edge. I have consulted multiple resources and the general advice seemed to be to raise the Z-index of the footer, but this did not work for my project before my submission deadline. 
+Two bugs which I have not been able to fix relates to how the site displays in the Microsoft Edge browser: I cannot get the burger-bar icon or the footer to function / display reliably in Microsoft edge. I have consulted multiple resources and the general advice seemed to be to either look at the cache for the icon, pr raise the Z-index of the footer, but this did not work for my project before my submission deadline. 
+- Burger icon: cache issue: https://answers.microsoft.com/en-us/msteams/forum/all/hamburger-icon-missing-occasionally/d76171d2-87d5-4582-8b7e-2b2234533a32
+- Some various advice on the hamburger here: https://github.com/search?q=repo%3Ajekyll%2Fminima+HAmburger&type=Issues
 - Advice on z-index: https://theme.co/forum/t/microsoft-edge-site-not-displaying-correctly/62180/2
 - Overview of browser compatibility: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#browser_compatibility
 
