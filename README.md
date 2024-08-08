@@ -73,6 +73,16 @@ Some basic research showed me that educational or language learning-related webs
 
 I therefore settled on a fairly muted mix of whites and blues to minimise distraction from the educational content, and to strike a professional tone with my audience. Duolingo is notably different in that it utilises a range of symbols and stickers to liven up progress, but in order to get my MVP ready for submission by the set deadline, I decided against adapting this much more challenging approach as it would require not only significantly better coding skills, but I suspect extensive market research and analysis of on-site user behaviour!  
 
+I have included a more detailed PDF of the different wireframes I planned out with Balsamiq in my read-me_images folder. Here are the two main ones:
+
+**Wireframe: homepage - mobile**
+
+![Wireframe: mobile](read-me_images/balsamiq-mobile-home.PNG)
+
+**Wireframe: homepage - laptop&´/desktop**
+
+![Wireframe: laptop / desktop](read-me_images/balsamiq-laptop-home.PNG)
+
 **Brand Image**
 The base colours are as follows:
 - The header image: is a picture of the sky. I originally planned to use a colour like Viennese Blue (#407aac) but found this picture of the sky and decided the colour gradient provided a bit more visual interest; additionally, I found there to be a nice link between travel and language learning which is inspired by the sky.  
