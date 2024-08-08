@@ -307,6 +307,8 @@ https://community.atlassian.com/t5/App-Central/Understanding-the-MoSCoW-prioriti
 
 # Challenges, changes and bugs 
 
+As mentioned at the top of my ReadMe, I have collected all testing information in a separate document here: [Test Results](test-results.md).
+
 ## The development of the appointments app
 My plans regarding the 'make an appointment' functionality changed significantly during the course of development. 
 
@@ -333,7 +335,7 @@ I then switched to the admin section where the superuser can add a section and l
 ![Add question](read-me_images/games_admin-questions.PNG)
 
 **Next Steps**
-- I have not optimised the 'all exercises' link. It currently leads to a blank page and I could not find a reliable way to add the sections to this page: https://8000-richprich-englishtutord-94zz8l90n00.ws.codeinstitute-ide.net/exercises/sections/All/  
+- I have not optimised the 'all exercises' link. It currently leads to a blank page and I could not find a reliable way to add the sections to this page.
 
 In order to get the MVP ready, however, I decided this was more of a 'Could' than 'Should' have task, so have not taken the time to work on it. However, for a post-MVP website, this is a 'Should have' task. 
 
@@ -342,15 +344,16 @@ Although it is possible to link questions to sections, it needs a better admin p
 This would be the next step for the admin section and would enhance the scalability of the site. 
 - I also need a better solution for the 
 
-## Other bugs and challenges
-In addition to the challenges described above, e.g. the custom registration page, I encountered many bugs and challenges during the development of this app. In particular, the Games and Exercises was difficult to get right. I found it a challenge to work out the logic to correctly display the correct / incorrect answers when the user submitted their solutions. The calculation on the backend was correct, but the display was wrong. This took some time to solve.  
+**Microsoft Edge**
+One bug which I have not been able to fix relates to how the site displays in the Microsoft Edge browser: I cannot get the footer to display reliably in Microsoft edge. I have consulted multiple resources and the general advice seemed to be to raise the Z-index of the footer, but this did not work for my project before my submission deadline. 
+- Advice on z-index: https://theme.co/forum/t/microsoft-edge-site-not-displaying-correctly/62180/2
+- Overview of browser compatibility: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#browser_compatibility
 
-Other problems of note:
+**Other problems of note:**
 - I misaligned a div around the 'log-in' status message which meant that the footer reacted differently when signed-in vs signed-out. In practice, the signed-out user saw the footer behaving normally, the signed-in user saw the footer floating on the homepage. 
 - Also realted to the footer: it was 'floating' on the book appointments page and games and exercises page, but not on other pages. The tutoring service helped me identify that I had added two wrappers in the structure of base.html, both with 100vh; why this was affecting only some pages I do not know, but it has been resolved. 
+- In particular, the Games and Exercises was difficult to get right. I found it a challenge to work out the logic to correctly display the correct / incorrect answers when the user submitted their solutions. The calculation on the backend was correct, but the display was wrong. This took some time to solve.
 
-**Microsoft Edge**
-One bug which I have not been able to fix relates to how the site displays in the Microsoft Edge browser: I cannot get the footer to display reliably in Microsoft edge. I have consulted multiple resources and the general advice seemed to be to raise the Z-index of the footer, but this did not work for my project. 
 
 # Deployment
 
@@ -416,7 +419,7 @@ Sign-up to a database provider and get your database link
 - CloudConvert for converting images to webp files: https://cloudconvert.com/jpg-to-webp
 
 # Acknowledgements
-As ever, a huge thank you to my mentor, Dick Vlaanderen, who saved me from many errors and made many helpful and creative suggestions. All errors remaining in the site are of course my own responsibility.  Thanks also to the CI Tutoring Team for big help on several occassions. Big thanks to my family, my wife and three kids, who have not seen as much of me recently as normal, but have been very patient and forgiving while I completed this project.
+As ever, a huge thank you to my mentor, Dick Vlaanderen, who saved me from many errors and made many helpful and creative suggestions. All errors remaining in the site are of course my own responsibility.  Thanks also to the CI Tutoring Team for their help on several occassions which saw me through some challenges! Big thanks to my family, my wife and three kids, who have been very patient and forgiving while I completed this project.
 
 # Some useful resources 
 I relied heavily on the 'I think therefore I blog' walk-through, which was great. Some other resources include the following: 

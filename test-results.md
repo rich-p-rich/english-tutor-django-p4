@@ -84,7 +84,7 @@ Browsers used:
 | ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------	 	
 |Hompage - navbar links                  | Only home, register and log-in are visible         | Pass   |  yes
 |Hompage - navbar links                  | Accessible via burger icon for mobile & tablet         | Pass   |  yes
-|Navbar - click burger bar (mobile only)        | Opens navigation         	        | Pass    | yes
+|Navbar - click burger bar (mobile only)        | Opens navigation         	        | Pass    | yes apart from Microsoft Edge
 |Hompage - click Home button                    | Refresh page             	        | Pass  | yes
 |Hompage - click Register button                | Opens registration page               | Pass  | yes
 |Hompage - Registration page                    | All fields can be filled-in              | Pass  | yes
@@ -103,7 +103,7 @@ Browsers used:
 |Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
 |Footer - links are clickable and lead to correct destinations  | Open Facebook, Instagram, YouTube        | Pass   | all but Microsoft Edge 
 
-- Note on Microsoft Edge: I cannot get the footer to show reliably on Microsoft Edge and have run out of time to implement a fix
+- Note on Microsoft Edge: I cannot get the burger navbar icon or footer to work or show reliably on Microsoft Edge and have run out of time to implement a fix. I have commented on this in my ReadMe under "Challenges, changes and bugs."
 
 **Test 2. User signed in: homepage**
 |Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
