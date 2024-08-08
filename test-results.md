@@ -181,8 +181,4 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Admin - No other sections are currently in use.          | n/a | n/a   |  n/a
 
 
-
-
-|Games and Exercises - click language section A2 - C1           | opens the section page displaying exercise topics         | Pass    	      	| yes
-|Games and Exercises - click the language topic           | reveals the exercises        | Pass    	      	| yes
-|Games and Exercises - click submit for answers                    | get feedback on correct, incorrect, reminder to add an answer  | Pass    	      	| yes
+# END OF DOCUMENT
