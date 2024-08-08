@@ -156,6 +156,9 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Games and Exercises - click submit for answers                    | get feedback on correct, incorrect, reminder to add an answer  | Pass    	      	| yes
 
 **Test 5: Admin section**
+
+**Note: I have only tested this on Chrome.**
+
 |Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
 | ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------
 |Admin availability                   | can only be accessed with superuser creds         | Pass   |  yes

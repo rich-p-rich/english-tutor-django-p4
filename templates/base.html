@@ -85,8 +85,8 @@
   </nav>
 
   <!-- Message to confirm login status -->
-  <div class="flex-grow-1 main-bg">
-    <div id="login-status">
+  <div id="login-status" class="flex-grow-1 main-bg">
+    <div>
       {% if user.is_authenticated %}
       <p class="text-end m-3">welcome {{ user.username }}</p>
       {% else %}
