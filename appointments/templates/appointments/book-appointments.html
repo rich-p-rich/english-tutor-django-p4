@@ -5,7 +5,7 @@
 {% block title %}Make an Appointment{% endblock %}
 
 {% block content %}
-<div class="book-appt-container flex-grow-1">
+<div class="container flex-grow-1">
   <h1>Book your Appointment</h1>
   <ul>
     <li>Our appointments are scheduled according to Central European Time (CET).</li>
@@ -16,12 +16,11 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-success">Submit</button>
-  <div class="w-100 mt-3 d-flex justify-content-center">
-    <!--Pexels image 6929168-->
-    <img id="book-appt-img" class="img-fluid" src="{% static 'images/tutor-female-computer.webp' %}" alt="A tutor sitting at her computer." />
-  </div>
-</form>
+    <div class="container mt-3 d-flex justify-content-center">
+      <!--Pexels image 6929168-->
+      <img id="book-appt-img" class="img-fluid" src="{% static 'images/tutor-female-computer.webp' %}"
+        alt="A tutor sitting at her computer." />
+    </div>
+  </form>
 </div>
-  
 {% endblock content %}
-
