@@ -2,7 +2,7 @@
 
 This document details the testing I have done for my Project 4. I have separated the testing out of my ReadMe, as that document was already quite long.
 
-Unfortunately I was unable to implement automated testing properly, so all testing was done manually. This is something I would like to work on however, and have ready for my P5.  
+Unfortunately I was unable to implement automated testing properly, so all testing was done manually. This is something I would like to work on, however, ahead of my Project 5.  
 
 ## HTML:
 
@@ -72,6 +72,13 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 
 ## Site functionality testing
 
+Browsers used:
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
+- Apple Safari (from I-Pad)
+- Samsung Internet version 25.0.1.3 on a Samsung A33
+
 **Test 1. User not signed in: homepage**
 |Test                                           | Expected outcome	                |  Result             | Passed all Browsers?
 | ---------------------------------------------	| ---------------------------------	| -------------------	 | -------------------	 	
@@ -94,7 +101,9 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Hompage - card elements: book a call  link     | Opens sign-in Modal         | Pass   | yes 
 |Hompage - card elements: book a call - Modal   | Links to sign-in and registration work        | Pass   | yes 
 |Hompage - accordion elements                   | Can be opened and closed individually          | Pass   | yes 
-|Footer - links are clickable and lead to correct destinations  | Open Facebook, Instagram, YouTube        | Pass   | yes 
+|Footer - links are clickable and lead to correct destinations  | Open Facebook, Instagram, YouTube        | Pass   | all but Microsoft Edge 
+
+- Note on Microsoft Edge: I cannot get the footer to show reliably on Microsoft Edge and have run out of time to implement a fix
 
 **Test 2. User signed in: homepage**
 |Test                                           | Expected outcome	                |  Result             | Passed all Browsers?

@@ -2,14 +2,16 @@
 
 For project four I have developed a site for learners of English as a Foreign Language. I am currently working at a university in Germany as an English Teacher, and thought an online resource for my students would be an interesting and fulfilling project to pursue. 
 
+![Website-responsive](read-me_images/amiresponsive-engtutor.PNG)
+
+## A note on Testing
+I have separated the results of my site testing into a different file called [Test Results](test-results.md).
+
 ## Project Overview
 This website is designed to allow Learners of English as a Foreign Language to create an account, make an online appointment with a tutor to discuss anything about the English language, and also practise some skills with our online games and exercises. This Minimum Viable Product (MVP) version has full 'Create - Read - Update - Delete' (CRUD) functionality as the signed-in user can:
 - make an appointment
 - change the date, the time, or both the date and time of their appointment
 - cancel the appointment altogether.
-
-# Testing
-I have separated the results of my site testing into a different file called [Test Results](test-results.md).
 
 **CRUD Options**
 
@@ -49,9 +51,9 @@ The most important apps and folders which I customised to my project are:
 
 ## User Demographic
 This game is aimed at learners of English as a foreign language of all ages. The exercises are set between the A2 and C1 levels; these levels are correspond to levels of language proficiency as defined by the Common European Framework of Reference for Languages (the CEFR). Broadly speaking, levels A - C equate to the following:  
-- A: basic users
-- B: intermediate users
-- C: proficient users 
+- Level A: basic users
+- Level B: intermediate users
+- Level C: proficient users 
 
 Each of these levels is divided into two subgroups to reflect progress in language learning. For the purposes of this project, I have provided exercises for the following groups: 
 - A2
@@ -69,9 +71,9 @@ More information about the CEFR can be found here: https://www.coe.int/en/web/co
 Following the mobile-first approach of the Code Institute, as well as the educational purpose of the website itself, I have tried to keep the design and layout of this project as simple as possible. 
 
 ## Design
-Some basic research showed me that educational or language learning-related websites utilise a mix of whites and blues / greens, e.g. [Grammarly](https://www.grammarly.com/), [the DeepL Translator](https://www.deepl.com/en/translator), and [DuoLingo](https://www.duolingo.com/learn). Related websites like [ChatGPT](https://chatgpt.com/) and [Google Translate](https://translate.google.com/?sl=de&tl=en&op=translate) follow a similar aesthetic, and this [Verpex Blog](https://verpex.com/blog/website-tips/best-color-combinations-for-educational-websites#) was very informative on the subject.
+Some basic research showed me that educational or language learning-related websites utilise a mix of whites and blues / greens, e.g. [Grammarly](https://www.grammarly.com/), [the DeepL Translator](https://www.deepl.com/en/translator), and [DuoLingo](https://www.duolingo.com/learn). Websites like [ChatGPT](https://chatgpt.com/) and [Google Translate](https://translate.google.com/?sl=de&tl=en&op=translate) follow a similar aesthetic, and this [Verpex Blog](https://verpex.com/blog/website-tips/best-color-combinations-for-educational-websites#) was very informative on the subject.
 
-I therefore settled on a fairly muted mix of whites and blues to minimise distraction from the educational content, and to strike a professional tone with my audience. Duolingo is notably different in that it utilises a range of symbols and stickers to liven up progress, but in order to get my MVP ready for submission by the set deadline, I decided against adapting this much more challenging approach as it would require not only significantly better coding skills, but I suspect extensive market research and analysis of on-site user behaviour!  
+I therefore settled on a fairly muted mix of whites and blues to minimise distraction from the educational content, and to strike a fairly professional tone with my audience. Duolingo is notably different in that it utilises a range of symbols and stickers to liven up progress, but in order to get my MVP ready for submission by the set deadline, I decided against adapting this much more challenging approach as it would require not only significantly better coding skills, but I suspect extensive market research and analysis of on-site user behaviour!  
 
 I have included a more detailed PDF of the different wireframes I planned out with Balsamiq in my read-me_images folder. Here are the two main ones:
 
@@ -85,7 +87,7 @@ I have included a more detailed PDF of the different wireframes I planned out wi
 
 **Brand Image**
 The base colours are as follows:
-- The header image: is a picture of the sky. I originally planned to use a colour like Viennese Blue (#407aac) but found this picture of the sky and decided the colour gradient provided a bit more visual interest; additionally, I found there to be a nice link between travel and language learning which is inspired by the sky.  
+- The header image: is a picture of the sky. I originally planned to use a colour like Viennese Blue (#407aac) but found a picture of the sky on the Pexels website (image nr 87833) and decided the colour gradient provided a bit more visual interest. Additionally, I found there to be a nice link between travel and language learning which is inspired by this image.  
 - The background colour of the website body is white (RGB 255, 255, 255).
 - The background colour for containers is white-smoke (RGB 245, 245, 245). 
 
@@ -101,13 +103,15 @@ Taken from: https://icolorpalette.com/color/407aac
 
 
 ## Text vs Images 
-This website has fewer images than might be expected of a modern website. This is however deliberate. As the focus is on language practice, it is difficult to translate this into engaging images as is possible for, e.g. a food or travel site. There are some images, but I have kept them to a minimum to avoid distraction, and I was concerned that superfluous images would detract from my goal to keep the design as lean as possible.   
+This website has fewer images than might be expected of a modern website. This is however deliberate. As the focus is on language practice, it is difficult to translate this into engaging images as is possible for, e.g. a food or travel site. There are some images, primarily around the 'make appointments' functionality but I have kept them to a minimum to avoid distraction, and I was concerned that superfluous images would detract from my goal to keep the design as lean as possible.   
+
+That being said, I think the homepage would benefit from one or two images in the next interation of this project.  
 
 # Site overview
 
 I have tried to build upon functionalities that we covered in Project 1, such as responsive design, using a hamburger menu for the mobile navbar, and so on. 
 
-What follows are:
+What follows:
 - features that I have not implemented before. 
 - a short overview for each section of my next steps, i.e. how I would develop this after the MVP. 
 
@@ -133,11 +137,14 @@ As the CRUD functionality can only be accessed by registered and signed in users
 ![Sky picture](read-me_images/sign-in-modal.PNG)
 
 ## Registration page
-You can register with this site with an absolute minimum of information. The benefits of this approach are:
+My registration page changed fairly late on before project submission. I originally wanted to include a custom registration page that allowed a toggle password function plus more customised validation messages. However, I struggled to get this working correctly and decided to leave this for a later iteration as none of this fuctionality would qualify under 'must' or 'should' have, based on the MoSCoW guideline (see more on MoSCow below)  
+
+However, you can register with this site with an absolute minimum of information. The benefits of this approach are:
 - it is easy for the user, which means it will convert a greater percentage of 'hit-and-run' visitors into actual site users
 - in a post-mvp world, I will enable a 'user account' section where users can add personal details, such as names, if they wish 
-- security: the less information a website holds the better. Hacking and / data leaks (intentional or not) are an ever-present risk, so I prefer websites which ask for less personal and sensitive information over those which request more than the bare minimum.  
-- I implemented the 'view password' functionality here because it is a feature that I personally like, particularly at registration where typos can slow things down, so I was happy to implement it here.  
+- security: the less information a website holds the better. Hacking and / data leaks (intentional or not) are an ever-present risk, so I prefer websites which ask for less personal and sensitive information over those which request more than the bare minimum. 
+
+Here is how I implemented the 'view password' functionality before removing it for the final MVP:  
 
 *Catching a typo with toggle password:*
 
@@ -145,6 +152,7 @@ You can register with this site with an absolute minimum of information. The ben
 
 **Next steps:**
 - Implement email confirmation link
+- Add toggle password visibility 
 
 ## Sign In and Sign Out
 - The Sign In page carries a link to registration in case the user is not registered
@@ -152,6 +160,7 @@ You can register with this site with an absolute minimum of information. The ben
 
 **Next steps:**
 - Implement function to change password via email link
+- Add toggle password visibility 
 
 ## Make an appointment
 - The user must be signed in
@@ -162,7 +171,7 @@ You can register with this site with an absolute minimum of information. The ben
 **Next steps:**  
 - Add a booking code on-screen 
 - Send it via email to confirm 
-- Remove the need for the user to add the year 
+- Remove the need for the user to add the year when making the booking
 - Display only 5 minute intervals on the time selector to avoid messy meeting times and schedules
 
 ## Manage appointments 
@@ -189,6 +198,8 @@ Both actions lead to confirmation screens.
 - People doing the exercises get right / wrong feedback when they submit their answers
 
 **Next steps:**
+- Create an 'all sections' link where users can choose their language level from a page, not just the navbar
+- Add more instructions and guidance on completing the exercises
 - Expand the offering beyond multiple choice to include free-text fields and other different types of exercises
 - Allow a 'hint' function for some exercises
 - Keep a history of the user's progress in their 'user account'
@@ -201,9 +212,9 @@ My database is supported by a PostgreSQL database issued by the Code Institute a
 
 ## User Information Model
 This is captured at the user-registration page and stored in the user_accounts app/model.py.
-In the future, this will be the basis for the user account section, where the User will be the ForeignKey around which other information will be arranged. 
+In the future, this will be the basis for the user account section, where the User will be the ForeignKey around which other information will be arranged: the 'UserProfile' will establish a one-to-one relationship with the User to store additional details.
 
-At present, it allows for the capture of a username, email and password on-screen when the user registers. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter them; the fields are visible in the admin section. In the future, this will happen in the 'user account' section which is not yet implemented.  
+At present, it allows for the capture of a username, email (optional) and password on-screen when the user registers. For the purposes of this MVP, the name and surname fields are present in the model, but I have not yet provided a field for the user to enter them; the fields are visible in the admin section. In the future, this will happen in the 'user account' section which is not yet implemented.  
 
 ![UserProfile-Model](read-me_images/user-profile_model_code.PNG)
 
@@ -214,7 +225,7 @@ At present, it allows for the capture of a username, email and password on-scree
 - Allow users to view appointments and progress with exercises 
 
 ## Appointments Model
-This is stored in the appointments app/models.py. The user_profile captured at registration is the ForeignKey as the core of a one-to-many relationship. At the point the user makes an appointment, the user is already signed-in so the information provided by the user_profile FK is present; by booking an appointment, the model captures meeting date and time, an option message provided by the user, and a hidden created_on = models.DateTimeField field; this is all then linked to the user_profile.
+This is stored in the appointments app/models.py. The user_profile captured at registration is the ForeignKey as the core of a one-to-many relationship, in that one user can have many appointments. At the point the user makes an appointment, the user is already signed-in so the information provided by the user_profile FK is present; by booking an appointment, the model captures meeting date and time, an option message provided by the user, and a hidden created_on = models.DateTimeField field; this is all then linked to the user_profile.
 
 ![Appointments-Model](read-me_images/appointments_model_code.PNG)
 
@@ -248,7 +259,7 @@ In each of the above cases, error messages are shown to the user to alert them t
 **Next steps**
 - Allow for extra tutors to be added to the schedule 
 - Implement a trigger for email confirmation for any bookings / changes / cancellations.
-- Implement a filter so users can list their appointments sequentially by date 
+- Implement filters so users can list their appointments in order of date, with upcoming appointments at the top of the list and older (including finished) appointments at the bottom.
 
 # Planning and Agile Methodologies
 
@@ -272,6 +283,7 @@ Note: the # of each story corresponds to their Number on the Kanban board.
 - #13: Website owner story: restrict content to signed-in users
 - #15: User Story: view all appointments
 - #16: Website owner story: add modal to user_account app
+- #27: Debug for final MVP deployment and submission
 
 **Should have: all implemented**
 - #7: Uer story: choose between exercises
@@ -280,6 +292,7 @@ Note: the # of each story corresponds to their Number on the Kanban board.
 - #17: User story: recognise error messages more easily.
 - #19: User story: custom 404 page
 - #23: User story: feedback on answers in exercises
+- #28: Website owner: add images to website
 
 **Could have: implementation status varies**
 - #14: User story: toggle password at registration: implemented
@@ -328,7 +341,14 @@ This would be the next step for the admin section and would enhance the scalabil
 - I also need a better solution for the 
 
 ## Other bugs and challenges
-In addition to the challenges described above, I encountered many bugs and challenges during the development of this app. In particular, the Games and Exercises was difficult to get right. I found it a challenge to work out the logic to correctly display the correct / incorrect answers when the user submitted their solutions. The calculation on the backend was correct, but the display was wrong. This took some time to solve.  
+In addition to the challenges described above, e.g. the custom registration page, I encountered many bugs and challenges during the development of this app. In particular, the Games and Exercises was difficult to get right. I found it a challenge to work out the logic to correctly display the correct / incorrect answers when the user submitted their solutions. The calculation on the backend was correct, but the display was wrong. This took some time to solve.  
+
+Other problems of note:
+- I misaligned a div around the 'log-in' status message which meant that the footer reacted differently when signed-in vs signed-out. In practice, the signed-out user saw the footer behaving normally, the signed-in user saw the footer floating on the homepage. 
+- Also realted to the footer: it was 'floating' on the book appointments page and games and exercises page, but not on other pages. The tutoring service helped me identify that I had added two wrappers in the structure of base.html, both with 100vh; why this was affecting only some pages I do not know, but it has been resolved. 
+
+**Microsoft Edge**
+FOOTER ISSUE
 
 # Deployment
 
@@ -392,6 +412,42 @@ Sign-up to a database provider and get your database link
 - Pexels for images: https://www.pexels.com/
 - I HEART IMG for resizing images: https://www.iloveimg.com/resize-image
 - CloudConvert for converting images to webp files: https://cloudconvert.com/jpg-to-webp
+
+# Acknowledgements
+As ever, a huge thank you to my mentor, Dick Vlaanderen, who saved me from many errors and made many helpful and creative suggestions. All errors remaining in the site are of course my own responsibility.  Thanks also to the CI Tutoring Team for big help on several occassions. Big thanks to my family, my wife and three kids, who have not seen as much of me recently as normal, but have been very patient and forgiving while I completed this project.
+
+# Some useful resources 
+I relied heavily on the 'I think therefore I blog' walk-through, which was great. Some other resources include the following: 
+- On Forms: https://docs.djangoproject.com/en/5.0/topics/forms/
+- On CSRF: https://docs.djangoproject.com/en/4.2/ref/csrf/
+- AllAuth: https://allauth.org/
+- Installed Apps: https://docs.djangoproject.com/en/1.8/ref/settings/#std:setting-INSTALLED_APPS
+- The Data Attribute: https://www.w3schools.com/tags/att_global_data.asp
+- A model for multi-choice questions: stackoverflow.com/questions/47867760/django-quiz-app-model-for-multiple-choice-questions
+- The bootstrap colours: https://github.com/meetdilip/Bootstrap-5-colours
+- Toggle password visibility: https://www.w3schools.com/howto/howto_js_toggle_password.asp
+- Error message formatting: https://stackoverflow.com/questions/29239837/style-django-form-error-message
+- Bootstrap grids: https://getbootstrap.com/docs/5.0/layout/grid/
+- Custom 404 page: https://stackoverflow.com/questions/35156134/how-to-properly-setup-custom-handler404-in-django
+- Footer Z-Index: https://stackoverflow.com/questions/35156134/how-to-properly-setup-custom-handler404-in-django
+
+The documenation for Bootstrap and Django were in general helpful, as was W3Schools:
+- https://docs.djangoproject.com/en/5.1/
+- https://getbootstrap.com/docs/4.1/getting-started/introduction/
+- https://www.w3schools.com/
+
+Lessons learned during my first three projects also helped me:
+- P1: https://github.com/rich-p-rich/beekeeping-with-honey-bees-p1
+- P2: https://github.com/rich-p-rich/fizzbuzz-p2
+- P3: https://github.com/rich-p-rich/starwars-hangman-p3
+
+
+
+
+
+
+
+
 
 
 
