@@ -11,10 +11,21 @@
         <li>Date: {{ appointment.date }}</li>
         <li>Time: {{ appointment.time }}</li>
     </ul>
-    <a href="{% url 'home' %}">Return to Home</a>
-    <div class="w-100 mt-3 d-flex justify-content-center">
-        <!--Pexels 2826131-->
-        <img class="img-fluid account-img" src="{% static 'images/student-male.webp' %}" alt="Smiling student looking to the right" style="max-width: 600px;" />
+    <div>
+        <p>What next?</p>
+        <ul>
+            <li>
+                <p>Need to change your appointment? Click <a href="{% url 'manage_appointments' %}">here.</a></p>
+            </li>
+            <li>
+                <p>Or return to the homepage by clicking <a href="{% url 'home' %}">here.</a></p>
+            </li>
+            <div class="w-100 mt-3 d-flex justify-content-center">
+                <!--Pexels 2826131-->
+                <img class="img-fluid account-img" src="{% static 'images/student-male.webp' %}"
+                    alt="Smiling student looking to the right" style="max-width: 600px;" />
+            </div>
+        </ul>
     </div>
 </div>
 

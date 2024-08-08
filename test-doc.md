@@ -1,6 +1,8 @@
 # Project 4 English Tutor: Testing Overview 
 
-I have separated the testing out of my ReadMe, as that document was already quite long.
+This document details the testing I have done for my Project 4. I have separated the testing out of my ReadMe, as that document was already quite long.
+
+Unfortunately I was unable to implement automated testing properly, so all testing was done manually. This is something I would like to work on however, and have ready for my P5.  
 
 ## HTML:
 
@@ -126,7 +128,8 @@ Testing method: open an incognito tab -> open project link -> open DevToops -> r
 |Book appointment - validation: morning time                    | appts available 08:00 - 12:30 only            	        | Pass  | yes
 |Book appointment - validation: afternoon time                    | appts available 14:00 - 18:00 only            	        | Pass  | yes
 |Book appointment - validation: meeting clash                    | can't schedule 2 appointments at the same time           	        | Pass  | yes
-|Book appointment - success                   | confirmation page is shown           	        | Pass  | yes
+|Book appointment - success                   | confirmation page is shown with appt details          	        | Pass  | yes
+|Book appointment - confirmation page                   | links to manage appts and homepage are shown and work          	        | Pass  | yes
 |Manage your appointment(s): click link                    | if there are no appointments, 'no appointments' message is shown        	        | Pass  | yes
 |Manage your appointment(s): overview               | if there are appointments, they are listed          	        | Pass  | yes
 |Manage your appointment(s): overview                    | if there are appointments, they are listed with edit and cancel options         	        | Pass  | yes
