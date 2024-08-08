@@ -350,7 +350,7 @@ Other problems of note:
 - Also realted to the footer: it was 'floating' on the book appointments page and games and exercises page, but not on other pages. The tutoring service helped me identify that I had added two wrappers in the structure of base.html, both with 100vh; why this was affecting only some pages I do not know, but it has been resolved. 
 
 **Microsoft Edge**
-FOOTER ISSUE
+One bug which I have not been able to fix relates to how the site displays in the Microsoft Edge browser: I cannot get the footer to display reliably in Microsoft edge. I have consulted multiple resources and the general advice seemed to be to raise the Z-index of the footer, but this did not work for my project. 
 
 # Deployment
 
